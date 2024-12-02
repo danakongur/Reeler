@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// UI on main menu
+/// </summary>
 public class GameSceneUI : MonoBehaviour
 {	
-	Button battle;
-	Button aquarium;
-	Button shop;
-	void Awake() {
-
-	}
 	public void LoadBattle() {
 		Loader.Load(Loader.Scene.Battle);
+	}
+	public void LoadShop() {
+		Loader.Load(Loader.Scene.Shop);
+	}
+	public void LoadAquarium() {
+		Loader.Load(Loader.Scene.Aquarium);
 	}
 }
