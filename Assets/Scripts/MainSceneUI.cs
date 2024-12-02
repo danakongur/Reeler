@@ -6,7 +6,7 @@ using UnityEngine.UI;
 /// <summary>
 /// UI on main menu
 /// </summary>
-public class GameSceneUI : MonoBehaviour
+public class MainSceneUI : MonoBehaviour
 {	
 	public void LoadBattle() {
 		Loader.Load(Loader.Scene.Battle);
