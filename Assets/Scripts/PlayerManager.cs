@@ -15,11 +15,38 @@ public class PlayerManager : MonoBehaviour
 	/// List of tuples with items and integers for the amount of each item in inventory
 	/// </summary>
 	private Dictionary<Item,int> items;
+
+	public List<Fish> availableFish;
+
+	private Dictionary<Fish,bool> caughtFish;
     
 	void Awake() {
+		// when going back to main screen, it tries to create a new player manager
+		if (instance != null && instance != this){
+			Destroy(gameObject); // Destroy new instance
+			return;
+		}
 		instance = this;
 		DontDestroyOnLoad(gameObject);
 		items = new Dictionary<Item, int>();
+
+		availableFish = new List<Fish>{
+			new Fish("Carp", 10, 10)
+		};
+
+		caughtFish = new Dictionary<Fish, bool>();
+
+		foreach(Fish fish in availableFish){
+			caughtFish[fish] = false;
+		}
+	}
+
+	public void AddFish(Fish fish){
+		caughtFish[fish] = true;
+	}
+
+	public bool IsCaught(Fish fish) {
+		return caughtFish[fish];
 	}
 
 	/// <summary>
