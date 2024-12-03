@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class Fisherman_Animator : MonoBehaviour
+public class Fish_Animator : MonoBehaviour
 {
     public string name;
     public int maxHealth;
     public int strength;
     public AttackInfo info;
-    
-    bool playerTurn = true;
+
     int debuff = 0;
+
     void Start()
     {
 
@@ -21,19 +21,19 @@ public class Fisherman_Animator : MonoBehaviour
         info.nameText.text = name;
         int health = maxHealth;
         info.healthText.text = health.ToString() + "/" + maxHealth.ToString();
-        if (debuff > 0) {
-        info.attackText.text = strength.ToString() + " - " + debuff.ToString();
-        } else
+        if (debuff > 0)
         {
-        info.attackText.text = strength.ToString();
+            info.attackText.text = strength.ToString() + " - " + debuff.ToString();
+        }
+        else
+        {
+            info.attackText.text = strength.ToString();
         }
     }
-    void Pull() { }
-    void Push() { }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
