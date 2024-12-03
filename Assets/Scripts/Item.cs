@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Item with price and name
+/// Class of item with price and name
 /// </summary>
 public class Item
 {
@@ -14,7 +14,16 @@ public class Item
 	public Item(int price, string itemName){
 		this.price = price;
 		this.itemName = itemName;
+		itemImage = null;
+	}
+
+	public Item(int price, string itemName, Sprite sprite){
+		this.price = price;
+		this.itemName = itemName;
+		itemImage = sprite;
 	}
     public int price;
 	public string itemName;
+
+	public Sprite itemImage;
 }
