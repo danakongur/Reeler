@@ -12,7 +12,7 @@ public class PlayerManager : MonoBehaviour
 	public static PlayerManager instance;
 
 	/// <summary>
-	/// List of tuples with items and integers for the count
+	/// List of tuples with items and integers for the amount of each item in inventory
 	/// </summary>
 	private Dictionary<Item,int> items;
     
@@ -53,10 +53,12 @@ public class PlayerManager : MonoBehaviour
 	}
 
 	public void PrintItems(){
+		Debug.Log("Player inventory start");
 		foreach(KeyValuePair<Item,int> entry in items)
 		{
 			Debug.Log($"Item: {entry.Key.itemName}, count: {entry.Value}");
 		} 
+		Debug.Log("Player inventory end");
 	}
 
 
