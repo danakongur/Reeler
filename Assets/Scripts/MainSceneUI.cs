@@ -17,4 +17,8 @@ public class MainSceneUI : MonoBehaviour
 	public void LoadAquarium() {
 		Loader.Load(Loader.Scene.Aquarium);
 	}
+
+	public void LoadMain() {
+		Loader.Load(Loader.Scene.Main);
+	}
 }
