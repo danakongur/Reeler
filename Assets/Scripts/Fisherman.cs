@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class Fisherman_Animator : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void LoadMain()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Loader.Load(Loader.Scene.Main);
     }
 }
