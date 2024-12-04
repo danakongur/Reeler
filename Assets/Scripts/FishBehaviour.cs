@@ -9,26 +9,28 @@ public class FishBehaviour : MonoBehaviour
 
     void Start()
     {
-        UpdateFishImage();
+        //UpdateFishImage();
     }
 
     public void CatchFish()
     {
         isCaught = true;
-        UpdateFishImage();
+        //UpdateFishImage();
     }
 
-    private void UpdateFishImage()
+    private void Update()
     {
         if (isCaught)
         {
             caughtFishImage.enabled = true;
             questionMarkImage.enabled = false;
+            caughtFishImage.color = Color.white; // Restore original color for caught fish
         }
         else
         {
-            caughtFishImage.enabled = false;
+            caughtFishImage.enabled = true;
             questionMarkImage.enabled = true;
+            caughtFishImage.color = Color.black; // Set color to black for uncaught fish
         }
     }
 }
