@@ -16,7 +16,7 @@ public class PlayerManager : MonoBehaviour
 	/// </summary>
 	private Dictionary<Item,int> items;
 
-	public List<Fish> availableFish;
+	public Fish[] availableFish;
 
 	private Dictionary<Fish,bool> caughtFish;
     
@@ -29,10 +29,6 @@ public class PlayerManager : MonoBehaviour
 		instance = this;
 		DontDestroyOnLoad(gameObject);
 		items = new Dictionary<Item, int>();
-
-		availableFish = new List<Fish>{
-			new Fish("Carp", 10, 10)
-		};
 
 		caughtFish = new Dictionary<Fish, bool>();
 

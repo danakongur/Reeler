@@ -19,7 +19,7 @@ public class ShopManager : MonoBehaviour
 
 	public float textDelay;
 
-	public List<Item> itemsForSale;
+	public Item[] itemsForSale;
 
 	public GameObject itemButtonPrefab;
 
@@ -28,6 +28,9 @@ public class ShopManager : MonoBehaviour
 	GameObject itemMenuBackground;
 
 	public Sprite sampleSprite;
+
+	public Sprite leechSprite;
+	public Sprite mealwormSprite;
 
 	/// <summary>
 	/// Subtract from user's coins
@@ -105,16 +108,6 @@ public class ShopManager : MonoBehaviour
 	}
 
 	void Awake() {
-		itemsForSale = new List<Item>
-		{
-			new Item(13, "Test"),
-			new Item(25, "bait 1", sampleSprite),
-			new Item(25, "bait 2"),
-			new Item(25, "bait 3"),
-			new Item(25, "bait 3"),
-			new Item(25, "bait 3"),
-			new Item(25, "bait 3"),
-		};
 		buttonGameObjects = new List<GameObject>();
 	}
 

@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 /// <summary>
 /// Class of item with price and name
 /// </summary>
@@ -26,4 +28,14 @@ public class Item
 	public string itemName;
 
 	public Sprite itemImage;
+}
+
+[Serializable]
+/// <summary>
+/// S
+/// </summary>
+public class FishItem : Item {
+	public FishItem(int price, string itemName, Sprite sprite) : base(price, itemName, sprite){
+		
+	}
 }
