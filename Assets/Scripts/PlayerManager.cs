@@ -37,10 +37,28 @@ public class PlayerManager : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Add fish to inventory and catch list
+	/// </summary>
+	/// <param name="fish">Fish from availableFish to catch</param>
+	public void CatchFish(Fish fish) {
+		AddFish(fish);
+		AddItem(fish.fishItem);
+	}
+
+	/// <summary>
+	/// Adds fish to catch list
+	/// </summary>
+	/// <param name="fish">Fish from availableFish to set as caught</param>
 	public void AddFish(Fish fish){
 		caughtFish[fish] = true;
 	}
 
+	/// <summary>
+	/// Check if fish has been caught
+	/// </summary>
+	/// <param name="fish">Fish from availableFish to check</param>
+	/// <returns></returns>
 	public bool IsCaught(Fish fish) {
 		return caughtFish[fish];
 	}

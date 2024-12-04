@@ -112,6 +112,7 @@ public class ShopManager : MonoBehaviour
 	}
 
 	void Start() {
+		PlayerManager.instance.AddFish(PlayerManager.instance.availableFish[0]);
 
 		itemMenuBackground = GameObject.Find("BuyItems");
 

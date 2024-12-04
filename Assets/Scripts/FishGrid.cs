@@ -9,21 +9,16 @@ public class FishGrid : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // for loop on the fish sprites
-        for (int i = 0; i < fishSprites.Length; i++)
-        {
-            // Instantiate the fish prefab
-            GameObject fish = Instantiate(fishPrefab, transform);
-            // Get the FishBehaviour component
-            FishBehaviour fishBehaviour = fish.GetComponent<FishBehaviour>();
-            // Set the fish sprite
-            fishBehaviour.caughtFishImage.sprite = fishSprites[i];
+		// Go through all fish in the game
+		foreach(Fish fish in PlayerManager.instance.availableFish) {
+			GameObject fishObj = Instantiate(fishPrefab, transform);
+			FishBehaviour fishBehaviour = fishObj.GetComponent<FishBehaviour>();
 
-            // Set the fish index caught/uncought
-            // We want fish.behavior.iscaught to be true if fish is caught
-            // and false if fish is not caught
-            fishBehaviour.isCaught = true;
-        }
+			// set fish sprite and catch status
+			fishBehaviour.caughtFishImage.sprite = fish.fishImage;
+			fishBehaviour.isCaught = PlayerManager.instance.IsCaught(fish);
+			Debug.Log($"fish name: {fish.name}, fish catch status: {fishBehaviour.isCaught}");
+		}
     }
 
     // Update is called once per frame
