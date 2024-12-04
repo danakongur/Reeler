@@ -9,20 +9,36 @@ public class BattleGame : MonoBehaviour
     public Button pull;
     public Button reel;
     public bool pressed;
-    public State battleState; 
+    public State battleState;
+    public string selectedMove;
+
+
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(TurnSystem());
-        pull.onClick.AddListener(onButtonPressed); //() => { pressed = true; }
-        reel.onClick.AddListener(onButtonPressed); //() => { pressed = true; }
+        pull.onClick.AddListener(Pull); //() => { pressed = true; }
+        reel.onClick.AddListener(Reel); //() => { pressed = true; }
     }
 
-    void onButtonPressed() { 
-    if(battleState == State.playerturn)
+    public void Pull()
+    {
+        if (battleState == State.playerturn)
         {
-            pressed = true;
-            Debug.Log("Player button pressed");
+                pressed = true;
+                selectedMove = "Pull";
+                Debug.Log("Reel button pressed");
+                
+        }
+    }
+    void Reel()
+    {
+            if (pressed == false)
+            {
+                pressed = true;
+                selectedMove = "Reel";
+                Debug.Log("Reel button pressed");
+
         }
     }
 
@@ -31,7 +47,7 @@ public class BattleGame : MonoBehaviour
         //coroutines
 
     }
-    IEnumerator TurnSystem()
+    public IEnumerator TurnSystem()
     {
         Debug.Log("Start");
         while (true)
@@ -45,6 +61,13 @@ public class BattleGame : MonoBehaviour
                 
             }
             pressed = false;
+            if (selectedMove == "Pull")
+            {
+                
+            } else if (selectedMove == "Pull")
+            {
+
+            }
             yield return new WaitForSeconds(3);
             // fish turn
             battleState = State.fishturn;

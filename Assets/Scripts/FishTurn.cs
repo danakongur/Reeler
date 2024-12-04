@@ -9,7 +9,7 @@ public class Fish_Animator : MonoBehaviour
     public int maxHealth;
     public int strength;
     public AttackInfo info;
-
+    private int health;
     int debuff = 0;
 
     void Start()
@@ -19,7 +19,7 @@ public class Fish_Animator : MonoBehaviour
         //playerHealth = playerInfo.transform.Find("Health").GetComponent<TextMeshProUGUI>();
 
         info.nameText.text = name;
-        int health = maxHealth;
+        health = maxHealth;
         info.healthText.text = health.ToString() + "/" + maxHealth.ToString();
         if (debuff > 0)
         {
@@ -30,10 +30,26 @@ public class Fish_Animator : MonoBehaviour
             info.attackText.text = strength.ToString();
         }
     }
-
-    // Update is called once per frame
-    void Update()
+    public void LoseHealth(int otherAttack)
     {
-
+        health -= otherAttack-debuff;
     }
+    public void GainHealth(int healAmount)
+    {
+        health += healAmount;
+    }
+    public void LoseDebuff()
+    {
+        if (debuff > 0) {
+            debuff -= 1;
+        }
+    }
+    public void gainDebuff()
+    {
+        if (debuff <= strength - 1)
+        {
+            debuff += 1;
+        }
+    }
+
 }

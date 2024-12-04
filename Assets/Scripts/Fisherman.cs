@@ -9,7 +9,9 @@ public class Fisherman_Animator : MonoBehaviour
     public int maxHealth;
     public int strength;
     public AttackInfo info;
-    
+    public Fish_Animator other;
+    private int health;
+
     bool playerTurn = true;
     int debuff = 0;
     void Start()
@@ -19,7 +21,7 @@ public class Fisherman_Animator : MonoBehaviour
         //playerHealth = playerInfo.transform.Find("Health").GetComponent<TextMeshProUGUI>();
 
         info.nameText.text = name;
-        int health = maxHealth;
+        health = maxHealth;
         info.healthText.text = health.ToString() + "/" + maxHealth.ToString();
         if (debuff > 0) {
         info.attackText.text = strength.ToString() + " - " + debuff.ToString();
@@ -28,12 +30,41 @@ public class Fisherman_Animator : MonoBehaviour
         info.attackText.text = strength.ToString();
         }
     }
-    void Pull() { }
-    void Push() { }
+    void Pull() {
+        other.LoseHealth(strength);
+    }
+    void Reel() {
+        other.gainDebuff();
+    }
 
     // Update is called once per frame
     void Update()
     {
         
     }
+
+    public void LoseHealth(int otherAttack)
+    {
+        health -= otherAttack - debuff;
+    }
+    public void GainHealth(int healAmount)
+    {
+        health += healAmount;
+    }
+    public void LoseDebuff()
+    {
+        if (debuff > 0)
+        {
+            debuff -= 1;
+        }
+    }
+    public void gainDebuff()
+    {
+        if (debuff <= strength - 1)
+        {
+            debuff += 1;
+        }
+    }
+
+
 }
