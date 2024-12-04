@@ -55,6 +55,7 @@ MonoBehaviour:
       price: 0
       itemName: 
       itemImage: {fileID: 0}
+      buttonHolder: {fileID: 0}
   - name: Salmon
     strength: 12
     health: 11
@@ -64,3 +65,44 @@ MonoBehaviour:
       price: 0
       itemName: 
       itemImage: {fileID: 0}
+      buttonHolder: {fileID: 0}
+  - name: Clownfish
+    strength: 69
+    health: 42
+    price: 70
+    fishImage: {fileID: 894951035, guid: b87bf1f6a977052469565850c44395ec, type: 3}
+    fishItem:
+      price: 0
+      itemName: 
+      itemImage: {fileID: 0}
+      buttonHolder: {fileID: 0}
+  - name: Flounder
+    strength: 69
+    health: 42
+    price: 70
+    fishImage: {fileID: -1576473217, guid: b87bf1f6a977052469565850c44395ec, type: 3}
+    fishItem:
+      price: 0
+      itemName: 
+      itemImage: {fileID: 0}
+      buttonHolder: {fileID: 0}
+  - name: Lumpfish
+    strength: 69
+    health: 42
+    price: 70
+    fishImage: {fileID: 1936734363, guid: b87bf1f6a977052469565850c44395ec, type: 3}
+    fishItem:
+      price: 0
+      itemName: 
+      itemImage: {fileID: 0}
+      buttonHolder: {fileID: 0}
+  - name: Guppy
+    strength: 69
+    health: 42
+    price: 70
+    fishImage: {fileID: -256949967, guid: b87bf1f6a977052469565850c44395ec, type: 3}
+    fishItem:
+      price: 0
+      itemName: 
+      itemImage: {fileID: 0}
+      buttonHolder: {fileID: 0}

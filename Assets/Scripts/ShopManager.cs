@@ -154,6 +154,7 @@ public class ShopManager : MonoBehaviour
 
 				TMPro.TMP_Text tx = itemObj.transform.GetChild(1).GetComponent<TMPro.TMP_Text>();
 				tx.text = $"{item.itemName}\n{item.price}c\n{count}x";
+				tx.rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Bottom, 10f, tx.rectTransform.rect.height);
 
 				Button itemBut = itemObj.GetComponent<Button>();
 				
@@ -165,6 +166,7 @@ public class ShopManager : MonoBehaviour
 				}
 				if (item.itemImage && buttonImage) {
 					buttonImage.sprite = item.itemImage;
+					buttonImage.rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Top, 10f, buttonImage.rectTransform.rect.height);
 				}
 				else if (buttonImage) {
 					buttonImage.sprite = null;
@@ -206,7 +208,11 @@ public class ShopManager : MonoBehaviour
 	}
 
 	void Start() {
-		PlayerManager.instance.CatchFish(PlayerManager.instance.availableFish[0]);
+		// START DEBUG STATEMENTS
+		foreach (Fish fish in PlayerManager.instance.availableFish){
+			PlayerManager.instance.CatchFish(fish);
+		}
+		// END DEBUG STATEMENTS
 
 		itemMenuBackground = GameObject.Find("BuyItems");
 
