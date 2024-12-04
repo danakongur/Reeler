@@ -111,6 +111,9 @@ public class ShopManager : MonoBehaviour
 			new Item(25, "bait 1", sampleSprite),
 			new Item(25, "bait 2"),
 			new Item(25, "bait 3"),
+			new Item(25, "bait 3"),
+			new Item(25, "bait 3"),
+			new Item(25, "bait 3"),
 		};
 		buttonGameObjects = new List<GameObject>();
 	}
@@ -138,7 +141,7 @@ public class ShopManager : MonoBehaviour
 
 			// Set text to item name
 			TMPro.TMP_Text tx = itemObj.transform.GetChild(1).GetComponent<TMPro.TMP_Text>();
-			tx.text = item.itemName;
+			tx.text = $"{item.itemName}\n{item.price}c";
 			
 			Button itemBut = itemObj.GetComponent<Button>();
 			
