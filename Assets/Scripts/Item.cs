@@ -28,11 +28,16 @@ public class Item
 	public string itemName;
 
 	public Sprite itemImage;
+
+	/// <summary>
+	/// Only for use in code
+	/// </summary>
+	public GameObject buttonHolder;
 }
 
 [Serializable]
 /// <summary>
-/// S
+/// Itemized caught fish
 /// </summary>
 public class FishItem : Item {
 	public FishItem(int price, string itemName, Sprite sprite) : base(price, itemName, sprite){

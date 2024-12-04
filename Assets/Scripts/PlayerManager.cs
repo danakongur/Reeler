@@ -14,7 +14,7 @@ public class PlayerManager : MonoBehaviour
 	/// <summary>
 	/// List of tuples with items and integers for the amount of each item in inventory
 	/// </summary>
-	private Dictionary<Item,int> items;
+	public Dictionary<Item,int> items;
 
 	public Fish[] availableFish;
 
@@ -33,6 +33,7 @@ public class PlayerManager : MonoBehaviour
 		caughtFish = new Dictionary<Fish, bool>();
 
 		foreach(Fish fish in availableFish){
+			fish.fishItem = new FishItem(fish.price, fish.name, fish.fishImage);
 			caughtFish[fish] = false;
 		}
 	}

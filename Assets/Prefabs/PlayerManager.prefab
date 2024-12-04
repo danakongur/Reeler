@@ -49,4 +49,18 @@ MonoBehaviour:
   - name: Carp
     strength: 10
     health: 10
+    price: 30
     fishImage: {fileID: -1582011002, guid: b87bf1f6a977052469565850c44395ec, type: 3}
+    fishItem:
+      price: 0
+      itemName: 
+      itemImage: {fileID: 0}
+  - name: Salmon
+    strength: 12
+    health: 11
+    price: 50
+    fishImage: {fileID: 850694208, guid: b87bf1f6a977052469565850c44395ec, type: 3}
+    fishItem:
+      price: 0
+      itemName: 
+      itemImage: {fileID: 0}

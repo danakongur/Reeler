@@ -32,6 +32,9 @@ public class ShopManager : MonoBehaviour
 	public Sprite leechSprite;
 	public Sprite mealwormSprite;
 
+	private List<Item> inventoryItems;
+	List<GameObject> inventorybuttonObjects;
+
 	/// <summary>
 	/// Subtract from user's coins
 	/// </summary>
@@ -63,6 +66,21 @@ public class ShopManager : MonoBehaviour
 			coroutine = RemoveTextDelay();
 			StartCoroutine(coroutine);
 		}
+		UpdateInventory();
+	}
+
+	public void Sell(Item item){
+		PlayerManager.instance.RemoveItem(item);
+		PlayerManager.instance.coins = PlayerManager.instance.coins+item.price;
+		boughtText.text = $"Sold {item.itemName} for {item.price} coins";
+		if (!coroutine.IsUnityNull()){
+				StopCoroutine(coroutine);
+				Debug.Log("stopping another coroutine");
+			} 
+			coroutine = RemoveTextDelay();
+			StartCoroutine(coroutine);
+		UpdateCoins();
+		UpdateInventory();
 	}
 
 	private IEnumerator RemoveTextDelay(){
@@ -107,12 +125,88 @@ public class ShopManager : MonoBehaviour
 		}
 	}
 
+	/// <summary>
+	/// Update the inventory view with new information
+	/// </summary>
+	public void UpdateInventory(){
+		GameObject inventoryContent = GameObject.Find("InventoryContent");
+		GridLayoutGroup inventoryGrid = inventoryContent.GetComponent<GridLayoutGroup>();
+
+		Vector2 invGridSize;
+		if (inventoryGrid) {
+			invGridSize = inventoryGrid.cellSize;
+		}
+		else {
+			invGridSize = new Vector2(50f,50f);
+			Debug.Log("Couldn't get inventory cell size");
+		}
+
+		// go through inventory and add
+		foreach (KeyValuePair<Item,int> entry in PlayerManager.instance.items){
+			Item item = entry.Key;
+			int count = entry.Value;
+
+			if(!inventoryItems.Contains(item) && count > 0){// worlds least efficient code
+				GameObject itemObj = Instantiate(itemButtonPrefab);
+				itemObj.transform.SetParent(inventoryContent.transform);
+				item.buttonHolder = itemObj;
+				inventoryItems.Add(item);
+
+				TMPro.TMP_Text tx = itemObj.transform.GetChild(1).GetComponent<TMPro.TMP_Text>();
+				tx.text = $"{item.itemName}\n{item.price}c\n{count}x";
+
+				Button itemBut = itemObj.GetComponent<Button>();
+				
+
+				// setting the sprite for the object
+				Image buttonImage = itemBut.transform.Find("Icon").GetComponent<Image>();
+				if (buttonImage) {
+					buttonImage.rectTransform.sizeDelta = new Vector2(40f,40f); // TODO: this should not be hardcoded
+				}
+				if (item.itemImage && buttonImage) {
+					buttonImage.sprite = item.itemImage;
+				}
+				else if (buttonImage) {
+					buttonImage.sprite = null;
+					buttonImage.color = new Color(1f,1f,1f,0f);
+				}	
+
+				if (itemBut){ // ensure button component exists
+					// Sell item function added to item button
+					itemBut.onClick.AddListener(delegate {
+						Sell(item);
+					});
+				}
+				else {
+					Debug.Log($"Finding button component of item {item.itemName} returned null");
+				}
+			}
+			else if(item.buttonHolder){
+				GameObject itemObj = item.buttonHolder;
+				if (count > 0){
+					TMPro.TMP_Text tx = itemObj.transform.GetChild(1).GetComponent<TMPro.TMP_Text>();
+					tx.text = $"{item.itemName}\n{item.price}c\n{count}x";
+				}
+				else {
+					Destroy(itemObj);
+					item.buttonHolder = null;
+					inventoryItems.Remove(item);
+				}
+			}
+
+		}
+		
+
+	}
+
 	void Awake() {
 		buttonGameObjects = new List<GameObject>();
+		inventoryItems = new List<Item>();
+		inventorybuttonObjects = new List<GameObject>();
 	}
 
 	void Start() {
-		PlayerManager.instance.AddFish(PlayerManager.instance.availableFish[0]);
+		PlayerManager.instance.CatchFish(PlayerManager.instance.availableFish[0]);
 
 		itemMenuBackground = GameObject.Find("BuyItems");
 
@@ -170,6 +264,49 @@ public class ShopManager : MonoBehaviour
 
 			buttonGameObjects.Add(itemObj);
 		}
+
+		/*inventoryItems = new List<Item>();
+		inventorybuttonObjects = new List<GameObject>();
+		GameObject inventoryContent = GameObject.Find("InventoryContent");
+		GridLayoutGroup inventoryGrid = inventoryContent.GetComponent<GridLayoutGroup>();
+
+		Vector2 invGridSize;
+		if (inventoryGrid) {
+			invGridSize = inventoryGrid.cellSize;
+		}
+		else {
+			invGridSize = new Vector2(50f,50f);
+			Debug.Log("Couldn't get inventory cell size");
+		}
+
+		// go through inventory and add
+		foreach (KeyValuePair<Item,int> entry in PlayerManager.instance.items){
+			Item item = entry.Key;
+			int count = entry.Value;
+			inventoryItems.Add(item);
+			GameObject itemObj = Instantiate(itemButtonPrefab);
+			itemObj.transform.SetParent(inventoryContent.transform);
+
+			TMPro.TMP_Text tx = itemObj.transform.GetChild(1).GetComponent<TMPro.TMP_Text>();
+			tx.text = $"{item.itemName}\n{item.price}c\n{count}x";
+
+			Button itemBut = itemObj.GetComponent<Button>();
+			
+
+			// setting the sprite for the object
+			Image buttonImage = itemBut.transform.Find("Icon").GetComponent<Image>();
+			if (buttonImage) {
+				buttonImage.rectTransform.sizeDelta = new Vector2(40f,40f); // TODO: this should not be hardcoded
+			}
+			if (item.itemImage && buttonImage) {
+				buttonImage.sprite = item.itemImage;
+			}
+			else if (buttonImage) {
+				buttonImage.sprite = null;
+				buttonImage.color = new Color(1f,1f,1f,0f);
+			}	
+		}*/
+		UpdateInventory();
 
 		UpdateCoins();
 
