@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +12,8 @@ public class BattleGame : MonoBehaviour
     public bool pressed;
     public State battleState;
     public string selectedMove;
-
+    public Fisherman_Animator Fisherman;
+    public Fish_Animator Fish;
 
     // Start is called before the first frame update
     void Start()
@@ -63,16 +65,18 @@ public class BattleGame : MonoBehaviour
             pressed = false;
             if (selectedMove == "Pull")
             {
-                
-            } else if (selectedMove == "Pull")
+                Fisherman.Pull();                
+            } else if (selectedMove == "Reel")
             {
-
+                Fisherman.Reel();
             }
-            yield return new WaitForSeconds(3);
+            yield return new WaitForSeconds(2);
             // fish turn
             battleState = State.fishturn;
             Debug.Log("Fish Turn");
-            yield return new WaitForSeconds(3);
+            var fishAction = Fish.Predict();
+            Debug.Log(fishAction);
+            yield return new WaitForSeconds(2);
         }
         Debug.Log("End");
     }

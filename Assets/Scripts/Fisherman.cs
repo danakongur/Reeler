@@ -22,27 +22,30 @@ public class Fisherman_Animator : MonoBehaviour
 
         info.nameText.text = name;
         health = maxHealth;
-        info.healthText.text = health.ToString() + "/" + maxHealth.ToString();
-        if (debuff > 0) {
-        info.attackText.text = strength.ToString() + " - " + debuff.ToString();
-        } else
-        {
-        info.attackText.text = strength.ToString();
-        }
+        updateText();
     }
-    void Pull() {
-        other.LoseHealth(strength);
+    public void Pull() {
+        other.loseHealth(strength);
+        other.updateText();
     }
-    void Reel() {
+    public void Reel() {
         other.gainDebuff();
+        other.updateText();
     }
 
     // Update is called once per frame
-    void Update()
+    public void updateText()
     {
-        
+        info.healthText.text = health.ToString() + "/" + maxHealth.ToString();
+        if (debuff > 0)
+        {
+            info.attackText.text = strength.ToString() + " - " + debuff.ToString();
+        }
+        else
+        {
+            info.attackText.text = strength.ToString();
+        }
     }
-
     public void LoseHealth(int otherAttack)
     {
         health -= otherAttack - debuff;
