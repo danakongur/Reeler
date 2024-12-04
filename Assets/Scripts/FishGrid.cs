@@ -14,8 +14,9 @@ public class FishGrid : MonoBehaviour
 			GameObject fishObj = Instantiate(fishPrefab, transform);
 			FishBehaviour fishBehaviour = fishObj.GetComponent<FishBehaviour>();
 
-			// set fish sprite and catch status
+			// set fish sprite and catch status and name
 			fishBehaviour.caughtFishImage.sprite = fish.fishImage;
+      fishBehaviour.fishNameText = fish.name;
 			fishBehaviour.isCaught = PlayerManager.instance.IsCaught(fish);
 			Debug.Log($"fish name: {fish.name}, fish catch status: {fishBehaviour.isCaught}");
 		}
@@ -24,6 +25,6 @@ public class FishGrid : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+      
     }
 }
