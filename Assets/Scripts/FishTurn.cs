@@ -21,9 +21,9 @@ public class Fish_Animator : MonoBehaviour
 
         info.nameText.text = name;
         health = maxHealth;
-        updateText();
+        UpdateText();
     }
-    public void updateText()
+    public void UpdateText()
     {
         info.healthText.text = health.ToString() + "/" + maxHealth.ToString();
         if (debuff > 0)
@@ -37,41 +37,64 @@ public class Fish_Animator : MonoBehaviour
     }
     public string Predict()
     {
+        var nextMove = "";
         var prob = Random.Range(0,10);
-        if (prob<=8)
+        if (prob <= 5)
         {
-            return "Struggle";
+            nextMove = "Struggle";
         }
-        else {
-            return "Retreat";
+        else if (prob <= 8 && health < maxHealth|| prob <= 8 && debuff != 0)
+        {
+            nextMove = "Absorb Nutrients";
         }
-            }
+        else
+        {
+            nextMove = "Retreat";
+        }
+        info.predictionText.text = name + " will attempt to "+nextMove;
+        return nextMove;
+
+    }
     public void Struggle()
     {
-        other.LoseHealth(strength);
-        other.updateText();
+        other.LoseHealth(strength-debuff);
+        other.UpdateText();
     }
-    public void Reel()
+    public void Absorb()
     {
-        other.gainDebuff();
-        other.updateText();
+        GainHealth(other.strength/2);
+        LoseDebuff();
+        UpdateText();
+    }
+    public void Retreat()
+    {
+        var prob = Random.Range(0, 10);
+        if (prob <= 3)
+        {
+            Debug.Log("Escape success");
+        } else
+        {
+            Debug.Log("Escape fail");
+
+
+        }
     }
 
-    public void loseHealth(int otherAttack)
+    public void LoseHealth(int otherAttack)
     {
         health -= otherAttack;
     }
-    public void gainHealth(int healAmount)
+    public void GainHealth(int healAmount)
     {
         health += healAmount;
     }
-    public void loseDebuff()
+    public void LoseDebuff()
     {
         if (debuff > 0) {
             debuff -= 1;
         }
     }
-    public void gainDebuff()
+    public void GainDebuff()
     {
         if (debuff <= strength - 1)
         {
