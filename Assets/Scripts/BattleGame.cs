@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,6 +16,7 @@ public class BattleGame : MonoBehaviour
     public Fisherman_Animator Fisherman;
     public Fish_Animator Fish;
     public EndResultInfo endInfo;
+    public TextMeshProUGUI reelDescription;
 
     // Start is called before the first frame update
     void Start()
@@ -162,6 +164,7 @@ public class BattleGame : MonoBehaviour
             battleState = State.playerturn;
             Debug.Log("Player Turn");
             var fishAction = Fish.Predict();
+            reelDescription.text = "Add 1 debuff" + "\n" + "(" + Fish.debuff + " / " + (Fish.strength - 1) + ")";
             while (pressed == false)
             {
                 yield return null;

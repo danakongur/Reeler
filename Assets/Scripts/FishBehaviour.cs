@@ -49,10 +49,16 @@ public class FishBehaviour : MonoBehaviour
 
     private void OnFishClicked()
     {
+        if (fishName.activeSelf)
+        {
+            fishName.SetActive(false);
+        } else
+        {
+            fishName.SetActive(true);
+        }
         // Handle the fish click event
         Debug.Log("Fish clicked!");
         // For example, show the fish name or load a new scene
-        fishName.SetActive(true);
     }
 
     public void Update()

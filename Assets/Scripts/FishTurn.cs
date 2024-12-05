@@ -7,10 +7,10 @@ public class Fish_Animator : MonoBehaviour
 {
     public string name;
     int maxHealth;
-    int strength;
+    public int strength;
     public AttackInfo info;
     private int health;
-    int debuff = 0;
+    public int debuff = 0;
     public Fisherman_Animator other;
 	Fish fishObject;
 
@@ -77,17 +77,20 @@ public class Fish_Animator : MonoBehaviour
         else if (prob <= 3 && (health < maxHealth || debuff != 0))
         {
             nextMove = "Absorb Nutrients";
-            description = "(Heals half your strength: " + other.strength + " and removes 1 debuff)";
+            if (debuff>0){
+            description = "(Heals: " + other.strength/2 + " and removes 1 Debuff)";
+        }
         }
         else
         {
             nextMove = "Struggle";
-            description = "(does " + strength + " Damage - " + debuff + " Debuff)";
+            description = "(does " + strength + " DMG - " + debuff + " Debuff)";
         }
         info.predictionText.text = name + " will attempt to " + nextMove + " " + description;
         return nextMove;
 
-    }
+        
+       }
     public void Struggle()
     {
         other.LoseHealth(strength-debuff);

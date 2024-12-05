@@ -11,7 +11,6 @@ public class Fisherman_Animator : MonoBehaviour
     public AttackInfo info;
     public Fish_Animator other;
     private int health;
-
     bool playerTurn = true;
     int debuff = 0;
     void Start()
