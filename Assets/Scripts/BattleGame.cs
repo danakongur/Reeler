@@ -67,19 +67,30 @@ public class BattleGame : MonoBehaviour
     public void Win()
     {
         RevealItem(endInfo.gameObject);
+
+		// win screen image
+		endInfo.reward.sprite = Fish.GetFishObject().fishImage;
+
         HideItem(Fish.info.gameObject);
         HideItem(Fish.gameObject);
         endInfo.title.text = "You Beat up the " + Fish.name + "...";
         endInfo.description.text = "Gain 2 coins";
+		PlayerManager.instance.CatchFish(this.Fish.GetFishObject());
+		PlayerManager.instance.coins += 2;
     }
     public void Lose()
     {
         RevealItem(endInfo.gameObject);
+
+		// lose screen image
+		endInfo.reward.sprite = Fish.GetFishObject().fishImage;
+
         Debug.Log(Fisherman.GetHealth());
         HideItem(Fisherman.info.gameObject);
         HideItem(Fisherman.gameObject);
         endInfo.title.text = "The " + Fish.name + " Beat you up!";
         endInfo.description.text = "Medicare is expensive, Lose 2 coins";
+		PlayerManager.instance.coins -= 2;
     }
     void HideItem(GameObject a)
     {
