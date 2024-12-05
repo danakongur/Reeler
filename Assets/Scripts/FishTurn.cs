@@ -6,18 +6,28 @@ using UnityEngine;
 public class Fish_Animator : MonoBehaviour
 {
     public string name;
-    public int maxHealth;
-    public int strength;
+    int maxHealth;
+    int strength;
     public AttackInfo info;
     private int health;
     int debuff = 0;
     public Fisherman_Animator other;
+	Fish fishObject;
+	
 
     void Start()
     {
 
         //var playerInfo = GameObject.Find("Playerinfo");
         //playerHealth = playerInfo.transform.Find("Health").GetComponent<TextMeshProUGUI>();
+
+		// TODO: replace with getting a fish instance from the start
+		fishObject = PlayerManager.instance.GetFishByName(name);
+
+		maxHealth = fishObject.health;
+		strength = fishObject.strength;
+		SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+		if (spriteRenderer) spriteRenderer.sprite = fishObject.fishImage;
 
         info.nameText.text = name;
         health = maxHealth;

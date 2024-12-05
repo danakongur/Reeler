@@ -106,3 +106,13 @@ MonoBehaviour:
       itemName: 
       itemImage: {fileID: 0}
       buttonHolder: {fileID: 0}
+  - name: Axolotl
+    strength: 4
+    health: 9
+    price: 70
+    fishImage: {fileID: -2105965212, guid: b87bf1f6a977052469565850c44395ec, type: 3}
+    fishItem:
+      price: 0
+      itemName: 
+      itemImage: {fileID: 0}
+      buttonHolder: {fileID: 0}

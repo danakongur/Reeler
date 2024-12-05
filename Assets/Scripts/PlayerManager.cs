@@ -74,6 +74,15 @@ public class PlayerManager : MonoBehaviour
 		items[item] = old+1;
 	}
 
+	public Fish GetFishByName(string name){
+		foreach(Fish fish in availableFish){
+			if (fish.name == name){
+				return fish;
+			}
+		}
+		return null;
+	}
+
 	/// <summary>
 	/// Removes item from player's inventory
 	/// </summary>
