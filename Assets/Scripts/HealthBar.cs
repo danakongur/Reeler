@@ -14,7 +14,7 @@ public class HealthBar : MonoBehaviour
     void Start()
     {
         // Initialize the health bar with full health
-        currentHealth = maxHealth - 30;
+        currentHealth = maxHealth;
         UpdateHealthBar();
     }
 
