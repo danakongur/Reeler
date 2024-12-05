@@ -52,20 +52,25 @@ public class Fish_Animator : MonoBehaviour
     public string Predict()
     {
         var nextMove = "";
+        var description = "";
         var prob = Random.Range(0,10);
-        if (prob <= 1 && health>=maxHealth)
+        if (prob <= 1 && health<maxHealth)
         {
             nextMove = "Retreat";
+            description = "30% chance of escape";
+        
         }
         else if (prob <= 3 && (health < maxHealth || debuff != 0))
         {
             nextMove = "Absorb Nutrients";
+            description = "(Heals half your strength: " + other.strength + " and removes 1 debuff)";
         }
         else
         {
             nextMove = "Struggle";
+            description = "(does " + strength + " Damage - " + debuff + " Debuff)";
         }
-        info.predictionText.text = name + " will attempt to "+nextMove;
+        info.predictionText.text = name + " will attempt to " + nextMove + " " + description;
         return nextMove;
 
     }
