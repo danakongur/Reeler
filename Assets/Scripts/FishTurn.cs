@@ -13,6 +13,14 @@ public class Fish_Animator : MonoBehaviour
     int debuff = 0;
     public Fisherman_Animator other;
 	Fish fishObject;
+
+	public void SetFishObject(Fish fish){
+		fishObject = fish;
+	}
+
+	public Fish GetFishObject(){
+		return fishObject;
+	}
 	
 
     void Start()
@@ -36,6 +44,7 @@ public class Fish_Animator : MonoBehaviour
     public void UpdateText()
     {
         info.healthText.text = health.ToString() + "/" + maxHealth.ToString();
+        info.healthBar.fillAmount = health / (float)maxHealth;
         if (debuff > 0)
         {
             info.attackText.text = strength.ToString() + " - " + debuff.ToString();
@@ -51,21 +60,31 @@ public class Fish_Animator : MonoBehaviour
     }
     public string Predict()
     {
+        fishObject = PlayerManager.instance.GetFishByName(name);
+
+        maxHealth = fishObject.health;
+        strength = fishObject.strength;
         var nextMove = "";
+        var description = "";
         var prob = Random.Range(0,10);
-        if (prob <= 1 && health>=maxHealth)
+        Debug.Log(other.strength);
+        if (prob <= 1 && health<maxHealth)
         {
             nextMove = "Retreat";
+            description = "30% chance of escape";
+        
         }
         else if (prob <= 3 && (health < maxHealth || debuff != 0))
         {
             nextMove = "Absorb Nutrients";
+            description = "(Heals half your strength: " + other.strength + " and removes 1 debuff)";
         }
         else
         {
             nextMove = "Struggle";
+            description = "(does " + strength + " Damage - " + debuff + " Debuff)";
         }
-        info.predictionText.text = name + " will attempt to "+nextMove;
+        info.predictionText.text = name + " will attempt to " + nextMove + " " + description;
         return nextMove;
 
     }
