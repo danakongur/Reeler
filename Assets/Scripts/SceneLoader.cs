@@ -17,6 +17,8 @@ public static class Loader
 		Battle,
 		Shop,
 		Aquarium,
+
+		SampleScene
 	}
     public static void Load(Scene scene){
 		SceneManager.LoadScene(scene.ToString());
