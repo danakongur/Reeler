@@ -3237,35 +3237,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2944043671401330586, guid: 31d628cae260fc9b6abed7e12e073964, type: 3}
       propertyPath: m_Spacing.x
-      value: 85
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2944043671401330586, guid: 31d628cae260fc9b6abed7e12e073964, type: 3}
       propertyPath: m_Spacing.y
-      value: 105
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2944043671401330586, guid: 31d628cae260fc9b6abed7e12e073964, type: 3}
       propertyPath: m_CellSize.x
-      value: 80
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 2944043671401330586, guid: 31d628cae260fc9b6abed7e12e073964, type: 3}
+      propertyPath: m_CellSize.y
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 2944043671401330586, guid: 31d628cae260fc9b6abed7e12e073964, type: 3}
       propertyPath: m_Padding.m_Top
-      value: 60
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2944043671401330586, guid: 31d628cae260fc9b6abed7e12e073964, type: 3}
       propertyPath: m_Padding.m_Left
-      value: 50
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2944043671401330586, guid: 31d628cae260fc9b6abed7e12e073964, type: 3}
       propertyPath: m_Padding.m_Right
-      value: 50
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2944043671401330586, guid: 31d628cae260fc9b6abed7e12e073964, type: 3}
       propertyPath: m_Padding.m_Bottom
-      value: 60
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3196418739777515069, guid: 31d628cae260fc9b6abed7e12e073964, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 220
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 3463989829427848860, guid: 31d628cae260fc9b6abed7e12e073964, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3313,7 +3317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5414444111170555092, guid: 31d628cae260fc9b6abed7e12e073964, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 220
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 5414444111170555092, guid: 31d628cae260fc9b6abed7e12e073964, type: 3}
       propertyPath: m_LocalPosition.x
