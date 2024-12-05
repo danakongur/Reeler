@@ -21,4 +21,8 @@ public class MainSceneUI : MonoBehaviour
 	public void LoadMain() {
 		Loader.Load(Loader.Scene.Main);
 	}
+
+	public void LoadSample() {
+		Loader.Load(Loader.Scene.SampleScene);
+	}
 }

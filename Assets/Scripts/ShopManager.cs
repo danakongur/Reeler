@@ -209,9 +209,9 @@ public class ShopManager : MonoBehaviour
 
 	void Start() {
 		// START DEBUG STATEMENTS
-		foreach (Fish fish in PlayerManager.instance.availableFish){
+		/*foreach (Fish fish in PlayerManager.instance.availableFish){
 			PlayerManager.instance.CatchFish(fish);
-		}
+		}*/
 		// END DEBUG STATEMENTS
 
 		itemMenuBackground = GameObject.Find("BuyItems");

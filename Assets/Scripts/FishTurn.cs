@@ -6,18 +6,28 @@ using UnityEngine;
 public class Fish_Animator : MonoBehaviour
 {
     public string name;
-    public int maxHealth;
-    public int strength;
+    int maxHealth;
+    int strength;
     public AttackInfo info;
     private int health;
     int debuff = 0;
     public Fisherman_Animator other;
+	Fish fishObject;
+	
 
     void Start()
     {
 
         //var playerInfo = GameObject.Find("Playerinfo");
         //playerHealth = playerInfo.transform.Find("Health").GetComponent<TextMeshProUGUI>();
+
+		// TODO: replace with getting a fish instance from the start
+		fishObject = PlayerManager.instance.GetFishByName(name);
+
+		maxHealth = fishObject.health;
+		strength = fishObject.strength;
+		SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+		if (spriteRenderer) spriteRenderer.sprite = fishObject.fishImage;
 
         info.nameText.text = name;
         health = maxHealth;
@@ -35,21 +45,25 @@ public class Fish_Animator : MonoBehaviour
             info.attackText.text = strength.ToString();
         }
     }
+    public int GetHealth()
+    {
+        return health;
+    }
     public string Predict()
     {
         var nextMove = "";
         var prob = Random.Range(0,10);
-        if (prob <= 5)
+        if (prob <= 1 && health>=maxHealth)
         {
-            nextMove = "Struggle";
+            nextMove = "Retreat";
         }
-        else if (prob <= 8 && health < maxHealth|| prob <= 8 && debuff != 0)
+        else if (prob <= 3 && (health < maxHealth || debuff != 0))
         {
             nextMove = "Absorb Nutrients";
         }
         else
         {
-            nextMove = "Retreat";
+            nextMove = "Struggle";
         }
         info.predictionText.text = name + " will attempt to "+nextMove;
         return nextMove;

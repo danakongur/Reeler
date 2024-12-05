@@ -30,7 +30,7 @@ public class Item
 	public Sprite itemImage;
 
 	/// <summary>
-	/// Only for use in code
+	/// Only for use in code, very bad solution to a problem
 	/// </summary>
 	public GameObject buttonHolder;
 }
