@@ -1,14 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 /// <summary>
 /// PlayerManager has information that persists between scenes
 /// </summary>
 public class PlayerManager : MonoBehaviour
-{
-	public int coins = 100;
+{	
+	public int startcoins;
+	public int coins;
 	public static PlayerManager instance;
 
 	/// <summary>
@@ -29,6 +31,8 @@ public class PlayerManager : MonoBehaviour
 		instance = this;
 		DontDestroyOnLoad(gameObject);
 		items = new Dictionary<Item, int>();
+
+		coins = startcoins;
 
 		caughtFish = new Dictionary<Fish, bool>();
 
@@ -110,6 +114,16 @@ public class PlayerManager : MonoBehaviour
 			Debug.Log($"Item: {entry.Key.itemName}, count: {entry.Value}");
 		} 
 		Debug.Log("Player inventory end");
+	}
+
+	public void ResetPlayerManager() {
+		Debug.Log($"restart player manager");
+		items = new Dictionary<Item,int>();
+		coins = startcoins;
+		foreach (Fish key in caughtFish.Keys.ToArray())
+		{
+			caughtFish[key] = false;
+		}
 	}
 
 

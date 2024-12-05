@@ -57,11 +57,9 @@ public class ShopManager : MonoBehaviour
 			UpdateCoins();
 			PlayerManager.instance.AddItem(item);
 			boughtText.text = $"Bought {item.itemName} for {item.price} coins";
-			Debug.Log($"started coroutine for buying {item.itemName}");
 			
 			if (!coroutine.IsUnityNull()){
 				StopCoroutine(coroutine);
-				Debug.Log("stopping another coroutine");
 			} 
 			coroutine = RemoveTextDelay();
 			StartCoroutine(coroutine);
@@ -75,7 +73,6 @@ public class ShopManager : MonoBehaviour
 		boughtText.text = $"Sold {item.itemName} for {item.price} coins";
 		if (!coroutine.IsUnityNull()){
 				StopCoroutine(coroutine);
-				Debug.Log("stopping another coroutine");
 			} 
 			coroutine = RemoveTextDelay();
 			StartCoroutine(coroutine);
@@ -85,7 +82,6 @@ public class ShopManager : MonoBehaviour
 
 	private IEnumerator RemoveTextDelay(){
 		yield return new WaitForSeconds(textDelay);
-		Debug.Log($"deleting text {boughtText.text}");
 		boughtText.text = "";
 	}
 
@@ -95,7 +91,6 @@ public class ShopManager : MonoBehaviour
 	/// <param name="price">the amount to add</param>
 	public void Sell(int price) {
 		PlayerManager.instance.coins = PlayerManager.instance.coins+price;
-		Debug.Log($"Sold for {price}. Current balance {PlayerManager.instance.coins}");
 		UpdateCoins();
 	}
 
