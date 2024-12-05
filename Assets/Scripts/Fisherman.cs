@@ -11,7 +11,7 @@ public class Fisherman_Animator : MonoBehaviour
     public AttackInfo info;
     public Fish_Animator other;
     private int health;
-    bool playerTurn = true;
+    public TextMeshProUGUI reelDescription;
     int debuff = 0;
     void Start()
     {
@@ -31,9 +31,9 @@ public class Fisherman_Animator : MonoBehaviour
         other.LoseHealth(strength-debuff);
         other.UpdateText();
     }
-    public void Reel() {
-        other.GainDebuff();
-        other.UpdateText();
+    public void Reel()
+    {
+        transform.Translate(2*Vector3.left*Time.deltaTime);
     }
 
     // Update is called once per frame

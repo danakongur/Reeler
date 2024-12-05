@@ -4,8 +4,8 @@ using UnityEngine.SceneManagement;
 //using UnityEditor.Build.Content;
 
 public class ExampleClass : MonoBehaviour
-
-{
+	
+{/*
     public void LoadMain()
     {
         Loader.Load(Loader.Scene.Main);
@@ -19,5 +19,5 @@ public class ExampleClass : MonoBehaviour
 				Loader.Load(Loader.Scene.Main);
 			});
 		}
-	}
+	}*/
 }

@@ -24,6 +24,7 @@ public class BattleGame : MonoBehaviour
         StartCoroutine(TurnSystem());
         buttons.pull.onClick.AddListener(Pull); //() => { pressed = true; }
         buttons.reel.onClick.AddListener(Reel); //() => { pressed = true; }
+        buttons.flee.onClick.AddListener(Flee); //() => { pressed = true; }
     }
 
     public void Pull()
@@ -32,7 +33,7 @@ public class BattleGame : MonoBehaviour
         {
                 pressed = true;
                 selectedMove = "Pull";
-                Debug.Log("Reel button pressed");
+                Debug.Log("Pull button pressed");
                 
         }
     }
@@ -59,7 +60,13 @@ public class BattleGame : MonoBehaviour
         //if (pressed == false)
         //pressed = true; // not neccesary just play animation and wait 3-5 sec and leave
         //selectedMove = "Reel";
-        Debug.Log("Flee button pressed");
+        if (pressed == false)
+        {
+            pressed = true;
+            selectedMove = "Flee";
+            Debug.Log("Reel button pressed");
+
+        }
 
     }
 
@@ -107,6 +114,11 @@ public class BattleGame : MonoBehaviour
     {
     }
 
+    public void LoadMain()
+    {
+        Loader.Load(Loader.Scene.Main);
+    }
+
     public void PlayerFlee()
     {
     }
@@ -130,7 +142,10 @@ public class BattleGame : MonoBehaviour
         {
             Fisherman.Reel();
         }
-
+        else if (selectedMove == "Flee")
+        {
+            LoadMain();
+        }
     }
     void FishAction(String action)
     {
@@ -174,6 +189,12 @@ public class BattleGame : MonoBehaviour
             pressed = false;
             if (Fisherman.GetHealth() > 0)
             {
+                if(selectedMove == "Flee")
+                {
+                    // play animation
+                    yield return new WaitForSeconds(2);
+
+                }
                 PlayerAction();
             }
             // if health fish <= 0

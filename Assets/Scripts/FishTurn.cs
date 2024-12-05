@@ -14,7 +14,7 @@ public class Fish_Animator : MonoBehaviour
     public Fisherman_Animator other;
 	Fish fishObject;
 
-	public void SetFishObject(Fish fish){
+    public void SetFishObject(Fish fish){
 		fishObject = fish;
 	}
 
@@ -137,5 +137,6 @@ public class Fish_Animator : MonoBehaviour
             debuff += 1;
         }
     }
+
 
 }
