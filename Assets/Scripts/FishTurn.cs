@@ -35,21 +35,25 @@ public class Fish_Animator : MonoBehaviour
             info.attackText.text = strength.ToString();
         }
     }
+    public int GetHealth()
+    {
+        return health;
+    }
     public string Predict()
     {
         var nextMove = "";
         var prob = Random.Range(0,10);
-        if (prob <= 5)
+        if (prob <= 1 && health>=maxHealth)
         {
-            nextMove = "Struggle";
+            nextMove = "Retreat";
         }
-        else if (prob <= 8 && health < maxHealth|| prob <= 8 && debuff != 0)
+        else if (prob <= 3 && (health < maxHealth || debuff != 0))
         {
             nextMove = "Absorb Nutrients";
         }
         else
         {
-            nextMove = "Retreat";
+            nextMove = "Struggle";
         }
         info.predictionText.text = name + " will attempt to "+nextMove;
         return nextMove;

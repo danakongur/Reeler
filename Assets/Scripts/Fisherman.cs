@@ -24,6 +24,10 @@ public class Fisherman_Animator : MonoBehaviour
         health = maxHealth;
         UpdateText();
     }
+    public int GetHealth()
+    {
+        return health;
+    }
     public void Pull() {
         other.LoseHealth(strength-debuff);
         other.UpdateText();

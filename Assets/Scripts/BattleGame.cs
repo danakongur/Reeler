@@ -8,20 +8,20 @@ using UnityEngine.UI;
 public class BattleGame : MonoBehaviour
 {
     public enum State {playerturn, fishturn, win, caught, lose, Playerflee, FishRetreat}
-    public Button pull;
-    public Button reel;
+    public Buttons buttons;
     public bool pressed;
     public State battleState;
     public string selectedMove;
     public Fisherman_Animator Fisherman;
     public Fish_Animator Fish;
+    public EndResultInfo endInfo;
 
     // Start is called before the first frame update
     void Start()
     {
         StartCoroutine(TurnSystem());
-        pull.onClick.AddListener(Pull); //() => { pressed = true; }
-        reel.onClick.AddListener(Reel); //() => { pressed = true; }
+        buttons.pull.onClick.AddListener(Pull); //() => { pressed = true; }
+        buttons.reel.onClick.AddListener(Reel); //() => { pressed = true; }
     }
 
     public void Pull()
@@ -44,15 +44,50 @@ public class BattleGame : MonoBehaviour
 
         }
     }
+    void Item()
+    {
+        //if (pressed == false)
+            //pressed = true; // when you have selected an item
+            //selectedMove = "Reel";
+            Debug.Log("Item button pressed");
+
+    }
+    void Flee()
+    {
+        //if (pressed == false)
+        //pressed = true; // not neccesary just play animation and wait 3-5 sec and leave
+        //selectedMove = "Reel";
+        Debug.Log("Flee button pressed");
+
+    }
+
+
+
+
     public void Win()
     {
-        Destroy(Fish.info.gameObject);
-        Destroy(Fish.gameObject); 
+        RevealItem(endInfo.gameObject);
+        HideItem(Fish.info.gameObject);
+        HideItem(Fish.gameObject);
+        endInfo.title.text = "You Beat up the " + Fish.name + "...";
+        endInfo.description.text = "Gain 2 coins";
     }
-    void Lose()
+    public void Lose()
     {
-        Destroy(Fisherman.info.gameObject);
-        Destroy(Fisherman.gameObject);
+        RevealItem(endInfo.gameObject);
+        Debug.Log(Fisherman.GetHealth());
+        HideItem(Fisherman.info.gameObject);
+        HideItem(Fisherman.gameObject);
+        endInfo.title.text = "The " + Fish.name + " Beat you up!";
+        endInfo.description.text = "Medicare is expensive, Lose 2 coins";
+    }
+    void HideItem(GameObject a)
+    {
+        a.SetActive(false);
+    }
+    void RevealItem(GameObject a)
+    {
+        a.SetActive(true);
     }
 
     void Catch()
@@ -64,6 +99,13 @@ public class BattleGame : MonoBehaviour
     }
     void FishRetreat()
     {
+        {
+            RevealItem(endInfo.gameObject);
+            HideItem(Fisherman.info.gameObject);
+            HideItem(Fisherman.gameObject);
+            endInfo.title.text = "The " + Fish.name + " Managed to escape!";
+        }
+
     }
     void PlayerAction()
     {
@@ -92,6 +134,8 @@ public class BattleGame : MonoBehaviour
             Fish.Retreat();
         }
     }
+
+
     void Update()
     {
         //coroutines
@@ -102,6 +146,7 @@ public class BattleGame : MonoBehaviour
         Debug.Log("Start");
         while (true)
         {
+            RevealItem(buttons.gameObject);
             // player turn
             battleState = State.playerturn;
             Debug.Log("Player Turn");
@@ -111,17 +156,34 @@ public class BattleGame : MonoBehaviour
                 yield return null;
                 
             }
+            HideItem(buttons.gameObject);
             pressed = false;
-            PlayerAction();
+            if (Fisherman.GetHealth() > 0)
+            {
+                PlayerAction();
+            }
             // if health fish <= 0
+            if (Fish.GetHealth() <= 0)
+            {
+                yield return new WaitForSeconds(1);
+                Win();
+                break;
+            }
             // caught
-            Win();
             yield return new WaitForSeconds(2);
             // fish turn
             battleState = State.fishturn;
             Debug.Log("Fish Turn");
-            FishAction(fishAction);
-            // if health player <= 0
+            if (Fish.GetHealth() > 0)
+            {
+                FishAction(fishAction);
+            }
+                // if health player <= 0
+                if (Fisherman.GetHealth() <= 0)
+            {
+                yield return new WaitForSeconds(1);
+                Lose();
+            }
             // retreat fish
 
             yield return new WaitForSeconds(2);
