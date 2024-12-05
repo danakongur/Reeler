@@ -67,6 +67,10 @@ public class BattleGame : MonoBehaviour
     public void Win()
     {
         RevealItem(endInfo.gameObject);
+
+		// win screen image
+		endInfo.reward.sprite = Fish.GetFishObject().fishImage;
+
         HideItem(Fish.info.gameObject);
         HideItem(Fish.gameObject);
         endInfo.title.text = "You Beat up the " + Fish.name + "...";
@@ -77,6 +81,10 @@ public class BattleGame : MonoBehaviour
     public void Lose()
     {
         RevealItem(endInfo.gameObject);
+
+		// lose screen image
+		endInfo.reward.sprite = Fish.GetFishObject().fishImage;
+
         Debug.Log(Fisherman.GetHealth());
         HideItem(Fisherman.info.gameObject);
         HideItem(Fisherman.gameObject);
