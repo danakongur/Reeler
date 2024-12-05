@@ -19,8 +19,6 @@ public class ShopManager : MonoBehaviour
 
 	public float textDelay;
 
-	public Item[] itemsForSale;
-
 	public GameObject itemButtonPrefab;
 
 	List<GameObject> buttonGameObjects;
@@ -104,8 +102,8 @@ public class ShopManager : MonoBehaviour
 	public void UpdateCoins(){
 		coinText.text = $"{coinString} {PlayerManager.instance.coins}";
 		
-		for (int i = 0; i < itemsForSale.Count(); i++){
-			Item item = itemsForSale[i];
+		for (int i = 0; i < PlayerManager.instance.itemsForSale.Count(); i++){
+			Item item = PlayerManager.instance.itemsForSale[i];
 			GameObject itemObj = buttonGameObjects[i];
 			Button itemBut = itemObj.GetComponent<Button>();
 
@@ -246,7 +244,7 @@ public class ShopManager : MonoBehaviour
 		}
 
 		// Place button for each available item
-		foreach (Item item in itemsForSale){
+		foreach (Item item in PlayerManager.instance.itemsForSale){
 			GameObject itemObj = Instantiate(itemButtonPrefab);
 			itemObj.transform.SetParent(itemMenuBackground.transform);
 			itemObj.GetComponent<RectTransform>().localScale = Vector3.one;

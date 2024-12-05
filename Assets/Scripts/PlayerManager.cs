@@ -20,6 +20,8 @@ public class PlayerManager : MonoBehaviour
 
 	public Fish[] availableFish;
 
+	public Item[] itemsForSale;
+
 	private Dictionary<Fish,bool> caughtFish;
     
 	void Awake() {
@@ -30,7 +32,9 @@ public class PlayerManager : MonoBehaviour
 		}
 		instance = this;
 		DontDestroyOnLoad(gameObject);
-		items = new Dictionary<Item, int>();
+		items = new Dictionary<Item, int>{
+			[itemsForSale[0]] = 1
+		};
 
 		coins = startcoins;
 
@@ -118,7 +122,9 @@ public class PlayerManager : MonoBehaviour
 
 	public void ResetPlayerManager() {
 		Debug.Log($"restart player manager");
-		items = new Dictionary<Item,int>();
+		items = new Dictionary<Item, int>{
+			[itemsForSale[0]] = 1
+		};
 		coins = startcoins;
 		foreach (Fish key in caughtFish.Keys.ToArray())
 		{
