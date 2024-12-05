@@ -1448,14 +1448,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 65
-    m_Right: 65
+    m_Left: 75
+    m_Right: 75
     m_Top: 100
     m_Bottom: 70
   m_ChildAlignment: 1
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 70, y: 100}
+  m_CellSize: {x: 80, y: 100}
   m_Spacing: {x: 100, y: 110}
   m_Constraint: 0
   m_ConstraintCount: 2
@@ -1771,15 +1771,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 65
-    m_Right: 65
+    m_Left: 75
+    m_Right: 75
     m_Top: 120
     m_Bottom: 70
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 70, y: 100}
-  m_Spacing: {x: 80, y: 110}
+  m_CellSize: {x: 80, y: 100}
+  m_Spacing: {x: 90, y: 110}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!1 &1838439857
