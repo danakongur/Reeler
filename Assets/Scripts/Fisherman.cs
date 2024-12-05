@@ -41,6 +41,7 @@ public class Fisherman_Animator : MonoBehaviour
     public void UpdateText()
     {
         info.healthText.text = health.ToString() + "/" + maxHealth.ToString();
+        info.healthBar.fillAmount = health / (float)maxHealth;
         if (debuff > 0)
         {
             info.attackText.text = strength.ToString() + " - " + debuff.ToString();
