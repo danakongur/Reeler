@@ -71,6 +71,8 @@ public class BattleGame : MonoBehaviour
         HideItem(Fish.gameObject);
         endInfo.title.text = "You Beat up the " + Fish.name + "...";
         endInfo.description.text = "Gain 2 coins";
+		PlayerManager.instance.CatchFish(this.Fish.GetFishObject());
+		PlayerManager.instance.coins += 2;
     }
     public void Lose()
     {
@@ -80,6 +82,7 @@ public class BattleGame : MonoBehaviour
         HideItem(Fisherman.gameObject);
         endInfo.title.text = "The " + Fish.name + " Beat you up!";
         endInfo.description.text = "Medicare is expensive, Lose 2 coins";
+		PlayerManager.instance.coins -= 2;
     }
     void HideItem(GameObject a)
     {
