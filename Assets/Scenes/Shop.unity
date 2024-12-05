@@ -1448,15 +1448,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 75
-    m_Right: 75
-    m_Top: 100
-    m_Bottom: 70
+    m_Left: 30
+    m_Right: 0
+    m_Top: 42
+    m_Bottom: 0
   m_ChildAlignment: 1
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 80, y: 100}
-  m_Spacing: {x: 100, y: 110}
+  m_CellSize: {x: 150, y: 180}
+  m_Spacing: {x: 10, y: 10}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!114 &1491098009
@@ -1694,6 +1694,7 @@ GameObject:
   - component: {fileID: 1802572252}
   - component: {fileID: 1802572251}
   - component: {fileID: 1802572253}
+  - component: {fileID: 1802572254}
   m_Layer: 5
   m_Name: BuyItems
   m_TagString: Untagged
@@ -1771,17 +1772,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 75
-    m_Right: 75
-    m_Top: 120
-    m_Bottom: 70
+    m_Left: 30
+    m_Right: 0
+    m_Top: 65
+    m_Bottom: 0
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 80, y: 100}
-  m_Spacing: {x: 90, y: 110}
+  m_CellSize: {x: 150, y: 180}
+  m_Spacing: {x: 10, y: 10}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!114 &1802572254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802572249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AspectMode: 0
+  m_AspectRatio: 1.3333334
 --- !u!1 &1838439857
 GameObject:
   m_ObjectHideFlags: 0

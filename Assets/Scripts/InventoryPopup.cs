@@ -82,6 +82,7 @@ public class InventoryPopup : MonoBehaviour
 			if(button == null && count > 0){ // button has not been added but item is in inventory
 				GameObject itemObj = Instantiate(itemButtonPrefab);
 				itemObj.transform.SetParent(content.transform);
+				itemObj.GetComponent<RectTransform>().localScale = Vector3.one;
 				inventoryItems.Add((item,itemObj));
 
 				TMPro.TMP_Text tx = itemObj.transform.GetChild(1).GetComponent<TMPro.TMP_Text>();
@@ -92,7 +93,7 @@ public class InventoryPopup : MonoBehaviour
 				
 				Image buttonImage = itemBut.transform.Find("Icon").GetComponent<Image>();
 				if (buttonImage) {
-					buttonImage.rectTransform.sizeDelta = new Vector2(40f,40f); // TODO: this should not be hardcoded
+					buttonImage.rectTransform.sizeDelta = new Vector2(0.4f*cellSize.x,0.4f*cellSize.x);
 				}
 				if (item.itemImage && buttonImage) {
 					buttonImage.sprite = item.itemImage;

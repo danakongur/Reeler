@@ -136,6 +136,17 @@ public class ShopManager : MonoBehaviour
 			Debug.Log("Couldn't get inventory cell size");
 		}
 
+		// scale with screen size
+		CanvasScaler canvasScaler = inventoryContent.GetComponentInParent<CanvasScaler>();
+		if (canvasScaler){
+			float scaleFactor = canvasScaler.transform.lossyScale.x;
+			//invGridSize*=scaleFactor;
+			Debug.Log($"scale factor: {scaleFactor}");
+		}
+		else {
+			Debug.Log("could not find sell canvas scaler");
+		}
+
 		// go through inventory and add
 		foreach (KeyValuePair<Item,int> entry in PlayerManager.instance.items){
 			Item item = entry.Key;
@@ -144,6 +155,7 @@ public class ShopManager : MonoBehaviour
 			if(!inventoryItems.Contains(item) && count > 0){// worlds least efficient code
 				GameObject itemObj = Instantiate(itemButtonPrefab);
 				itemObj.transform.SetParent(inventoryContent.transform);
+				itemObj.GetComponent<RectTransform>().localScale = Vector3.one;
 				item.buttonHolder = itemObj;
 				inventoryItems.Add(item);
 
@@ -157,7 +169,7 @@ public class ShopManager : MonoBehaviour
 				// setting the sprite for the object
 				Image buttonImage = itemBut.transform.Find("Icon").GetComponent<Image>();
 				if (buttonImage) {
-					buttonImage.rectTransform.sizeDelta = new Vector2(40f,40f); // TODO: this should not be hardcoded
+					buttonImage.rectTransform.sizeDelta = new Vector2(0.4f*invGridSize.x,0.4f*invGridSize.x);
 				}
 				if (item.itemImage && buttonImage) {
 					buttonImage.sprite = item.itemImage;
@@ -223,10 +235,21 @@ public class ShopManager : MonoBehaviour
 			Debug.Log("Couldn't get cell size");
 		}
 
+		// scale with screen size
+		CanvasScaler canvasScaler = itemMenuBackground.GetComponentInParent<CanvasScaler>();
+		if (canvasScaler){
+			float scaleFactor = canvasScaler.transform.lossyScale.x;
+			//cellSize*=scaleFactor;
+		}
+		else {
+			Debug.Log("could not find canvas scaler");
+		}
+
 		// Place button for each available item
 		foreach (Item item in itemsForSale){
 			GameObject itemObj = Instantiate(itemButtonPrefab);
 			itemObj.transform.SetParent(itemMenuBackground.transform);
+			itemObj.GetComponent<RectTransform>().localScale = Vector3.one;
 
 			// Set text to item name
 			TMPro.TMP_Text tx = itemObj.transform.GetChild(1).GetComponent<TMPro.TMP_Text>();
@@ -238,7 +261,7 @@ public class ShopManager : MonoBehaviour
 			// setting the sprite for the object
 			Image buttonImage = itemBut.transform.Find("Icon").GetComponent<Image>();
 			if (buttonImage) {
-				buttonImage.rectTransform.sizeDelta = new Vector2(50f,50f); // TODO: this should not be hardcoded
+				buttonImage.rectTransform.sizeDelta = new Vector2(0.5f*cellSize.x, 0.5f*cellSize.x);
 			}
 			if (item.itemImage && buttonImage) {
 				buttonImage.sprite = item.itemImage;
