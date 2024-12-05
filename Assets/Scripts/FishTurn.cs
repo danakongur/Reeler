@@ -44,6 +44,7 @@ public class Fish_Animator : MonoBehaviour
     public void UpdateText()
     {
         info.healthText.text = health.ToString() + "/" + maxHealth.ToString();
+        info.healthBar.fillAmount = health / (float)maxHealth;
         if (debuff > 0)
         {
             info.attackText.text = strength.ToString() + " - " + debuff.ToString();
@@ -59,9 +60,14 @@ public class Fish_Animator : MonoBehaviour
     }
     public string Predict()
     {
+        fishObject = PlayerManager.instance.GetFishByName(name);
+
+        maxHealth = fishObject.health;
+        strength = fishObject.strength;
         var nextMove = "";
         var description = "";
         var prob = Random.Range(0,10);
+        Debug.Log(other.strength);
         if (prob <= 1 && health<maxHealth)
         {
             nextMove = "Retreat";
