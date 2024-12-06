@@ -17,6 +17,7 @@ public class BattleGame : MonoBehaviour
     public Fish_Animator Fish;
     public EndResultInfo endInfo;
     public TextMeshProUGUI reelDescription;
+    public GameObject inventory;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,8 @@ public class BattleGame : MonoBehaviour
 
     public void Pull()
     {
+        //InventoryPopup
+        HideItem(inventory);
         if (battleState == State.playerturn)
         {
                 pressed = true;
@@ -39,6 +42,7 @@ public class BattleGame : MonoBehaviour
     }
     void Reel()
     {
+        HideItem(inventory);
             if (pressed == false)
             {
                 pressed = true;
@@ -57,6 +61,7 @@ public class BattleGame : MonoBehaviour
     }
     void Flee()
     {
+        HideItem(inventory);
         //if (pressed == false)
         //pressed = true; // not neccesary just play animation and wait 3-5 sec and leave
         //selectedMove = "Reel";
@@ -93,7 +98,7 @@ public class BattleGame : MonoBehaviour
 
 		// lose screen image
 		endInfo.reward.sprite = Fish.GetFishObject().fishImage;
-
+        
         Debug.Log(Fisherman.GetHealth());
         HideItem(Fisherman.info.gameObject);
         HideItem(Fisherman.gameObject);
@@ -218,9 +223,9 @@ public class BattleGame : MonoBehaviour
             {
                 yield return new WaitForSeconds(1);
                 Lose();
+                break;
             }
             // retreat fish
-
             yield return new WaitForSeconds(2);
         }
         Debug.Log("End");
