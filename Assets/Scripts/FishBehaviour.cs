@@ -14,7 +14,7 @@ public class FishBehaviour : MonoBehaviour
     void Start()
     {
         UpdateFishImage();
-        fishName.SetActive(false); // Hide the fish name initially
+        //fishName.SetActive(false); // Hide the fish name initially
 
         // Set up the button's onClick listener
         Button itemBut = gameObject.GetComponent<Button>();
@@ -51,10 +51,10 @@ public class FishBehaviour : MonoBehaviour
     {
         if (fishName.activeSelf)
         {
-            fishName.SetActive(false);
+            //fishName.SetActive(false);
         } else
         {
-            fishName.SetActive(true);
+            //fishName.SetActive(true);
         }
         // Handle the fish click event
         Debug.Log("Fish clicked!");
