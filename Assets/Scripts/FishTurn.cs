@@ -30,8 +30,11 @@ public class Fish_Animator : MonoBehaviour
         //playerHealth = playerInfo.transform.Find("Health").GetComponent<TextMeshProUGUI>();
 
 		// TODO: replace with getting a fish instance from the start
-		fishObject = PlayerManager.instance.GetFishByName(name);
+		//fishObject = PlayerManager.instance.GetFishByName("Carp");
+		int randIndex = Random.Range(0,PlayerManager.instance.availableFish.Length-1);
+		fishObject = PlayerManager.instance.availableFish[randIndex];
 
+		name = fishObject.name;
 		maxHealth = fishObject.health;
 		strength = fishObject.strength;
 		SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
