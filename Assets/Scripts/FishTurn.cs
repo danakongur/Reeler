@@ -143,7 +143,7 @@ public class Fish_Animator : MonoBehaviour
     }
     public void GainDebuff()
     {
-        if (debuff <= strength - 1)
+        if (debuff < strength - 1)
         {
             debuff += 1;
         }

@@ -53,6 +53,7 @@ public class Fisherman_Animator : MonoBehaviour
         {
             info.attackText.text = strength.ToString();
         }
+		Debug.Log($"fish debuff {other.debuff}, {debuff}");
     }
     public void LoseHealth(int otherAttack)
     {
