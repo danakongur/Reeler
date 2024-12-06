@@ -138,8 +138,6 @@ public class ShopManager : MonoBehaviour
 		CanvasScaler canvasScaler = inventoryContent.GetComponentInParent<CanvasScaler>();
 		if (canvasScaler){
 			float scaleFactor = canvasScaler.transform.lossyScale.x;
-			//invGridSize*=scaleFactor;
-			Debug.Log($"scale factor: {scaleFactor}");
 		}
 		else {
 			Debug.Log("could not find sell canvas scaler");

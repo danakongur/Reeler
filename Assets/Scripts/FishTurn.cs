@@ -31,7 +31,7 @@ public class Fish_Animator : MonoBehaviour
 
 		// TODO: replace with getting a fish instance from the start
 		//fishObject = PlayerManager.instance.GetFishByName("Carp");
-		int randIndex = Random.Range(0,PlayerManager.instance.availableFish.Length-1);
+		int randIndex = Random.Range(0,PlayerManager.instance.availableFish.Length);
 		fishObject = PlayerManager.instance.availableFish[randIndex];
 
 		name = fishObject.name;
