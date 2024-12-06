@@ -33,9 +33,13 @@ public class Fisherman_Animator : MonoBehaviour
     }
     public void Reel()
     {
-        transform.Translate(2*Vector3.left*Time.deltaTime);
+        other.GainDebuff();
+        other.UpdateText();
     }
-
+    public void Flee()
+    {
+        transform.Translate(2 * Vector3.left * Time.deltaTime);
+    }
     // Update is called once per frame
     public void UpdateText()
     {
