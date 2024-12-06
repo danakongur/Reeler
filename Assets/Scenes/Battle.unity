@@ -1452,6 +1452,7 @@ MonoBehaviour:
   Fish: {fileID: 592878578}
   endInfo: {fileID: 744483048}
   reelDescription: {fileID: 1066418941}
+  inventory: {fileID: 756185608}
 --- !u!4 &499200838
 Transform:
   m_ObjectHideFlags: 0
