@@ -46,77 +46,87 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startcoins: 100
   coins: 0
+  maxHealth: 75
+  health: 0
+  strength: 15
   availableFish:
   - name: Carp
     strength: 7
     health: 5
-    price: 50
     fishImage: {fileID: -1582011002, guid: b87bf1f6a977052469565850c44395ec, type: 3}
     fishItem:
       price: 0
       itemName: 
       itemImage: {fileID: 0}
       buttonHolder: {fileID: 0}
+    fishDescription: {fileID: 0}
+    price: 50
   - name: Salmon
     strength: 5
     health: 7
-    price: 50
     fishImage: {fileID: 850694208, guid: b87bf1f6a977052469565850c44395ec, type: 3}
     fishItem:
       price: 0
       itemName: 
       itemImage: {fileID: 0}
       buttonHolder: {fileID: 0}
+    fishDescription: {fileID: 0}
+    price: 50
   - name: Clownfish
     strength: 3
     health: 9
-    price: 70
     fishImage: {fileID: 894951035, guid: b87bf1f6a977052469565850c44395ec, type: 3}
     fishItem:
       price: 0
       itemName: 
       itemImage: {fileID: 0}
       buttonHolder: {fileID: 0}
+    fishDescription: {fileID: 0}
+    price: 70
   - name: Flounder
     strength: 6
     health: 6
-    price: 70
     fishImage: {fileID: -1576473217, guid: b87bf1f6a977052469565850c44395ec, type: 3}
     fishItem:
       price: 0
       itemName: 
       itemImage: {fileID: 0}
       buttonHolder: {fileID: 0}
+    fishDescription: {fileID: 0}
+    price: 70
   - name: Lumpfish
     strength: 3
     health: 11
-    price: 70
     fishImage: {fileID: 1936734363, guid: b87bf1f6a977052469565850c44395ec, type: 3}
     fishItem:
       price: 0
       itemName: 
       itemImage: {fileID: 0}
       buttonHolder: {fileID: 0}
+    fishDescription: {fileID: 0}
+    price: 70
   - name: Guppy
     strength: 2
     health: 5
-    price: 10
     fishImage: {fileID: -256949967, guid: b87bf1f6a977052469565850c44395ec, type: 3}
     fishItem:
       price: 0
       itemName: 
       itemImage: {fileID: 0}
       buttonHolder: {fileID: 0}
+    fishDescription: {fileID: 0}
+    price: 10
   - name: Axolotl
     strength: 4
     health: 9
-    price: 70
     fishImage: {fileID: -2105965212, guid: b87bf1f6a977052469565850c44395ec, type: 3}
     fishItem:
       price: 0
       itemName: 
       itemImage: {fileID: 0}
       buttonHolder: {fileID: 0}
+    fishDescription: {fileID: 0}
+    price: 70
   itemsForSale:
   - price: 17
     itemName: Worm

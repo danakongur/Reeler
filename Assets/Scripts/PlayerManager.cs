@@ -11,6 +11,9 @@ public class PlayerManager : MonoBehaviour
 {	
 	public int startcoins;
 	public int coins;
+	public int maxHealth;
+	public int health;
+	public int strength;
 	public static PlayerManager instance;
 
 	/// <summary>
@@ -21,8 +24,6 @@ public class PlayerManager : MonoBehaviour
 	public Fish[] availableFish;
 
 	public Item[] itemsForSale;
-
-	
 
 	private Dictionary<Fish,bool> caughtFish;
     
@@ -39,6 +40,8 @@ public class PlayerManager : MonoBehaviour
 		};
 
 		coins = startcoins;
+
+		health = maxHealth;
 
 		caughtFish = new Dictionary<Fish, bool>();
 

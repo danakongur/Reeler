@@ -18,6 +18,7 @@ public class BattleGame : MonoBehaviour
     public EndResultInfo endInfo;
     public TextMeshProUGUI reelDescription;
     public GameObject inventory;
+	public TextMeshProUGUI criticalHitText;
 
 	/// <summary>
 	/// Chance of a critical hit (ex. 5% => 0.05)
@@ -50,7 +51,6 @@ public class BattleGame : MonoBehaviour
         {
                 pressed = true;
                 selectedMove = "Pull";
-                Debug.Log("Pull button pressed");
                 
         }
     }
@@ -61,7 +61,6 @@ public class BattleGame : MonoBehaviour
             {
                 pressed = true;
                 selectedMove = "Reel";
-                Debug.Log("Reel button pressed");
 
         }
     }
@@ -70,7 +69,6 @@ public class BattleGame : MonoBehaviour
         //if (pressed == false)
             //pressed = true; // when you have selected an item
             //selectedMove = "Reel";
-            Debug.Log("Item button pressed");
 
     }
 
@@ -93,7 +91,6 @@ public class BattleGame : MonoBehaviour
         {
             pressed = true;
             selectedMove = "Flee";
-            Debug.Log("Reel button pressed");
 
         }
 
@@ -123,7 +120,6 @@ public class BattleGame : MonoBehaviour
 		// lose screen image
 		endInfo.reward.sprite = Fish.GetFishObject().fishImage;
         
-        Debug.Log(Fisherman.GetHealth());
         HideItem(Fisherman.info.gameObject);
         HideItem(Fisherman.gameObject);
         endInfo.title.text = "The " + Fish.name + " Beat you up!";
@@ -186,6 +182,11 @@ public class BattleGame : MonoBehaviour
         if (action == "Struggle")
         {
 			bool critical = UnityEngine.Random.Range(0f,1f) < criticalChance;
+			Debug.Log("Fish critical hit!");
+
+			coroutine = CriticalHit();
+
+			StartCoroutine(coroutine);
             Fish.Struggle(critical);    
         }
         else if (action == "Absorb Nutrients")
@@ -197,6 +198,12 @@ public class BattleGame : MonoBehaviour
         }
     }
 
+	private IEnumerator coroutine;
+
+	public IEnumerator CriticalHit() {
+		Debug.Log("critical hit text something");
+		yield return new WaitForSeconds(1);
+	}
 
     void Update()
     {

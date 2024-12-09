@@ -26,7 +26,6 @@ public class Fish_Animator : MonoBehaviour
 
     void Awake()
     {
-        Debug.Log(health);
         //var playerInfo = GameObject.Find("Playerinfo");
         //playerHealth = playerInfo.transform.Find("Health").GetComponent<TextMeshProUGUI>();
 
@@ -44,7 +43,6 @@ public class Fish_Animator : MonoBehaviour
         info.nameText.text = name;
         health = maxHealth;
         UpdateText();
-        //Debug.Log(health.ToString()+" health");
     }
     public void UpdateText()
     {
@@ -74,7 +72,6 @@ public class Fish_Animator : MonoBehaviour
         var nextMove = "";
         var description = "";
         var prob = Random.Range(0,10);
-        Debug.Log(other.strength);
         if (prob <= 1 && health < maxHealth)
         {
             nextMove = "Retreat";
@@ -102,8 +99,16 @@ public class Fish_Animator : MonoBehaviour
 
     }
     public void Struggle(bool critical)
-    {
-        other.LoseHealth(strength - ((strength * debuff) / 5));
+    {	
+		float mod = 1f;
+		if (critical) {
+			mod = 1.5f;
+		}
+		int predamage = (strength - ((strength * debuff) / 5));
+		float randDMG = Random.Range(0.85f,1f);
+		int damage = (int)Mathf.Round(mod*(predamage*randDMG));
+		Debug.Log($"Fish does {mod*(predamage*randDMG)} damage");
+        other.LoseHealth(damage);
         other.UpdateText();
     }
     public void Absorb()
