@@ -10,11 +10,13 @@ public class FishBehaviour : MonoBehaviour
     public GameObject fishName; // The fish name GameObject
     public string fishNameText; // The fish name text
     public TextMeshProUGUI fishNameTextComponent; // The fish name text component
+    public TextMeshProUGUI fishDescriptionTextComponent; // The fish description text component
+    public Fish fish; // The fish object
 
     void Start()
     {
         UpdateFishImage();
-        //fishName.SetActive(false); // Hide the fish name initially
+        fishName.SetActive(false); // Hide the fish name initially
 
         // Set up the button's onClick listener
         Button itemBut = gameObject.GetComponent<Button>();
@@ -51,10 +53,13 @@ public class FishBehaviour : MonoBehaviour
     {
         if (fishName.activeSelf)
         {
-            //fishName.SetActive(false);
-        } else
+            fishName.SetActive(false);
+            fishDescriptionTextComponent.text = ""; // Hide the description
+        }
+        else
         {
-            //fishName.SetActive(true);
+            fishName.SetActive(true);
+            //fishDescriptionTextComponent.text = fish.fishDescriptionTextComponent.description; // Show the description
         }
         // Handle the fish click event
         Debug.Log("Fish clicked!");
