@@ -48,11 +48,11 @@ MonoBehaviour:
   coins: 0
   maxHealth: 75
   health: 0
-  strength: 15
+  strength: 10
   availableFish:
   - name: Carp
-    strength: 7
-    health: 5
+    strength: 20
+    health: 25
     fishImage: {fileID: -1582011002, guid: b87bf1f6a977052469565850c44395ec, type: 3}
     fishItem:
       price: 0
@@ -62,8 +62,8 @@ MonoBehaviour:
     fishDescription: {fileID: 0}
     price: 50
   - name: Salmon
-    strength: 5
-    health: 7
+    strength: 20
+    health: 25
     fishImage: {fileID: 850694208, guid: b87bf1f6a977052469565850c44395ec, type: 3}
     fishItem:
       price: 0
