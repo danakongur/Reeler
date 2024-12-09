@@ -86,7 +86,7 @@ public class Fish_Animator : MonoBehaviour
             nextMove = "Absorb Nutrients";
             description = "(Heals: " + other.strength +")";
         }
-        else if (prob <= 4 && debuff > 0))
+        else if (prob <= 4 && debuff > 0)
         {
             nextMove = "Cleanse";
             description = "(removes 1 Weakened from"+name+")";
@@ -99,17 +99,11 @@ public class Fish_Animator : MonoBehaviour
         info.predictionText.text = name + " will attempt to " + nextMove + " " + description;
         return nextMove;
 
-        
-       }
-<<<<<<< Updated upstream
+
+    }
     public void Struggle(bool critical)
-    {	
-        other.LoseHealth(strength-debuff);
-=======
-    public void Struggle()
     {
         other.LoseHealth(strength - ((strength * debuff) / 5));
->>>>>>> Stashed changes
         other.UpdateText();
     }
     public void Absorb()
