@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class FishDescription
+public class FishDescription: MonoBehaviour
 {
     public string fishName; // The name of the fish
     public string habitat; // The habitat of the fish
