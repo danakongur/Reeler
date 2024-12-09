@@ -543,6 +543,174 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[0].fishDescription.diet
+      value: Plants, insects, small crustaceans
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[1].fishDescription.diet
+      value: Small fish and plankton
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[2].fishDescription.diet
+      value: Algae, plankton, and small invertebrates
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[3].fishDescription.diet
+      value: Small fish, crustaceans, and worms
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[4].fishDescription.diet
+      value: Small invertebrates and crustaceans
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[5].fishDescription.diet
+      value: Algae and small insects
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[6].fishDescription.diet
+      value: Small fish and worms
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[0].fishDescription.habitat
+      value: Rivers, ponds
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[1].fishDescription.habitat
+      value: Freshwater and saltwater
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[2].fishDescription.habitat
+      value: Tropical coral reefs
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[3].fishDescription.habitat
+      value: Coastal waters and estuaries
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[4].fishDescription.habitat
+      value: Cold ocean floors
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[5].fishDescription.habitat
+      value: Tropical freshwater
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[6].fishDescription.habitat
+      value: Mexican lakes
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[0].fishDescription.behavior
+      value: Hardy and adaptable
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[0].fishDescription.fishName
+      value: Carp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[1].fishDescription.behavior
+      value: Migratory and resilient
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[1].fishDescription.fishName
+      value: Salmon
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[2].fishDescription.behavior
+      value: Symbiotic relationship with sea anemones
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[2].fishDescription.fishName
+      value: Clownfish
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[3].fishDescription.behavior
+      value: Camouflages with the seabed
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[3].fishDescription.fishName
+      value: Flounder
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[4].fishDescription.behavior
+      value: Uses sucker-like fins to cling to surfaces
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[4].fishDescription.fishName
+      value: Lumpfish
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[5].fishDescription.behavior
+      value: Highly adaptable and prolific breeders
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[5].fishDescription.fishName
+      value: Guppy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[6].fishDescription.behavior
+      value: Retains juvenile features throughout life
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[6].fishDescription.fishName
+      value: Axolotl
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[0].fishDescription.sellValue
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[1].fishDescription.sellValue
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[2].fishDescription.sellValue
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[3].fishDescription.sellValue
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[4].fishDescription.sellValue
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[5].fishDescription.sellValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[6].fishDescription.sellValue
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[0].fishDescription.conservationStatus
+      value: Least Concern
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[1].fishDescription.conservationStatus
+      value: Near Threatened
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[2].fishDescription.conservationStatus
+      value: Least Concern
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[3].fishDescription.conservationStatus
+      value: Least Concern
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[4].fishDescription.conservationStatus
+      value: Least Concern
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[5].fishDescription.conservationStatus
+      value: Least Concern
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[6].fishDescription.conservationStatus
+      value: Critically Endangered
+      objectReference: {fileID: 0}
     - target: {fileID: 5743779043829583834, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 536.5717
