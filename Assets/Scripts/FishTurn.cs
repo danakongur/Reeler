@@ -10,6 +10,7 @@ public class Fish_Animator : MonoBehaviour
     public int strength;
     public AttackInfo info;
     private int health;
+    private int maxDebuff = 3;
     public int debuff = 0;
     public Fisherman_Animator other;
 	Fish fishObject;
@@ -80,31 +81,35 @@ public class Fish_Animator : MonoBehaviour
             description = "30% chance of escape";
 
         }
-        else if (prob <= 3 && (health < maxHealth || debuff > 0))
+        else if (prob <= 3 && (health < maxHealth))
         {
             nextMove = "Absorb Nutrients";
-            if (debuff>0){
-            description = "(Heals: " + other.strength/2 + " and removes 1 Debuff)";
-        }   else
-            {
-                description = "(Heals: " + other.strength / 2+")";
-
-            }
-
+            description = "(Heals: " + other.strength +")";
+        }
+        else if (prob <= 4 && debuff > 0))
+        {
+            nextMove = "Cleanse";
+            description = "(removes 1 Weakened from"+name+")";
         }
         else
         {
             nextMove = "Struggle";
-            description = "(does " + strength + " DMG - " + debuff + " Debuff)";
+            description = "(Does " + strength + " DMG)";
         }
         info.predictionText.text = name + " will attempt to " + nextMove + " " + description;
         return nextMove;
 
         
        }
+<<<<<<< Updated upstream
     public void Struggle(bool critical)
     {	
         other.LoseHealth(strength-debuff);
+=======
+    public void Struggle()
+    {
+        other.LoseHealth(strength - ((strength * debuff) / 5));
+>>>>>>> Stashed changes
         other.UpdateText();
     }
     public void Absorb()
@@ -143,7 +148,7 @@ public class Fish_Animator : MonoBehaviour
     }
     public void GainDebuff()
     {
-        if (debuff < strength - 1)
+        if (debuff < maxDebuff)
         {
             debuff += 1;
         }
