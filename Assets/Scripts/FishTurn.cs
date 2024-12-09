@@ -102,8 +102,8 @@ public class Fish_Animator : MonoBehaviour
 
         
        }
-    public void Struggle()
-    {
+    public void Struggle(bool critical)
+    {	
         other.LoseHealth(strength-debuff);
         other.UpdateText();
     }

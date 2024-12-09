@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Fisherman_Animator : MonoBehaviour
@@ -13,6 +14,7 @@ public class Fisherman_Animator : MonoBehaviour
     private int health;
     public TextMeshProUGUI reelDescription;
     int debuff = 0;
+
     void Start()
     {
 
@@ -27,8 +29,15 @@ public class Fisherman_Animator : MonoBehaviour
     {
         return health;
     }
-    public void Pull() {
-        other.LoseHealth(strength-debuff);
+    public void Pull(bool critical) {
+		float mod;
+		if (critical) {
+			mod = 1.5f;
+		}
+		else {
+			mod = 1f;
+		}
+        other.LoseHealth((int)Mathf.Round((strength-debuff)*mod)); // multiply by crticial modifier (rounded to nearest integer)
         other.UpdateText();
     }
     public void Reel()

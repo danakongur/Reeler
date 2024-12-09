@@ -19,6 +19,11 @@ public class BattleGame : MonoBehaviour
     public TextMeshProUGUI reelDescription;
     public GameObject inventory;
 
+	/// <summary>
+	/// Chance of a critical hit (ex. 5% => 0.05)
+	/// </summary>
+	public float criticalChance;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -160,7 +165,11 @@ public class BattleGame : MonoBehaviour
     {
         if (selectedMove == "Pull")
         {
-            Fisherman.Pull();
+			bool critical = UnityEngine.Random.Range(0f,1f) < criticalChance;
+			if (critical){
+				// do some critical behavior here
+			}
+            Fisherman.Pull(critical);
         }
         else if (selectedMove == "Reel")
         {
@@ -176,7 +185,8 @@ public class BattleGame : MonoBehaviour
         Debug.Log(action);
         if (action == "Struggle")
         {
-            Fish.Struggle();    
+			bool critical = UnityEngine.Random.Range(0f,1f) < criticalChance;
+            Fish.Struggle(critical);    
         }
         else if (action == "Absorb Nutrients")
         {
