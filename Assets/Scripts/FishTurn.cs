@@ -128,11 +128,24 @@ public class Fish_Animator : MonoBehaviour
 
     public void LoseHealth(int otherAttack)
     {
-        health -= otherAttack;
+        if (health-otherAttack < 0)
+        {
+            health = 0;
+        } else
+        {
+            health -= otherAttack;
+        }
     }
     public void GainHealth(int healAmount)
     {
-        health += healAmount;
+        if (health + healAmount > maxHealth)
+        {
+            health = maxHealth;
+        } else
+        {
+            health += healAmount;
+        }
+
     }
     public void LoseDebuff()
     {
