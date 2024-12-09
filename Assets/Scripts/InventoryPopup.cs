@@ -54,7 +54,7 @@ public class InventoryPopup : MonoBehaviour
 		}
 	}
 
-	void PlaceholderFunction(Item item){
+	void CallItemFunction(Item item){
 		if(function != null) {
 			function(item);
 		}
@@ -106,8 +106,7 @@ public class InventoryPopup : MonoBehaviour
 
 
 				// The function to execute when item is clicked
-				// just set to print what item was clicked
-				itemBut.onClick.AddListener(delegate {PlaceholderFunction(item);});
+				itemBut.onClick.AddListener(delegate {CallItemFunction(item);});
 
 
 			}
@@ -121,6 +120,8 @@ public class InventoryPopup : MonoBehaviour
 
 		}
 	}
+
+	
 
 	void Start() {
 		UpdateInventory();

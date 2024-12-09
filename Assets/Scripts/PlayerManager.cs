@@ -22,6 +22,8 @@ public class PlayerManager : MonoBehaviour
 
 	public Item[] itemsForSale;
 
+	
+
 	private Dictionary<Fish,bool> caughtFish;
     
 	void Awake() {
@@ -44,6 +46,10 @@ public class PlayerManager : MonoBehaviour
 			fish.fishItem = new FishItem(fish.price, fish.name, fish.fishImage);
 			caughtFish[fish] = false;
 		}
+	}
+
+	void Start(){
+
 	}
 
 	/// <summary>

@@ -26,6 +26,15 @@ public class BattleGame : MonoBehaviour
         buttons.pull.onClick.AddListener(Pull); //() => { pressed = true; }
         buttons.reel.onClick.AddListener(Reel); //() => { pressed = true; }
         buttons.flee.onClick.AddListener(Flee); //() => { pressed = true; }
+
+		// Setting the function to call when item button is pressed
+		InventoryPopup popupscript = inventory.GetComponent<InventoryPopup>();
+		if(popupscript){
+			popupscript.function = ItemClicked;
+		}
+		else {
+			Debug.Log("Couldn't find InventoryPopup component");
+		}
     }
 
     public void Pull()
@@ -59,6 +68,16 @@ public class BattleGame : MonoBehaviour
             Debug.Log("Item button pressed");
 
     }
+
+
+	/// <summary>
+	/// Called when an item in the item menu is clicked
+	/// </summary>
+	/// <param name="item">Item that was clicked</param>
+	void ItemClicked(Item item){
+		Debug.Log($"battle game item {item.itemName} clicked");
+	}
+
     void Flee()
     {
         HideItem(inventory);
