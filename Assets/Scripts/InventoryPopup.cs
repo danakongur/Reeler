@@ -19,6 +19,8 @@ public class InventoryPopup : MonoBehaviour
 	
 	public GameObject content;
 
+	public GameObject descriptionBox;
+
 	/// <summary>
 	/// Function to execute when pressing each fish button
 	/// </summary>
@@ -83,6 +85,10 @@ public class InventoryPopup : MonoBehaviour
 				GameObject itemObj = Instantiate(itemButtonPrefab);
 				itemObj.transform.SetParent(content.transform);
 				itemObj.GetComponent<RectTransform>().localScale = Vector3.one;
+
+				itemObj.GetComponent<ItemButton>().item = item;
+				itemObj.GetComponent<ItemButton>().descriptionBox = descriptionBox;
+
 				inventoryItems.Add((item,itemObj));
 
 				TMPro.TMP_Text tx = itemObj.transform.GetChild(1).GetComponent<TMPro.TMP_Text>();

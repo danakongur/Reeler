@@ -13,12 +13,15 @@ public class BattleGame : MonoBehaviour
     public bool pressed;
     public State battleState;
     public string selectedMove;
+	public Item selectedItem;
     public Fisherman_Animator Fisherman;
     public Fish_Animator Fish;
     public EndResultInfo endInfo;
     public TextMeshProUGUI reelDescription;
     public GameObject inventory;
 	public TextMeshProUGUI criticalHitText;
+
+	public GameObject descriptionBox;
     private bool gameIsgoing = true;
     /// <summary>
     /// Chance of a critical hit (ex. 5% => 0.05)
@@ -78,11 +81,19 @@ public class BattleGame : MonoBehaviour
 	/// </summary>
 	/// <param name="item">Item that was clicked</param>
 	void ItemClicked(Item item){
-		Debug.Log($"battle game item {item.itemName} clicked");
+		if (pressed == false) {
+			Debug.Log($"item clicked yay");
+			pressed = true;
+			selectedMove = "Item";
+			selectedItem = item;
+			HideItem(inventory);
+		}
+
 	}
 
     void Flee()
     {
+		HideItem(descriptionBox);
         HideItem(inventory);
         //if (pressed == false)
         //pressed = true; // not neccesary just play animation and wait 3-5 sec and leave
@@ -91,7 +102,7 @@ public class BattleGame : MonoBehaviour
         {
             pressed = true;
             selectedMove = "Flee";
-
+			
         }
 
     }
@@ -101,6 +112,7 @@ public class BattleGame : MonoBehaviour
 
     public void Win()
     {
+		HideItem(descriptionBox);
         RevealItem(endInfo.gameObject);
 		criticalHitText.gameObject.SetActive(false);
 
@@ -118,6 +130,7 @@ public class BattleGame : MonoBehaviour
     }
     public void Lose()
     {
+		HideItem(descriptionBox);
         RevealItem(endInfo.gameObject);
 		criticalHitText.gameObject.SetActive(false);
 
@@ -169,6 +182,7 @@ public class BattleGame : MonoBehaviour
     }
     void PlayerAction()
     {
+		HideItem(descriptionBox);
         if (selectedMove == "Pull")
         {
 			bool critical = UnityEngine.Random.Range(0f,1f) < criticalChance;
@@ -188,6 +202,32 @@ public class BattleGame : MonoBehaviour
         {
             LoadMain();
         }
+		else if(selectedMove == "Item")
+		{
+			
+			if (selectedItem.GetItemType() == ItemType.Heal){ // player uses healing item
+				PlayerManager.instance.RemoveItem(selectedItem);
+				inventory.GetComponent<InventoryPopup>().UpdateInventory();
+
+				HealItem item = (HealItem)selectedItem;
+				Fisherman.GainHealth(item.healAmount);
+				Fisherman.UpdateText();
+			}
+			else if(selectedItem.GetItemType() == ItemType.Boost){ // stat boost item
+				PlayerManager.instance.RemoveItem(selectedItem);
+				inventory.GetComponent<InventoryPopup>().UpdateInventory();
+
+				BoostItem item = (BoostItem)selectedItem;
+				Fisherman.SetBoost(item.boostAmount);
+				Fisherman.UpdateText();
+			}
+			else if(selectedItem.GetItemType() == ItemType.Bait){ // used bait
+				
+			}
+			else if(selectedItem.GetItemType() == ItemType.Fish){ // used fish??
+				
+			}
+		}
     }
     bool FishAction(String action)
     {

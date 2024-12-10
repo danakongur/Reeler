@@ -7,7 +7,6 @@ public class BattleItemMenu : MonoBehaviour
 	bool visible = false;
 
 	public void ToggleVisibility(){
-		visible = !visible;
-		gameObject.SetActive(visible);
+		gameObject.SetActive(!gameObject.activeSelf);
 	}
 }

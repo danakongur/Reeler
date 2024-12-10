@@ -108,9 +108,18 @@ public class ShopManager : MonoBehaviour
 
 	public void UpdateCoins(){
 		coinText.text = $"{coinString} {PlayerManager.instance.coins}";
-		
-		for (int i = 0; i < PlayerManager.instance.itemsForSale.Count(); i++){
-			Item item = PlayerManager.instance.itemsForSale[i];
+		List<Item> items = new List<Item>();
+		foreach(var item in PlayerManager.instance.baitForSale){
+			items.Add(item);
+		}
+		foreach(var item in PlayerManager.instance.boostItems){
+			items.Add(item);
+		}
+		foreach(var item in PlayerManager.instance.healItems){
+			items.Add(item);
+		}
+		for (int i = 0; i < items.Count(); i++){
+			Item item = items[i];
 			GameObject itemObj = buttonGameObjects[i];
 			Button itemBut = itemObj.GetComponent<Button>();
 
@@ -313,6 +322,7 @@ public class ShopManager : MonoBehaviour
 		InitItemButtons(PlayerManager.instance.baitForSale, baitGrid);
 		InitItemButtons(PlayerManager.instance.healItems, healGrid);
 		InitItemButtons(PlayerManager.instance.boostItems, boostGrid);
+		UpdateInventory();
 
 		foreach(Item item in PlayerManager.instance.healItems){
 			Debug.Log($"heal item: {item.itemName}");

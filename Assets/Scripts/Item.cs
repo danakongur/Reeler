@@ -25,14 +25,12 @@ public class Item
 		this.price = price;
 		this.itemName = itemName;
 		itemImage = null;
-		this.type = ItemType.Item;
 	}
 
 	public Item(int price, string itemName, Sprite sprite){
 		this.price = price;
 		this.itemName = itemName;
 		itemImage = sprite;
-		this.type = ItemType.Item;
 	}
     public int price;
 	public string itemName;
@@ -43,14 +41,12 @@ public class Item
 
 	public Sprite itemImage;
 
-	protected ItemType type;
-
 	/// <summary>
 	/// Gets the item type of this item
 	/// </summary>
 	/// <returns>ItemType enum instance</returns>
-	public ItemType	GetItemType(){
-		return this.type;
+	public virtual ItemType GetItemType(){
+		return ItemType.Item;
 	}
 
 	/// <summary>
@@ -65,7 +61,10 @@ public class Item
 /// </summary>
 public class FishItem : Item {
 	public FishItem(int price, string itemName, Sprite sprite) : base(price, itemName, sprite){
-		this.type = ItemType.Fish;
+		
+	}
+	public override ItemType GetItemType(){
+		return ItemType.Fish;
 	}
 }
 
@@ -75,31 +74,44 @@ public class BaitItem : Item
 {
     public BaitItem(int price, string itemName, Sprite sprite) : base(price, itemName, sprite)
     {
-        this.type = ItemType.Bait;
 
 
     }
+	public override ItemType GetItemType(){
+		return ItemType.Bait;
+	}
 }
 [Serializable]
 
 public class HealItem : Item
 {
-    public HealItem(int price, string itemName, Sprite sprite) : base(price, itemName, sprite)
+	public int healAmount;
+    public HealItem(int price, string itemName, Sprite sprite, int healAmount) : base(price, itemName, sprite)
     {
-        this.type = ItemType.Heal;
-
-
     }
+	public override ItemType GetItemType(){
+		return ItemType.Heal;
+	}
 }
 [Serializable]
 
 public class BoostItem : Item
-{
-    public BoostItem(int price, string itemName, Sprite sprite) : base(price, itemName, sprite)
+{	
+	public float boostAmount;
+	/// <summary>
+	/// Item that boosts the user's strength
+	/// </summary>
+	/// <param name="price"></param>
+	/// <param name="itemName"></param>
+	/// <param name="sprite"></param>
+	/// <param name="boostAmount">a float multiplier for the strength (for example, 20% -> 1.2)</param>
+	/// <returns></returns>
+    public BoostItem(int price, string itemName, Sprite sprite, float boostAmount) : base(price, itemName, sprite)
     {
-        this.type = ItemType.Boost;
-
-
+		this.boostAmount = boostAmount;
     }
+	public override ItemType GetItemType(){
+		return ItemType.Boost;
+	}
 }
 

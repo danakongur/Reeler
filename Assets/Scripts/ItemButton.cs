@@ -10,7 +10,6 @@ public class ItemButton : MonoBehaviour
     
 	public void ShowDescription() {
 		if(!descriptionBox){
-			Debug.Log($"no description box");
 			return;
 		}
 		descriptionBox.SetActive(true);
@@ -33,7 +32,6 @@ public class ItemButton : MonoBehaviour
 
 	public void HideDescription() {
 		if(!descriptionBox){
-			Debug.Log($"no description box");
 			return;
 		}
 		descriptionBox.SetActive(false);

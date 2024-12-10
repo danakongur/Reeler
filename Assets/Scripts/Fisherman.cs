@@ -14,6 +14,10 @@ public class Fisherman_Animator : MonoBehaviour
     private int health;
     public TextMeshProUGUI reelDescription;
     int debuff = 0;
+	/// <summary>
+	/// The boost currently on the user
+	/// </summary>
+	float boost = 1;
 
     void Start()
     {
@@ -95,5 +99,12 @@ public class Fisherman_Animator : MonoBehaviour
         }
     }
 
+	public void SetBoost(float boost) {
+		float newstr = strength*boost;
+		strength = (int)Mathf.Round(newstr);
+	}
 
+	public void RemoveBoost(){
+		strength = PlayerManager.instance.strength;
+	}
 }
