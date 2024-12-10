@@ -19,11 +19,11 @@ public class BattleGame : MonoBehaviour
     public TextMeshProUGUI reelDescription;
     public GameObject inventory;
 	public TextMeshProUGUI criticalHitText;
-
-	/// <summary>
-	/// Chance of a critical hit (ex. 5% => 0.05)
-	/// </summary>
-	public float criticalChance;
+    private bool gameIsgoing = true;
+    /// <summary>
+    /// Chance of a critical hit (ex. 5% => 0.05)
+    /// </summary>
+    public float criticalChance;
 
     // Start is called before the first frame update
     void Start()
@@ -153,12 +153,18 @@ public class BattleGame : MonoBehaviour
     }
     void FishRetreat()
     {
-        {
-            RevealItem(endInfo.gameObject);
-            HideItem(Fisherman.info.gameObject);
-            HideItem(Fisherman.gameObject);
-            endInfo.title.text = "The " + Fish.name + " Managed to escape!";
-        }
+        RevealItem(endInfo.gameObject);
+        criticalHitText.gameObject.SetActive(false);
+
+        // lose screen image
+        endInfo.reward.sprite = Fish.GetFishObject().fishImage;
+
+        HideItem(Fish.info.gameObject);
+        HideItem(Fish.gameObject);
+        endInfo.title.text = "The " + Fish.name + " Took off";
+        endInfo.description.text = "He got away :o";
+
+        bool gameIsgoing = false;
 
     }
     void PlayerAction()
@@ -183,7 +189,7 @@ public class BattleGame : MonoBehaviour
             LoadMain();
         }
     }
-    void FishAction(String action)
+    bool FishAction(String action)
     {
         Debug.Log(action);
         if (action == "Struggle")
@@ -206,8 +212,15 @@ public class BattleGame : MonoBehaviour
         }
         else
         {
-            Fish.Retreat();
+            
+            bool result=Fish.Retreat();
+            if (result==true)
+            {
+                FishRetreat();
+                return true;
+            }
         }
+        return false;
     }
 
 	private IEnumerator coroutine;
@@ -240,7 +253,7 @@ public class BattleGame : MonoBehaviour
     public IEnumerator TurnSystem()
     {
         Debug.Log("Start");
-        while (true)
+            while (gameIsgoing=true)
         {
             RevealItem(buttons.gameObject);
             // player turn
@@ -279,8 +292,12 @@ public class BattleGame : MonoBehaviour
             Debug.Log("Fish Turn");
             if (Fish.GetHealth() > 0)
             {
-                FishAction(fishAction);
-            }
+                bool fleeSuccess = FishAction(fishAction);
+                if (fleeSuccess == true)
+                {
+                    yield break;
+                }
+            }   
                 // if health player <= 0
                 if (Fisherman.GetHealth() <= 0)
             {

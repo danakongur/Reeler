@@ -79,7 +79,7 @@ public class Fish_Animator : MonoBehaviour
         var nextMove = "";
         var description = "";
         var prob = Random.Range(0,10);
-        if (prob <= 1 && health < maxHealth)
+        if (prob <= 10 && (health < maxHealth || debuff > 0))
         {
             nextMove = "Retreat";
             description = "30% chance of escape";
@@ -133,17 +133,17 @@ public class Fish_Animator : MonoBehaviour
         LoseDebuff();
         UpdateText();
     }
-    public void Retreat()
+    public bool Retreat()
     {
         var prob = Random.Range(0, 10);
         if (prob <= 3)
         {
             Debug.Log("Escape success");
+            return true;
         } else
         {
             Debug.Log("Escape fail");
-
-
+            return false;
         }
     }
 

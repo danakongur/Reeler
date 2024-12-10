@@ -1711,7 +1711,7 @@ MonoBehaviour:
   reelDescription: {fileID: 1066418941}
   inventory: {fileID: 756185608}
   criticalHitText: {fileID: 1436736428}
-  criticalChance: 1
+  criticalChance: 0.1
 --- !u!4 &499200838
 Transform:
   m_ObjectHideFlags: 0
