@@ -57,6 +57,7 @@ MonoBehaviour:
     fishItem:
       price: 0
       itemName: 
+      description: 
       itemImage: {fileID: 0}
       buttonHolder: {fileID: 0}
     fishDescription: {fileID: 0}
@@ -68,6 +69,7 @@ MonoBehaviour:
     fishItem:
       price: 0
       itemName: 
+      description: 
       itemImage: {fileID: 0}
       buttonHolder: {fileID: 0}
     fishDescription: {fileID: 0}
@@ -79,6 +81,7 @@ MonoBehaviour:
     fishItem:
       price: 0
       itemName: 
+      description: 
       itemImage: {fileID: 0}
       buttonHolder: {fileID: 0}
     fishDescription: {fileID: 0}
@@ -90,6 +93,7 @@ MonoBehaviour:
     fishItem:
       price: 0
       itemName: 
+      description: 
       itemImage: {fileID: 0}
       buttonHolder: {fileID: 0}
     fishDescription: {fileID: 0}
@@ -101,6 +105,7 @@ MonoBehaviour:
     fishItem:
       price: 0
       itemName: 
+      description: 
       itemImage: {fileID: 0}
       buttonHolder: {fileID: 0}
     fishDescription: {fileID: 0}
@@ -112,6 +117,7 @@ MonoBehaviour:
     fishItem:
       price: 0
       itemName: 
+      description: 
       itemImage: {fileID: 0}
       buttonHolder: {fileID: 0}
     fishDescription: {fileID: 0}
@@ -123,20 +129,37 @@ MonoBehaviour:
     fishItem:
       price: 0
       itemName: 
+      description: 
       itemImage: {fileID: 0}
       buttonHolder: {fileID: 0}
     fishDescription: {fileID: 0}
     price: 70
-  itemsForSale:
+  baitForSale:
   - price: 17
     itemName: Worm
+    description: A little worm
     itemImage: {fileID: 21300000, guid: e4bc18fbdc120d7a7bea57f530f2c4d0, type: 3}
     buttonHolder: {fileID: 0}
   - price: 13
     itemName: Leech
+    description: An ugly leech
     itemImage: {fileID: 21300000, guid: ad078fb463a167545b10998ad1afe8df, type: 3}
     buttonHolder: {fileID: 0}
   - price: 10
     itemName: Mealworm
+    description: A wiggling mealworm
     itemImage: {fileID: 21300000, guid: 659a3454f71d7be4b9c567b8d863868b, type: 3}
     buttonHolder: {fileID: 0}
+  healItems:
+  - price: 20
+    itemName: Coffee
+    description: Gives you energy
+    itemImage: {fileID: 21300000, guid: c779400086322724cb25085e24c249ac, type: 3}
+    buttonHolder: {fileID: 0}
+  boostItems:
+  - price: 30
+    itemName: Spinach
+    description: Makes you big and strong
+    itemImage: {fileID: 21300000, guid: f1c091f48b8e6dd4eb65a06020bb6033, type: 3}
+    buttonHolder: {fileID: 0}
+  itemsForSale: []
