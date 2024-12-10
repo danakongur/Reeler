@@ -102,6 +102,7 @@ public class BattleGame : MonoBehaviour
     public void Win()
     {
         RevealItem(endInfo.gameObject);
+		criticalHitText.gameObject.SetActive(false);
 
 		// win screen image
 		endInfo.reward.sprite = Fish.GetFishObject().fishImage;
@@ -110,12 +111,15 @@ public class BattleGame : MonoBehaviour
         HideItem(Fish.gameObject);
         endInfo.title.text = "You Beat up the " + Fish.name + "...";
         endInfo.description.text = "Gain 2 coins";
+
+		// Adds fish to inventory
 		PlayerManager.instance.CatchFish(this.Fish.GetFishObject());
 		PlayerManager.instance.coins += 2;
     }
     public void Lose()
     {
         RevealItem(endInfo.gameObject);
+		criticalHitText.gameObject.SetActive(false);
 
 		// lose screen image
 		endInfo.reward.sprite = Fish.GetFishObject().fishImage;
@@ -163,8 +167,11 @@ public class BattleGame : MonoBehaviour
         {
 			bool critical = UnityEngine.Random.Range(0f,1f) < criticalChance;
 			if (critical){
-				// do some critical behavior here
+				coroutine = CriticalHit(new Vector2(200f,85f));
+
+				StartCoroutine(coroutine);
 			}
+			Debug.Log($"critical status player: {critical}");
             Fisherman.Pull(critical);
         }
         else if (selectedMove == "Reel")
@@ -182,11 +189,11 @@ public class BattleGame : MonoBehaviour
         if (action == "Struggle")
         {
 			bool critical = UnityEngine.Random.Range(0f,1f) < criticalChance;
-			Debug.Log("Fish critical hit!");
+			if (critical) {
+				coroutine = CriticalHit(new Vector2(-200f,85f));
 
-			coroutine = CriticalHit();
-
-			StartCoroutine(coroutine);
+				StartCoroutine(coroutine);
+			}
             Fish.Struggle(critical);    
         }
         else if (action == "Absorb Nutrients")
@@ -200,9 +207,24 @@ public class BattleGame : MonoBehaviour
 
 	private IEnumerator coroutine;
 
-	public IEnumerator CriticalHit() {
-		Debug.Log("critical hit text something");
-		yield return new WaitForSeconds(1);
+	/// <summary>
+	/// Makes the critical hit text appear and then fade out
+	/// </summary>
+	/// <param name="pos">(local) position to show it at</param>
+	public IEnumerator CriticalHit(Vector2 pos) {
+		int duration = 20;
+		
+		criticalHitText.alpha = 1f;
+		
+		criticalHitText.rectTransform.localPosition = pos;
+		criticalHitText.gameObject.SetActive(true);
+		yield return new WaitForSeconds(2f);
+		for (int i = 0; i < duration; i++){
+			yield return new WaitForSeconds(0.1f);
+			criticalHitText.alpha = 1f-(((float)i)/((float)duration));
+		}
+		criticalHitText.gameObject.SetActive(false);
+		criticalHitText.alpha = 1f;
 	}
 
     void Update()
