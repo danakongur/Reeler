@@ -79,7 +79,7 @@ public class Fish_Animator : MonoBehaviour
         var nextMove = "";
         var description = "";
         var prob = Random.Range(0,10);
-        if (prob <= 10 && (health < maxHealth || debuff > 0))
+        if (prob <= 1 && (health < maxHealth || debuff > 0))
         {
             nextMove = "Retreat";
             description = "30% chance of escape";
