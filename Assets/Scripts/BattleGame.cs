@@ -200,7 +200,12 @@ public class BattleGame : MonoBehaviour
         {
             Fish.Absorb();
         }
-        else {
+        else if (action == "Cleanse")
+        {
+            Fish.Cleanse();
+        }
+        else
+        {
             Fish.Retreat();
         }
     }

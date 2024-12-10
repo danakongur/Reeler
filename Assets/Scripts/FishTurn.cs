@@ -48,14 +48,21 @@ public class Fish_Animator : MonoBehaviour
     {
         info.healthText.text = health.ToString() + "/" + maxHealth.ToString();
         info.healthBar.fillAmount = health / (float)maxHealth;
-        if (debuff > 0)
+        info.debuffText.text = ((int) debuff*100/5).ToString()+"%";
+        info.attackText.text = ((int) (strength - ((strength * debuff) / 5))).ToString();
+        if (debuff > 0) 
         {
-            info.attackText.text = strength.ToString() + " - " + debuff.ToString();
-        }
-        else
+            info.attackText.color = Color.red;
+            info.debuffImage.gameObject.SetActive(true);
+
+        } else
         {
-            info.attackText.text = strength.ToString();
+            info.attackText.color = Color.white;
+            info.debuffImage.gameObject.SetActive(false);
+
         }
+        //info.attackText.text = strength.ToString() + " - " + debuff.ToString();
+
     }
     public int GetHealth()
     {
@@ -113,7 +120,16 @@ public class Fish_Animator : MonoBehaviour
     }
     public void Absorb()
     {
-        GainHealth(other.strength/2);
+        var minAmount = other.strength;
+        var maxAmount = other.strength / 2 + strength / 2;
+        int healAmount = (int) Random.Range(minAmount, maxAmount)+1;
+
+        GainHealth(healAmount);
+        UpdateText();
+    }
+
+    public void Cleanse()
+    {
         LoseDebuff();
         UpdateText();
     }
