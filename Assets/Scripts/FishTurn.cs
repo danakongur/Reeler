@@ -48,8 +48,8 @@ public class Fish_Animator : MonoBehaviour
     {
         info.healthText.text = health.ToString() + "/" + maxHealth.ToString();
         info.healthBar.fillAmount = health / (float)maxHealth;
-        info.debuffText.text = ((int) debuff*100/5).ToString()+"%";
-        info.attackText.text = ((int) (strength - ((strength * debuff) / 5))).ToString();
+        info.debuffText.text = ((int) debuff*100/4).ToString()+"%";
+        info.attackText.text = ((int) (strength - ((strength * debuff) / 4))).ToString();
         if (debuff > 0) 
         {
             info.attackText.color = Color.red;
@@ -111,7 +111,7 @@ public class Fish_Animator : MonoBehaviour
 		if (critical) {
 			mod = 1.5f;
 		}
-		int predamage = strength - ((strength * debuff) / 5);
+		int predamage = strength - ((strength * debuff) / 4);
 		float randDMG = Random.Range(0.85f,1f);
 		int damage = (int)Mathf.Round(mod*(predamage*randDMG));
 		Debug.Log($"Fish does {mod*(predamage*randDMG)} damage");
