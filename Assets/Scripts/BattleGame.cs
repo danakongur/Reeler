@@ -18,11 +18,12 @@ public class BattleGame : MonoBehaviour
     public EndResultInfo endInfo;
     public TextMeshProUGUI reelDescription;
     public GameObject inventory;
-
-	/// <summary>
-	/// Chance of a critical hit (ex. 5% => 0.05)
-	/// </summary>
-	public float criticalChance;
+	public TextMeshProUGUI criticalHitText;
+    private bool gameIsgoing = true;
+    /// <summary>
+    /// Chance of a critical hit (ex. 5% => 0.05)
+    /// </summary>
+    public float criticalChance;
 
     // Start is called before the first frame update
     void Start()
@@ -50,7 +51,6 @@ public class BattleGame : MonoBehaviour
         {
                 pressed = true;
                 selectedMove = "Pull";
-                Debug.Log("Pull button pressed");
                 
         }
     }
@@ -61,7 +61,6 @@ public class BattleGame : MonoBehaviour
             {
                 pressed = true;
                 selectedMove = "Reel";
-                Debug.Log("Reel button pressed");
 
         }
     }
@@ -70,7 +69,6 @@ public class BattleGame : MonoBehaviour
         //if (pressed == false)
             //pressed = true; // when you have selected an item
             //selectedMove = "Reel";
-            Debug.Log("Item button pressed");
 
     }
 
@@ -93,7 +91,6 @@ public class BattleGame : MonoBehaviour
         {
             pressed = true;
             selectedMove = "Flee";
-            Debug.Log("Reel button pressed");
 
         }
 
@@ -105,6 +102,7 @@ public class BattleGame : MonoBehaviour
     public void Win()
     {
         RevealItem(endInfo.gameObject);
+		criticalHitText.gameObject.SetActive(false);
 
 		// win screen image
 		endInfo.reward.sprite = Fish.GetFishObject().fishImage;
@@ -113,17 +111,19 @@ public class BattleGame : MonoBehaviour
         HideItem(Fish.gameObject);
         endInfo.title.text = "You Beat up the " + Fish.name + "...";
         endInfo.description.text = "Gain 2 coins";
+
+		// Adds fish to inventory
 		PlayerManager.instance.CatchFish(this.Fish.GetFishObject());
 		PlayerManager.instance.coins += 2;
     }
     public void Lose()
     {
         RevealItem(endInfo.gameObject);
+		criticalHitText.gameObject.SetActive(false);
 
 		// lose screen image
 		endInfo.reward.sprite = Fish.GetFishObject().fishImage;
         
-        Debug.Log(Fisherman.GetHealth());
         HideItem(Fisherman.info.gameObject);
         HideItem(Fisherman.gameObject);
         endInfo.title.text = "The " + Fish.name + " Beat you up!";
@@ -153,12 +153,18 @@ public class BattleGame : MonoBehaviour
     }
     void FishRetreat()
     {
-        {
-            RevealItem(endInfo.gameObject);
-            HideItem(Fisherman.info.gameObject);
-            HideItem(Fisherman.gameObject);
-            endInfo.title.text = "The " + Fish.name + " Managed to escape!";
-        }
+        RevealItem(endInfo.gameObject);
+        criticalHitText.gameObject.SetActive(false);
+
+        // lose screen image
+        endInfo.reward.sprite = Fish.GetFishObject().fishImage;
+
+        HideItem(Fish.info.gameObject);
+        HideItem(Fish.gameObject);
+        endInfo.title.text = "The " + Fish.name + " Took off";
+        endInfo.description.text = "He got away :o";
+
+        bool gameIsgoing = false;
 
     }
     void PlayerAction()
@@ -167,8 +173,11 @@ public class BattleGame : MonoBehaviour
         {
 			bool critical = UnityEngine.Random.Range(0f,1f) < criticalChance;
 			if (critical){
-				// do some critical behavior here
+				coroutine = CriticalHit(new Vector2(200f,85f));
+
+				StartCoroutine(coroutine);
 			}
+			Debug.Log($"critical status player: {critical}");
             Fisherman.Pull(critical);
         }
         else if (selectedMove == "Reel")
@@ -180,23 +189,61 @@ public class BattleGame : MonoBehaviour
             LoadMain();
         }
     }
-    void FishAction(String action)
+    bool FishAction(String action)
     {
         Debug.Log(action);
         if (action == "Struggle")
         {
 			bool critical = UnityEngine.Random.Range(0f,1f) < criticalChance;
+			if (critical) {
+				coroutine = CriticalHit(new Vector2(-200f,85f));
+
+				StartCoroutine(coroutine);
+			}
             Fish.Struggle(critical);    
         }
         else if (action == "Absorb Nutrients")
         {
             Fish.Absorb();
         }
-        else {
-            Fish.Retreat();
+        else if (action == "Cleanse")
+        {
+            Fish.Cleanse();
         }
+        else
+        {
+            
+            bool result=Fish.Retreat();
+            if (result==true)
+            {
+                FishRetreat();
+                return true;
+            }
+        }
+        return false;
     }
 
+	private IEnumerator coroutine;
+
+	/// <summary>
+	/// Makes the critical hit text appear and then fade out
+	/// </summary>
+	/// <param name="pos">(local) position to show it at</param>
+	public IEnumerator CriticalHit(Vector2 pos) {
+		int duration = 20;
+		
+		criticalHitText.alpha = 1f;
+		
+		criticalHitText.rectTransform.localPosition = pos;
+		criticalHitText.gameObject.SetActive(true);
+		yield return new WaitForSeconds(2f);
+		for (int i = 0; i < duration; i++){
+			yield return new WaitForSeconds(0.1f);
+			criticalHitText.alpha = 1f-(((float)i)/((float)duration));
+		}
+		criticalHitText.gameObject.SetActive(false);
+		criticalHitText.alpha = 1f;
+	}
 
     void Update()
     {
@@ -206,7 +253,7 @@ public class BattleGame : MonoBehaviour
     public IEnumerator TurnSystem()
     {
         Debug.Log("Start");
-        while (true)
+            while (gameIsgoing=true)
         {
             RevealItem(buttons.gameObject);
             // player turn
@@ -245,8 +292,12 @@ public class BattleGame : MonoBehaviour
             Debug.Log("Fish Turn");
             if (Fish.GetHealth() > 0)
             {
-                FishAction(fishAction);
-            }
+                bool fleeSuccess = FishAction(fishAction);
+                if (fleeSuccess == true)
+                {
+                    yield break;
+                }
+            }   
                 // if health player <= 0
                 if (Fisherman.GetHealth() <= 0)
             {

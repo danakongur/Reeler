@@ -11,6 +11,9 @@ public class PlayerManager : MonoBehaviour
 {	
 	public int startcoins;
 	public int coins;
+	public int maxHealth;
+	public int health;
+	public int strength;
 	public static PlayerManager instance;
 
 	/// <summary>
@@ -20,6 +23,9 @@ public class PlayerManager : MonoBehaviour
 
 	public Fish[] availableFish;
 
+	public BaitItem[] baitForSale;
+	public HealItem[] healItems;
+	public BoostItem[] boostItems;
 	public Item[] itemsForSale;
 
 	
@@ -35,10 +41,12 @@ public class PlayerManager : MonoBehaviour
 		instance = this;
 		DontDestroyOnLoad(gameObject);
 		items = new Dictionary<Item, int>{
-			[itemsForSale[0]] = 1
+			[baitForSale[0]] = 1
 		};
 
 		coins = startcoins;
+
+		health = maxHealth;
 
 		caughtFish = new Dictionary<Fish, bool>();
 

@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 5837950242956524007}
   - component: {fileID: 8180472510293591917}
   - component: {fileID: 257351077643899365}
+  - component: {fileID: 3776540953262932086}
+  - component: {fileID: 1561671187159005446}
   m_Layer: 5
   m_Name: ItemButton
   m_TagString: Untagged
@@ -122,6 +124,70 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3776540953262932086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551221938108910858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1561671187159005446}
+          m_TargetAssemblyTypeName: ItemButton, Assembly-CSharp
+          m_MethodName: ShowDescription
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1561671187159005446}
+          m_TargetAssemblyTypeName: ItemButton, Assembly-CSharp
+          m_MethodName: HideDescription
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1561671187159005446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551221938108910858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cabf6274814da4048aa9ce8dae588e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item:
+    price: 0
+    itemName: 
+    description: 
+    itemImage: {fileID: 0}
+    buttonHolder: {fileID: 0}
+  descriptionBox: {fileID: 0}
 --- !u!1 &5459503947284899152
 GameObject:
   m_ObjectHideFlags: 0

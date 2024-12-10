@@ -22,12 +22,14 @@ public class Fisherman_Animator : MonoBehaviour
         //playerHealth = playerInfo.transform.Find("Health").GetComponent<TextMeshProUGUI>();
 
         info.nameText.text = name;
-        health = maxHealth;
+        health = PlayerManager.instance.health;
+		maxHealth = PlayerManager.instance.maxHealth;
+		strength = PlayerManager.instance.strength;
         UpdateText();
     }
     public int GetHealth()
     {
-        return health;
+        return PlayerManager.instance.health;
     }
     public void Pull(bool critical) {
 		float mod;
@@ -37,7 +39,11 @@ public class Fisherman_Animator : MonoBehaviour
 		else {
 			mod = 1f;
 		}
-        other.LoseHealth((int)Mathf.Round((strength-debuff)*mod)); // multiply by crticial modifier (rounded to nearest integer)
+		int predamage = strength-debuff;
+		float randDMG = Random.Range(0.85f,1f);
+		int damage = (int)Mathf.Round(mod*(predamage*randDMG));
+		Debug.Log($"Fisherman does {mod*(predamage*randDMG)} damage");
+        other.LoseHealth(damage); // multiply by crticial modifier and damage randomness (rounded to nearest integer)
         other.UpdateText();
     }
     public void Reel()
@@ -51,7 +57,8 @@ public class Fisherman_Animator : MonoBehaviour
     }
     // Update is called once per frame
     public void UpdateText()
-    {
+    {	
+		health = PlayerManager.instance.health;
         info.healthText.text = health.ToString() + "/" + maxHealth.ToString();
         info.healthBar.fillAmount = health / (float)maxHealth;
         if (debuff > 0)
@@ -62,15 +69,16 @@ public class Fisherman_Animator : MonoBehaviour
         {
             info.attackText.text = strength.ToString();
         }
-		Debug.Log($"fish debuff {other.debuff}, {debuff}");
     }
     public void LoseHealth(int otherAttack)
     {
-        health -= otherAttack - debuff;
+        //health -= otherAttack - debuff;
+		PlayerManager.instance.health -= otherAttack - debuff;
     }
     public void GainHealth(int healAmount)
     {
-        health += healAmount;
+        //health += healAmount;
+		PlayerManager.instance.health += healAmount;
     }
     public void LoseDebuff()
     {

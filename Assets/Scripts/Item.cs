@@ -6,7 +6,9 @@ using UnityEngine;
 public enum ItemType {
 	Item,
 	Bait,
-	Fish
+	Fish,
+    Boost,
+    Heal
 }
 
 [Serializable]
@@ -34,6 +36,10 @@ public class Item
 	}
     public int price;
 	public string itemName;
+	/// <summary>
+	/// Item's description
+	/// </summary>
+	public string description;
 
 	public Sprite itemImage;
 
@@ -65,11 +71,35 @@ public class FishItem : Item {
 
 [Serializable]
 
-public class BaitItem : Item {
-	public BaitItem(int price, string itemName, Sprite sprite) : base(price, itemName, sprite) {
-		this.type = ItemType.Bait;
+public class BaitItem : Item
+{
+    public BaitItem(int price, string itemName, Sprite sprite) : base(price, itemName, sprite)
+    {
+        this.type = ItemType.Bait;
 
-		
-	}
+
+    }
+}
+[Serializable]
+
+public class HealItem : Item
+{
+    public HealItem(int price, string itemName, Sprite sprite) : base(price, itemName, sprite)
+    {
+        this.type = ItemType.Heal;
+
+
+    }
+}
+[Serializable]
+
+public class BoostItem : Item
+{
+    public BoostItem(int price, string itemName, Sprite sprite) : base(price, itemName, sprite)
+    {
+        this.type = ItemType.Boost;
+
+
+    }
 }
 
