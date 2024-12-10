@@ -81,19 +81,19 @@ public class Fish_Animator : MonoBehaviour
         else if (prob <= 3 && (health < maxHealth))
         {
             nextMove = "Absorb Nutrients";
-            description = "(Heals: " + other.strength +")";
+            description = $"(Heals: {other.strength})";
         }
         else if (prob <= 4 && debuff > 0)
         {
             nextMove = "Cleanse";
-            description = "(removes 1 Weakened from"+name+")";
+			description = $"(removes 1 Weakened from {name})";
         }
         else
         {
             nextMove = "Struggle";
-            description = "(Does " + strength + " DMG)";
+			description = $"(Does {strength} DMG)";
         }
-        info.predictionText.text = name + " will attempt to " + nextMove + " " + description;
+		info.predictionText.text = $"{name} will attempt to {nextMove} {description}";
         return nextMove;
 
 
@@ -104,7 +104,7 @@ public class Fish_Animator : MonoBehaviour
 		if (critical) {
 			mod = 1.5f;
 		}
-		int predamage = (strength - ((strength * debuff) / 5));
+		int predamage = strength - ((strength * debuff) / 5);
 		float randDMG = Random.Range(0.85f,1f);
 		int damage = (int)Mathf.Round(mod*(predamage*randDMG));
 		Debug.Log($"Fish does {mod*(predamage*randDMG)} damage");
