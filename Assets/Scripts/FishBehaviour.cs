@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class FishBehaviour: MonoBehaviour
+public class FishBehaviour : MonoBehaviour
 {
     public Image caughtFishImage; // The actual fish image
     public Image questionMarkImage; // The question mark image
@@ -15,25 +15,35 @@ public class FishBehaviour: MonoBehaviour
     public GameObject infoBoxPanel; // Reference to the InfoBoxPanel
 
 
-void Awake(){
+    void Awake()
+    {
         infoBoxPanel = GameObject.Find("InfoBoxPanel"); // Find the InfoBoxPanel
 
-}
-    void Update()
+  
+    }
+
+    void Start()
     {
-        UpdateFishImage();
-        fishName.SetActive(false); // Hide the fish name initially
+        infoBoxPanel.SetActive(false);
 
-        if(infoBoxPanel.activeSelf == true){
-            infoBoxPanel.SetActive(false); // Hide the InfoBoxPanel initially
-        }
-
-        // Set up the button's onClick listener
         Button itemBut = gameObject.GetComponent<Button>();
         if (itemBut)
         {
             itemBut.onClick.AddListener(OnFishClicked);
         }
+
+    }
+    void Update()
+    {
+        UpdateFishImage();
+        //fishName.SetActive(false); // Hide the fish name initially
+
+        //if(infoBoxPanel.activeSelf == true){
+        //infoBoxPanel.SetActive(false); // Hide the InfoBoxPanel initially
+        //}
+
+        // Set up the button's onClick listener
+
     }
 
     public void CatchFish()
@@ -61,18 +71,22 @@ void Awake(){
 
     private void OnFishClicked()
     {
-
-
-        if (infoBoxPanel.activeSelf)
+        if (infoBoxPanel.activeSelf == false && isCaught == true)
         {
-            //infoBoxPanel.SetActive(false);
-            fishDescriptionTextComponent.text = ""; // Hide the description
+           infoBoxPanel.SetActive(true);
+           InfoboxBehavior infoBox = infoBoxPanel.GetComponent<InfoboxBehavior>();
+           infoBox.fishNameTextComponent.text = "Name: " + fish.name;
+           infoBox.fishSellValueTextComponent.text = "Sell Value: " + fish.price.ToString(); // Show the description
+           infoBox.fishHabitatTextComponent.text = "Habitat: " + fish.fishDescription.habitat;
+           infoBox.fishDietTextComponent.text = "Diet: " + fish.fishDescription.diet;
+           infoBox.fishBehaviorTextComponent.text = "Behavior: " + fish.fishDescription.behavior;
+           infoBox.fishConservationStatusTextComponent.text = "Conservation Status: " + fish.fishDescription.conservationStatus;
         }
         else
         {
             //infoBoxPanel.SetActive(true);
-            fishNameTextComponent.text = fish.name;
-            fishDescriptionTextComponent.text = GetComponent<FishDescription>().sellValue.ToString(); // Show the description
+            //fishNameTextComponent.text = fish.name;
+            //fishDescriptionTextComponent.text = GetComponent<FishDescription>().sellValue.ToString(); // Show the description
         }
     }
 }
