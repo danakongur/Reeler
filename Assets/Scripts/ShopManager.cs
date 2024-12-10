@@ -7,6 +7,7 @@ using Unity.VisualScripting;
 
 //using System.Numerics;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class ShopManager : MonoBehaviour
@@ -25,6 +26,10 @@ public class ShopManager : MonoBehaviour
 
 	GameObject itemMenuBackground;
 
+	public GameObject baitGrid;
+	public GameObject healGrid;
+	public GameObject boostGrid;
+
 	public Sprite sampleSprite;
 
 	public Sprite leechSprite;
@@ -32,6 +37,8 @@ public class ShopManager : MonoBehaviour
 
 	private List<Item> inventoryItems;
 	List<GameObject> inventorybuttonObjects;
+
+	public GameObject descriptionBox;
 
 	/// <summary>
 	/// Subtract from user's coins
@@ -116,6 +123,14 @@ public class ShopManager : MonoBehaviour
 				itemBut.image.color = new Color(1.0f, 1f, 1f);
 			}
 		}
+	}
+
+	public void ShowDescription(Item item){
+
+	}
+
+	public void HideDescription(){
+		descriptionBox.SetActive(false);
 	}
 
 	/// <summary>
@@ -204,20 +219,13 @@ public class ShopManager : MonoBehaviour
 
 	}
 
-	void Awake() {
-		buttonGameObjects = new List<GameObject>();
-		inventoryItems = new List<Item>();
-		inventorybuttonObjects = new List<GameObject>();
-	}
-
-	void Start() {
-		// START DEBUG STATEMENTS
-		/*foreach (Fish fish in PlayerManager.instance.availableFish){
-			PlayerManager.instance.CatchFish(fish);
-		}*/
-		// END DEBUG STATEMENTS
-
-		itemMenuBackground = GameObject.Find("BuyItems");
+	/// <summary>
+	/// Initialize the item buttons in grid
+	/// </summary>
+	/// <param name="arr">array of items to use</param>
+	/// <param name="gridSection">grid to put items in</param>
+	void InitItemButtons(Item[] arr, GameObject gridSection) {
+		itemMenuBackground = gridSection;
 
 		boughtText.text = "";
 
@@ -240,12 +248,14 @@ public class ShopManager : MonoBehaviour
 		else {
 			Debug.Log("could not find canvas scaler");
 		}
-
 		// Place button for each available item
-		foreach (Item item in PlayerManager.instance.itemsForSale){
+		foreach (Item item in arr){
+			Debug.Log($"item {item.itemName}");
 			GameObject itemObj = Instantiate(itemButtonPrefab);
 			itemObj.transform.SetParent(itemMenuBackground.transform);
 			itemObj.GetComponent<RectTransform>().localScale = Vector3.one;
+			itemObj.GetComponent<ItemButton>().item = item;
+			itemObj.GetComponent<ItemButton>().descriptionBox = descriptionBox;
 
 			// Set text to item name
 			TMPro.TMP_Text tx = itemObj.transform.GetChild(1).GetComponent<TMPro.TMP_Text>();
@@ -277,6 +287,7 @@ public class ShopManager : MonoBehaviour
 				itemBut.onClick.AddListener(delegate {
 					Buy(item);
 				});
+				
 			}
 			else {
 				Debug.Log($"Finding button component of item {item.itemName} returned null");
@@ -284,59 +295,31 @@ public class ShopManager : MonoBehaviour
 
 			buttonGameObjects.Add(itemObj);
 		}
+	}
 
-		/*inventoryItems = new List<Item>();
+	void Awake() {
+		buttonGameObjects = new List<GameObject>();
+		inventoryItems = new List<Item>();
 		inventorybuttonObjects = new List<GameObject>();
-		GameObject inventoryContent = GameObject.Find("InventoryContent");
-		GridLayoutGroup inventoryGrid = inventoryContent.GetComponent<GridLayoutGroup>();
+	}
 
-		Vector2 invGridSize;
-		if (inventoryGrid) {
-			invGridSize = inventoryGrid.cellSize;
-		}
-		else {
-			invGridSize = new Vector2(50f,50f);
-			Debug.Log("Couldn't get inventory cell size");
-		}
-
-		// go through inventory and add
-		foreach (KeyValuePair<Item,int> entry in PlayerManager.instance.items){
-			Item item = entry.Key;
-			int count = entry.Value;
-			inventoryItems.Add(item);
-			GameObject itemObj = Instantiate(itemButtonPrefab);
-			itemObj.transform.SetParent(inventoryContent.transform);
-
-			TMPro.TMP_Text tx = itemObj.transform.GetChild(1).GetComponent<TMPro.TMP_Text>();
-			tx.text = $"{item.itemName}\n{item.price}c\n{count}x";
-
-			Button itemBut = itemObj.GetComponent<Button>();
-			
-
-			// setting the sprite for the object
-			Image buttonImage = itemBut.transform.Find("Icon").GetComponent<Image>();
-			if (buttonImage) {
-				buttonImage.rectTransform.sizeDelta = new Vector2(40f,40f); // TODO: this should not be hardcoded
-			}
-			if (item.itemImage && buttonImage) {
-				buttonImage.sprite = item.itemImage;
-			}
-			else if (buttonImage) {
-				buttonImage.sprite = null;
-				buttonImage.color = new Color(1f,1f,1f,0f);
-			}	
+	void Start() {
+		// START DEBUG STATEMENTS
+		/*foreach (Fish fish in PlayerManager.instance.availableFish){
+			PlayerManager.instance.CatchFish(fish);
 		}*/
-		UpdateInventory();
+		// END DEBUG STATEMENTS
 
-		UpdateCoins();
+		InitItemButtons(PlayerManager.instance.baitForSale, baitGrid);
+		InitItemButtons(PlayerManager.instance.healItems, healGrid);
+		InitItemButtons(PlayerManager.instance.boostItems, boostGrid);
 
-
-		// everything here is for testing purposes
-		/*foreach(Item item in itemsForSale){ 
-			PlayerManager.instance.AddItem(item);
+		foreach(Item item in PlayerManager.instance.healItems){
+			Debug.Log($"heal item: {item.itemName}");
 		}
-		bool val = PlayerManager.instance.RemoveItem(itemsForSale.First());
-		PlayerManager.instance.PrintItems();*/
+		foreach(Item item in PlayerManager.instance.boostItems){
+			Debug.Log($"boost item: {item.itemName}");
+		}
 	}
 
 	public void LoadMain(){

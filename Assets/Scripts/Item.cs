@@ -36,6 +36,10 @@ public class Item
 	}
     public int price;
 	public string itemName;
+	/// <summary>
+	/// Item's description
+	/// </summary>
+	public string description;
 
 	public Sprite itemImage;
 
