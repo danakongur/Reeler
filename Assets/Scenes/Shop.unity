@@ -1023,7 +1023,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 360.8945, y: -28.005}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 287.13, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &513729272
 MonoBehaviour:
@@ -1607,7 +1607,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 192295870}
   m_HandleRect: {fileID: 192295869}
   m_Direction: 0
-  m_Value: 1.0000155
+  m_Value: -0.00000057467236
   m_Size: 0.9264268
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -3073,7 +3073,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -387.4474, y: 440}
+  m_AnchoredPosition: {x: -334.34225, y: 440}
   m_SizeDelta: {x: 721.789, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1543150024
@@ -3752,7 +3752,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Increase health by 2
+  m_text: 'Increase maximum health by 2
+
+    currently X'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3961,7 +3963,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Increase damage by 1
+  m_text: Increase damage dealt by 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
