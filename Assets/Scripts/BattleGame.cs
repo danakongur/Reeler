@@ -28,13 +28,25 @@ public class BattleGame : MonoBehaviour
     /// </summary>
     public float criticalChance;
 
+	IEnumerator playercritcoroutine;
+	IEnumerator fishcritcoroutine;
+
+	TMP_Text pullButtonDescription;
+
     // Start is called before the first frame update
     void Start()
     {
+		playercritcoroutine = CriticalHit(new Vector2(200f,85f));
+		fishcritcoroutine = CriticalHit(new Vector2(-200f,85f));
         StartCoroutine(TurnSystem());
         buttons.pull.onClick.AddListener(Pull); //() => { pressed = true; }
         buttons.reel.onClick.AddListener(Reel); //() => { pressed = true; }
         buttons.flee.onClick.AddListener(Flee); //() => { pressed = true; }
+
+		pullButtonDescription = buttons.pull.transform.GetChild(0).GetChild(0).GetComponent<TMP_Text>();
+		int mindmg = Mathf.RoundToInt(PlayerManager.instance.strength*PlayerManager.instance.minchance);
+		int maxdmg= Mathf.RoundToInt(PlayerManager.instance.strength*PlayerManager.instance.maxchance);
+		pullButtonDescription.text = $"Deal between {mindmg} and {maxdmg} damage";
 
 		// Setting the function to call when item button is pressed
 		InventoryPopup popupscript = inventory.GetComponent<InventoryPopup>();
@@ -82,7 +94,6 @@ public class BattleGame : MonoBehaviour
 	/// <param name="item">Item that was clicked</param>
 	void ItemClicked(Item item){
 		if (pressed == false) {
-			Debug.Log($"item clicked yay");
 			pressed = true;
 			selectedMove = "Item";
 			selectedItem = item;
@@ -128,7 +139,7 @@ public class BattleGame : MonoBehaviour
 		// Adds fish to inventory
 		PlayerManager.instance.CatchFish(this.Fish.GetFishObject());
 		PlayerManager.instance.coins += 2;
-		Debug.Log($"new health: {(int)Mathf.Round(PlayerManager.instance.health + (healmod*PlayerManager.instance.maxHealth))}, max health:{PlayerManager.instance.maxHealth}");
+		
 		int newhealth = Mathf.Min((int)Mathf.Round(PlayerManager.instance.health + (healmod*PlayerManager.instance.maxHealth)), PlayerManager.instance.maxHealth);
 		StartCoroutine(Fisherman.AnimateHealthBar(PlayerManager.instance.health, newhealth, 1f));
 		PlayerManager.instance.health = newhealth;
@@ -192,11 +203,11 @@ public class BattleGame : MonoBehaviour
         {
 			bool critical = UnityEngine.Random.Range(0f,1f) < criticalChance;
 			if (critical){
-				coroutine = CriticalHit(new Vector2(200f,85f));
-
-				StartCoroutine(coroutine);
+				StopCoroutine(fishcritcoroutine);
+				if (playercritcoroutine != null) StopCoroutine(playercritcoroutine);
+				playercritcoroutine = CriticalHit(new Vector2(200f,85f));
+				StartCoroutine(playercritcoroutine);
 			}
-			Debug.Log($"critical status player: {critical}");
             Fisherman.Pull(critical);
         }
         else if (selectedMove == "Reel")
@@ -232,6 +243,10 @@ public class BattleGame : MonoBehaviour
 			else if(selectedItem.GetItemType() == ItemType.Fish){ // used fish??
 				
 			}
+			
+			int mindmg = Mathf.RoundToInt(Fisherman.strength*PlayerManager.instance.minchance);
+			int maxdmg = Mathf.RoundToInt(Fisherman.strength*PlayerManager.instance.maxchance);
+			pullButtonDescription.text = $"Deal {mindmg} to {maxdmg} damage";
 		}
     }
     void FishIcon(String action)
@@ -268,9 +283,10 @@ public class BattleGame : MonoBehaviour
         {
 			bool critical = UnityEngine.Random.Range(0f,1f) < criticalChance;
 			if (critical) {
-				coroutine = CriticalHit(new Vector2(-200f,85f));
-
-				StartCoroutine(coroutine);
+				StopCoroutine(playercritcoroutine);
+				if (fishcritcoroutine != null) StopCoroutine(fishcritcoroutine);
+				fishcritcoroutine = CriticalHit(new Vector2(-200f,85f));
+				StartCoroutine(fishcritcoroutine);
 			}
             Fish.Struggle(critical);    
         }
@@ -302,12 +318,15 @@ public class BattleGame : MonoBehaviour
 	/// </summary>
 	/// <param name="pos">(local) position to show it at</param>
 	public IEnumerator CriticalHit(Vector2 pos) {
-		int duration = 20;
+		Debug.Log($"start crit coroutine pos:{pos}");
+		int duration = 10;
 		
 		criticalHitText.alpha = 1f;
 		
 		criticalHitText.rectTransform.localPosition = pos;
+
 		criticalHitText.gameObject.SetActive(true);
+
 		yield return new WaitForSeconds(2f);
 		for (int i = 0; i < duration; i++){
 			yield return new WaitForSeconds(0.1f);
@@ -333,7 +352,7 @@ public class BattleGame : MonoBehaviour
             Debug.Log("Player Turn");
             var fishAction = Fish.Predict();
             FishIcon(fishAction);
-            reelDescription.text = "Add 1 debuff" + "\n" + "(" + Fish.debuff + " / " + (Fish.strength - 1) + ")";
+            reelDescription.text = "Add 1 debuff" + "\n" + "(" + Fish.debuff + " / " + (Fish.GetMaxDebuff()) + ")";
             while (pressed == false)
             {
                 yield return null;

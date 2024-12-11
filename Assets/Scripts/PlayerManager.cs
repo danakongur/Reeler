@@ -31,6 +31,9 @@ public class PlayerManager : MonoBehaviour
 	public BoostItem[] boostItems;
 	public Item[] itemsForSale;
 
+	public float minchance;
+	public float maxchance;
+
 	
 
 	private Dictionary<Fish,bool> caughtFish;
