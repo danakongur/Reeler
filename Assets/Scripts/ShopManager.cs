@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -40,6 +41,9 @@ public class ShopManager : MonoBehaviour
 
 	public GameObject descriptionBox;
 
+	public Button healthUpgradeButton;
+	public Button strengthUpgradeButton;
+
 	/// <summary>
 	/// Subtract from user's coins
 	/// </summary>
@@ -48,6 +52,7 @@ public class ShopManager : MonoBehaviour
 		PlayerManager.instance.coins = PlayerManager.instance.coins-price;
 		Debug.Log($"Bought for {price}. Current balance {PlayerManager.instance.coins}");
 		UpdateCoins();
+		UpdateUpgradeButtons();
 	}
 
 	private IEnumerator coroutine;
@@ -60,6 +65,7 @@ public class ShopManager : MonoBehaviour
 		if(PlayerManager.instance.coins-item.price >= 0){
 			PlayerManager.instance.coins = PlayerManager.instance.coins-item.price;
 			UpdateCoins();
+			UpdateUpgradeButtons();
 			PlayerManager.instance.AddItem(item);
 			boughtText.text = $"Bought {item.itemName} for {item.price} coins";
 			
@@ -88,6 +94,7 @@ public class ShopManager : MonoBehaviour
 			StartCoroutine(coroutine);
 		UpdateCoins();
 		UpdateInventory();
+		UpdateUpgradeButtons();
 	}
 
 	/// <summary>
@@ -110,6 +117,7 @@ public class ShopManager : MonoBehaviour
 	public void Sell(int price) {
 		PlayerManager.instance.coins = PlayerManager.instance.coins+price;
 		UpdateCoins();
+		UpdateUpgradeButtons();
 	}
 
 	/// <summary>
@@ -153,6 +161,45 @@ public class ShopManager : MonoBehaviour
 
 	public void HideDescription(){
 		descriptionBox.SetActive(false);
+	}
+	/// <summary>
+	/// Upgrade health. Called when health upgrade button is pressed.
+	/// </summary>
+	public void HealthUpgrade() {
+		Debug.Log("Pressed health upgrade button");
+		PlayerManager.instance.BuyHealthUpgrade();
+	}
+	/// <summary>
+	/// Upgrade strength. Called when strength upgrade button is pressed.
+	/// </summary>
+	public void StrengthUpgrade() {
+		Debug.Log("Pressed strength upgrade button");
+		PlayerManager.instance.BuyStrengthUpgrade();
+	}
+
+	/// <summary>
+	/// Enable or disable upgrade buttons depending on if player has coins for them. Call wherever item buttons are updated.
+	/// </summary>
+	public void UpdateUpgradeButtons() {
+		// these beautiful variables are stand-ins for the current price for each upgrade
+		int currentPriceForHealthUpgrade = 50;
+		int currentPriceForStrengthUpgrade = 50;
+
+		// Health upgrade button
+		if (PlayerManager.instance.coins - currentPriceForHealthUpgrade < 0) {// can't afford upgrade
+			healthUpgradeButton.interactable = false;
+		}
+		else {
+			healthUpgradeButton.interactable = true;
+		}
+
+		// strength upgrade button
+		if (PlayerManager.instance.coins - currentPriceForStrengthUpgrade < 0) {// can't afford upgrade
+			strengthUpgradeButton.interactable = false;
+		}
+		else {
+			strengthUpgradeButton.interactable = true;
+		}
 	}
 
 	/// <summary>
@@ -341,6 +388,8 @@ public class ShopManager : MonoBehaviour
 		InitItemButtons(PlayerManager.instance.healItems, healGrid);
 		InitItemButtons(PlayerManager.instance.boostItems, boostGrid);
 		UpdateInventory();
+		UpdateCoins();
+		UpdateUpgradeButtons();
 
 		foreach(Item item in PlayerManager.instance.healItems){
 			Debug.Log($"heal item: {item.itemName}");

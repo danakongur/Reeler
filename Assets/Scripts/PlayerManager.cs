@@ -33,7 +33,8 @@ public class PlayerManager : MonoBehaviour
 
 	public float minchance;
 	public float maxchance;
-
+	public int boughtHealthUpgrades = 0;
+	public int boughtStrengthUpgrades = 0;
 	
 
 	private Dictionary<Fish,bool> caughtFish;
@@ -160,6 +161,22 @@ public class PlayerManager : MonoBehaviour
 		{
 			caughtFish[key] = false;
 		}
+	}
+
+	/// <summary>
+	/// Increases max health by 2
+	/// </summary>
+	public void BuyHealthUpgrade() {
+		boughtHealthUpgrades += 1;
+		maxHealth += 2;
+		health += 2;
+	}
+	/// <summary>
+	/// Increases strength by 1
+	/// </summary>
+	public void BuyStrengthUpgrade() {
+		boughtStrengthUpgrades += 1;
+		strength += 1;
 	}
 
 

@@ -143,6 +143,7 @@ public class BattleGame : MonoBehaviour
 		int newhealth = Mathf.Min((int)Mathf.Round(PlayerManager.instance.health + (healmod*PlayerManager.instance.maxHealth)), PlayerManager.instance.maxHealth);
 		StartCoroutine(Fisherman.AnimateHealthBar(PlayerManager.instance.health, newhealth, 1f));
 		PlayerManager.instance.health = newhealth;
+		Fisherman.UpdateText();
     }
     public void Lose()
     {

@@ -504,8 +504,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1838439859}
   m_HandleRect: {fileID: 1838439858}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 0.99999994
+  m_Value: 1
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -943,7 +943,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 287606384}
   m_HandleRect: {fileID: 287606383}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1149,7 +1149,7 @@ GameObject:
   - component: {fileID: 585513470}
   - component: {fileID: 585513469}
   m_Layer: 5
-  m_Name: Button
+  m_Name: UpgradeHealthButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1200,7 +1200,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 0.6, b: 0.6, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -1218,7 +1218,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 585513470}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2056801104}
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
+        m_MethodName: HealthUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &585513470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1607,8 +1619,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 192295870}
   m_HandleRect: {fileID: 192295869}
   m_Direction: 0
-  m_Value: -0.00000057467236
-  m_Size: 0.9264268
+  m_Value: -0.000002873365
+  m_Size: 0.9264269
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2268,7 +2280,7 @@ GameObject:
   - component: {fileID: 979802377}
   - component: {fileID: 979802376}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: UpgradeStrengthButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2319,7 +2331,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 0.59958637, b: 0.59958637, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -2337,7 +2349,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 979802377}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2056801104}
+        m_TargetAssemblyTypeName: ShopManager, Assembly-CSharp
+        m_MethodName: StrengthUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &979802377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4559,6 +4583,8 @@ MonoBehaviour:
   leechSprite: {fileID: 21300000, guid: ad078fb463a167545b10998ad1afe8df, type: 3}
   mealwormSprite: {fileID: 21300000, guid: 659a3454f71d7be4b9c567b8d863868b, type: 3}
   descriptionBox: {fileID: 2022627403}
+  healthUpgradeButton: {fileID: 585513469}
+  strengthUpgradeButton: {fileID: 979802376}
 --- !u!114 &2056801105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4676,7 +4702,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1004221224}
   m_HandleRect: {fileID: 1004221223}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
