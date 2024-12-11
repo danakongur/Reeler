@@ -10,6 +10,9 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {	
 	public int startcoins;
+	/// <summary>
+	/// Coin status. Do not subtract without the builtin function.
+	/// </summary>
 	public int coins;
 	public int maxHealth;
 	public int health;
@@ -58,6 +61,16 @@ public class PlayerManager : MonoBehaviour
 
 	void Start(){
 
+	}
+
+
+	/// <summary>
+	/// Correctly subtracts coins (can't go below 0)
+	/// </summary>
+	/// <param name="coins">Amount to subtract</param>
+	public void SubtractCoins(int coins){
+		this.coins -= coins;
+		this.coins = Mathf.Max(0,this.coins);
 	}
 
 	/// <summary>
