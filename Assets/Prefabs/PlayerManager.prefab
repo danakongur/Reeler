@@ -221,3 +221,5 @@ MonoBehaviour:
     buttonHolder: {fileID: 0}
     boostAmount: 1.5
   itemsForSale: []
+  minchance: 0.85
+  maxchance: 1

@@ -23,6 +23,10 @@ public class Fish_Animator : MonoBehaviour
 	public Fish GetFishObject(){
 		return fishObject;
 	}
+
+	public int GetMaxDebuff() {
+		return maxDebuff;
+	}
 	
 
     void Awake()
@@ -115,7 +119,7 @@ public class Fish_Animator : MonoBehaviour
 			mod = 1.5f;
 		}
 		int predamage = strength - ((strength * debuff) / 4);
-		float randDMG = Random.Range(0.85f,1f);
+		float randDMG = Random.Range(PlayerManager.instance.minchance,PlayerManager.instance.maxchance);
 		int damage = (int)Mathf.Round(mod*(predamage*randDMG));
 		Debug.Log($"Fish does {mod*(predamage*randDMG)} damage");
         other.LoseHealth(damage);
@@ -192,7 +196,6 @@ public class Fish_Animator : MonoBehaviour
 		for (int i = 0; i < 50; i++){
 			float t = i/50f;
 			float tempfill = oldhealth*(1f-t) + newhealth*t;
-			Debug.Log($"at i={i}, t={t}, fill={ oldhealth}*{(1f-t)} + {newhealth}*{t} = {tempfill / (float)maxHealth}");
 			info.healthBar.fillAmount = tempfill / (float)maxHealth;
 			yield return new WaitForSecondsRealtime(duration/50);
 		}

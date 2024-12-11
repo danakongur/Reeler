@@ -44,7 +44,7 @@ public class Fisherman_Animator : MonoBehaviour
 			mod = 1f;
 		}
 		int predamage = strength-debuff;
-		float randDMG = Random.Range(0.85f,1f);
+		float randDMG = Random.Range(PlayerManager.instance.minchance,PlayerManager.instance.maxchance);
 		int damage = (int)Mathf.Round(mod*(predamage*randDMG));
 		Debug.Log($"Fisherman does {mod*(predamage*randDMG)} damage");
         other.LoseHealth(damage); // multiply by crticial modifier and damage randomness (rounded to nearest integer)
