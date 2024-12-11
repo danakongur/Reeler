@@ -112,6 +112,7 @@ public class BattleGame : MonoBehaviour
 
     public void Win()
     {
+		float healmod = 0.2f; // how much to heal player, 0.2 means 20%
 		HideItem(descriptionBox);
         RevealItem(endInfo.gameObject);
 		criticalHitText.gameObject.SetActive(false);
@@ -122,11 +123,13 @@ public class BattleGame : MonoBehaviour
         HideItem(Fish.info.gameObject);
         HideItem(Fish.gameObject);
         endInfo.title.text = "You Beat up the " + Fish.name + "...";
-        endInfo.description.text = "Gain 2 coins";
+        endInfo.description.text = $"Gain 2 coins and gain {(healmod)*100}% health";
 
 		// Adds fish to inventory
 		PlayerManager.instance.CatchFish(this.Fish.GetFishObject());
 		PlayerManager.instance.coins += 2;
+		Debug.Log($"new health: {(int)Mathf.Round(PlayerManager.instance.health + (healmod*PlayerManager.instance.maxHealth))}, max health:{PlayerManager.instance.maxHealth}");
+		PlayerManager.instance.health = Mathf.Min((int)Mathf.Round(PlayerManager.instance.health + (healmod*PlayerManager.instance.maxHealth)), PlayerManager.instance.maxHealth);
     }
     public void Lose()
     {

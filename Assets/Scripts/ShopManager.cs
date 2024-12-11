@@ -72,10 +72,15 @@ public class ShopManager : MonoBehaviour
 		UpdateInventory();
 	}
 
-	public void Sell(Item item){
+	/// <summary>
+	/// Sell item for custom price
+	/// </summary>
+	/// <param name="item">Item to sell</param>
+	/// <param name="diffprice">Price to sell for</param>
+	public void Sell(Item item, int diffprice){
 		PlayerManager.instance.RemoveItem(item);
-		PlayerManager.instance.coins = PlayerManager.instance.coins+item.price;
-		boughtText.text = $"Sold {item.itemName} for {item.price} coins";
+		PlayerManager.instance.coins = PlayerManager.instance.coins+diffprice;
+		boughtText.text = $"Sold {item.itemName} for {diffprice} coins";
 		if (!coroutine.IsUnityNull()){
 				StopCoroutine(coroutine);
 			} 
@@ -83,6 +88,14 @@ public class ShopManager : MonoBehaviour
 			StartCoroutine(coroutine);
 		UpdateCoins();
 		UpdateInventory();
+	}
+
+	/// <summary>
+	/// Sell item for listed price
+	/// </summary>
+	/// <param name="item">Item to sell</param>
+	public void Sell(Item item){
+		Sell(item,item.price);
 	}
 
 	private IEnumerator RemoveTextDelay(){
@@ -170,6 +183,11 @@ public class ShopManager : MonoBehaviour
 		// go through inventory and add
 		foreach (KeyValuePair<Item,int> entry in PlayerManager.instance.items){
 			Item item = entry.Key;
+
+			int sellprice = (int)Mathf.Round(0.8f*item.price);
+			if (item.GetItemType() == ItemType.Fish){
+				sellprice = item.price;
+			}
 			int count = entry.Value;
 
 			if(!inventoryItems.Contains(item) && count > 0){// worlds least efficient code
@@ -180,7 +198,7 @@ public class ShopManager : MonoBehaviour
 				inventoryItems.Add(item);
 
 				TMPro.TMP_Text tx = itemObj.transform.GetChild(1).GetComponent<TMPro.TMP_Text>();
-				tx.text = $"{item.itemName}\n{item.price}c\n{count}x";
+				tx.text = $"{item.itemName}\n{sellprice}c\n{count}x";
 				tx.rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Bottom, 10f, tx.rectTransform.rect.height);
 
 				Button itemBut = itemObj.GetComponent<Button>();
@@ -203,7 +221,7 @@ public class ShopManager : MonoBehaviour
 				if (itemBut){ // ensure button component exists
 					// Sell item function added to item button
 					itemBut.onClick.AddListener(delegate {
-						Sell(item);
+						Sell(item,sellprice);
 					});
 				}
 				else {
@@ -214,7 +232,7 @@ public class ShopManager : MonoBehaviour
 				GameObject itemObj = item.buttonHolder;
 				if (count > 0){
 					TMPro.TMP_Text tx = itemObj.transform.GetChild(1).GetComponent<TMPro.TMP_Text>();
-					tx.text = $"{item.itemName}\n{item.price}c\n{count}x";
+					tx.text = $"{item.itemName}\n{sellprice}c\n{count}x";
 				}
 				else {
 					Destroy(itemObj);
