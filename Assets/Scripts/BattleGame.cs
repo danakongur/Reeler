@@ -141,7 +141,7 @@ public class BattleGame : MonoBehaviour
         HideItem(Fisherman.gameObject);
         endInfo.title.text = "The " + Fish.name + " Beat you up!";
         endInfo.description.text = "Medicare is expensive, Lose 2 coins";
-		PlayerManager.instance.coins -= 2;
+		PlayerManager.instance.SubtractCoins(2);
     }
     void HideItem(GameObject a)
     {

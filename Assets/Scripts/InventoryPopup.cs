@@ -76,6 +76,11 @@ public class InventoryPopup : MonoBehaviour
 
 		foreach (KeyValuePair<Item,int> entry in PlayerManager.instance.items) {
 			Item item = entry.Key;
+
+			// do not show fish items in battle
+			if (item.GetItemType() == ItemType.Fish){
+				continue;
+			}
 			int count = entry.Value;
 
 			// gets gameobject of item if it has been added
@@ -92,7 +97,7 @@ public class InventoryPopup : MonoBehaviour
 				inventoryItems.Add((item,itemObj));
 
 				TMPro.TMP_Text tx = itemObj.transform.GetChild(1).GetComponent<TMPro.TMP_Text>();
-				tx.text = $"{item.itemName}\n{item.price}c\n{count}x";
+				tx.text = $"{item.itemName}\n{count}x";
 				tx.rectTransform.SetInsetAndSizeFromParentEdge(RectTransform.Edge.Bottom, 10f, tx.rectTransform.rect.height);
 
 				Button itemBut = itemObj.GetComponent<Button>();
@@ -121,7 +126,7 @@ public class InventoryPopup : MonoBehaviour
 			}
 			else { // item is still in in inventory; only update text
 				TMPro.TMP_Text tx = button.transform.GetChild(1).GetComponent<TMPro.TMP_Text>();
-				tx.text = $"{item.itemName}\n{item.price}c\n{count}x";
+				tx.text = $"{item.itemName}\n{count}x";
 			}
 
 		}
