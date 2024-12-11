@@ -305,6 +305,10 @@ public class BattleGame : MonoBehaviour
             battleState = State.playerturn;
             Debug.Log("Player Turn");
             var fishAction = Fish.Predict();
+            Fish.nextMove.Attack.gameObject.SetActive(false);
+            Fish.nextMove.Heal.gameObject.SetActive(false);
+            Fish.nextMove.Cleanse.gameObject.SetActive(false);
+            Fish.nextMove.Retreat.gameObject.SetActive(false);
             reelDescription.text = "Add 1 debuff" + "\n" + "(" + Fish.debuff + " / " + (Fish.strength - 1) + ")";
             while (pressed == false)
             {
@@ -334,6 +338,7 @@ public class BattleGame : MonoBehaviour
             yield return new WaitForSeconds(2);
             // fish turn
             battleState = State.fishturn;
+
             Debug.Log("Fish Turn");
             if (Fish.GetHealth() > 0)
             {

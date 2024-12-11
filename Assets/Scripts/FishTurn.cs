@@ -13,7 +13,8 @@ public class Fish_Animator : MonoBehaviour
     private int maxDebuff = 3;
     public int debuff = 0;
     public Fisherman_Animator other;
-	Fish fishObject;
+    Fish fishObject;
+    public selectedImage nextMove;
 
     public void SetFishObject(Fish fish){
 		fishObject = fish;
@@ -33,7 +34,7 @@ public class Fish_Animator : MonoBehaviour
 		//fishObject = PlayerManager.instance.GetFishByName("Carp");
 		int randIndex = Random.Range(0,PlayerManager.instance.availableFish.Length);
 		fishObject = PlayerManager.instance.availableFish[randIndex];
-
+        
 		name = fishObject.name;
 		maxHealth = fishObject.health;
 		strength = fishObject.strength;
@@ -76,7 +77,8 @@ public class Fish_Animator : MonoBehaviour
 
         maxHealth = fishObject.health;
         strength = fishObject.strength;
-        
+
+
         var nextMove = "";
         var description = "";
         var prob = Random.Range(0,10);

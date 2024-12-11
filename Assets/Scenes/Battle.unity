@@ -2844,6 +2844,7 @@ MonoBehaviour:
   info: {fileID: 637180498}
   debuff: 0
   other: {fileID: 1846981243}
+  nextMove: {fileID: 1757417107}
 --- !u!114 &592878579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3484,6 +3485,7 @@ MonoBehaviour:
   info: {fileID: 637180498}
   debuff: 0
   other: {fileID: 1846981243}
+  nextMove: {fileID: 0}
 --- !u!1 &744483043
 GameObject:
   m_ObjectHideFlags: 0
@@ -6913,7 +6915,7 @@ GameObject:
   - component: {fileID: 1757417108}
   - component: {fileID: 1757417107}
   m_Layer: 5
-  m_Name: Next Action
+  m_Name: NextAction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
