@@ -234,6 +234,33 @@ public class BattleGame : MonoBehaviour
 			}
 		}
     }
+    void FishIcon(String action)
+    {
+        Fish.nextMove.Attack.gameObject.SetActive(false);
+        Fish.nextMove.Heal.gameObject.SetActive(false);
+        Fish.nextMove.Cleanse.gameObject.SetActive(false);
+        Fish.nextMove.Retreat.gameObject.SetActive(false);
+
+        if (action == "Struggle")
+        {
+            Fish.nextMove.Attack.gameObject.SetActive(true);
+
+        }
+        else if (action == "Absorb Nutrients")
+        {
+            Fish.nextMove.Heal.gameObject.SetActive(true);
+
+        }
+        else if (action == "Cleanse")
+        {
+            Fish.nextMove.Cleanse.gameObject.SetActive(true);
+
+        }
+        else
+        {
+            Fish.nextMove.Retreat.gameObject.SetActive(true);
+        }
+    }
     bool FishAction(String action)
     {
         Debug.Log(action);
@@ -305,10 +332,7 @@ public class BattleGame : MonoBehaviour
             battleState = State.playerturn;
             Debug.Log("Player Turn");
             var fishAction = Fish.Predict();
-            Fish.nextMove.Attack.gameObject.SetActive(false);
-            Fish.nextMove.Heal.gameObject.SetActive(false);
-            Fish.nextMove.Cleanse.gameObject.SetActive(false);
-            Fish.nextMove.Retreat.gameObject.SetActive(false);
+            FishIcon(fishAction);
             reelDescription.text = "Add 1 debuff" + "\n" + "(" + Fish.debuff + " / " + (Fish.strength - 1) + ")";
             while (pressed == false)
             {
