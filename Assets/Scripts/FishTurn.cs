@@ -43,11 +43,12 @@ public class Fish_Animator : MonoBehaviour
         info.nameText.text = name;
         health = maxHealth;
         UpdateText();
+		info.healthBar.fillAmount = health / (float)maxHealth;
     }
     public void UpdateText()
     {
         info.healthText.text = health.ToString() + "/" + maxHealth.ToString();
-        info.healthBar.fillAmount = health / (float)maxHealth;
+        //info.healthBar.fillAmount = health / (float)maxHealth;
         info.debuffText.text = ((int) debuff*100/4).ToString()+"%";
         info.attackText.text = ((int) (strength - ((strength * debuff) / 4))).ToString();
         if (debuff > 0) 
@@ -148,7 +149,8 @@ public class Fish_Animator : MonoBehaviour
     }
 
     public void LoseHealth(int otherAttack)
-    {
+    {	
+		StartCoroutine(AnimateHealthBar(health,health-otherAttack, 1f));
         if (health-otherAttack < 0)
         {
             health = 0;
@@ -159,6 +161,7 @@ public class Fish_Animator : MonoBehaviour
     }
     public void GainHealth(int healAmount)
     {
+		StartCoroutine(AnimateHealthBar(health,health+healAmount, 1f));
         if (health + healAmount > maxHealth)
         {
             health = maxHealth;
@@ -182,5 +185,16 @@ public class Fish_Animator : MonoBehaviour
         }
     }
 
+	public IEnumerator AnimateHealthBar(int oldhealth,int newhealth, float duration) {
+		int healthdiff = oldhealth - newhealth;
+		for (int i = 0; i < 50; i++){
+			float t = i/50f;
+			float tempfill = oldhealth*(1f-t) + newhealth*t;
+			Debug.Log($"at i={i}, t={t}, fill={ oldhealth}*{(1f-t)} + {newhealth}*{t} = {tempfill / (float)maxHealth}");
+			info.healthBar.fillAmount = tempfill / (float)maxHealth;
+			yield return new WaitForSecondsRealtime(duration/50);
+		}
 
+		yield return null;
+	}
 }

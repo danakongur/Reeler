@@ -24,11 +24,11 @@ public class Fisherman_Animator : MonoBehaviour
 
         //var playerInfo = GameObject.Find("Playerinfo");
         //playerHealth = playerInfo.transform.Find("Health").GetComponent<TextMeshProUGUI>();
-
         info.nameText.text = name;
         health = PlayerManager.instance.health;
 		maxHealth = PlayerManager.instance.maxHealth;
 		strength = PlayerManager.instance.strength;
+		info.healthBar.fillAmount = health / (float)maxHealth;
         UpdateText();
     }
     public int GetHealth()
@@ -64,7 +64,7 @@ public class Fisherman_Animator : MonoBehaviour
     {	
 		health = PlayerManager.instance.health;
         info.healthText.text = health.ToString() + "/" + maxHealth.ToString();
-        info.healthBar.fillAmount = health / (float)maxHealth;
+        //info.healthBar.fillAmount = health / (float)maxHealth;
         if (debuff > 0)
         {
             info.attackText.text = strength.ToString() + " - " + debuff.ToString();
@@ -77,11 +77,13 @@ public class Fisherman_Animator : MonoBehaviour
     public void LoseHealth(int otherAttack)
     {
         //health -= otherAttack - debuff;
+		StartCoroutine(AnimateHealthBar(PlayerManager.instance.health,PlayerManager.instance.health - (otherAttack-debuff),1f));
 		PlayerManager.instance.health -= otherAttack - debuff;
     }
     public void GainHealth(int healAmount)
     {
         //health += healAmount;
+		StartCoroutine(AnimateHealthBar(PlayerManager.instance.health, PlayerManager.instance.health+healAmount, 1f));
 		PlayerManager.instance.health += healAmount;
     }
     public void LoseDebuff()
@@ -106,5 +108,17 @@ public class Fisherman_Animator : MonoBehaviour
 
 	public void RemoveBoost(){
 		strength = PlayerManager.instance.strength;
+	}
+
+	public IEnumerator AnimateHealthBar(int oldhealth,int newhealth, float duration) {
+		int healthdiff = oldhealth - newhealth;
+		for (int i = 0; i < 50; i++){
+			float t = i/50f;
+			float tempfill = oldhealth*(1f-t) + newhealth*t;
+			info.healthBar.fillAmount = tempfill / (float)maxHealth;
+			yield return new WaitForSecondsRealtime(duration/50);
+		}
+
+		yield return null;
 	}
 }

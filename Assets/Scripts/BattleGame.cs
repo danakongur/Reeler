@@ -129,7 +129,9 @@ public class BattleGame : MonoBehaviour
 		PlayerManager.instance.CatchFish(this.Fish.GetFishObject());
 		PlayerManager.instance.coins += 2;
 		Debug.Log($"new health: {(int)Mathf.Round(PlayerManager.instance.health + (healmod*PlayerManager.instance.maxHealth))}, max health:{PlayerManager.instance.maxHealth}");
-		PlayerManager.instance.health = Mathf.Min((int)Mathf.Round(PlayerManager.instance.health + (healmod*PlayerManager.instance.maxHealth)), PlayerManager.instance.maxHealth);
+		int newhealth = Mathf.Min((int)Mathf.Round(PlayerManager.instance.health + (healmod*PlayerManager.instance.maxHealth)), PlayerManager.instance.maxHealth);
+		StartCoroutine(Fisherman.AnimateHealthBar(PlayerManager.instance.health, newhealth, 1f));
+		PlayerManager.instance.health = newhealth;
     }
     public void Lose()
     {
