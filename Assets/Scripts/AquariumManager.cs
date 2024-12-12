@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,32 +9,57 @@ public class AquariumManager : MonoBehaviour
 {
     /*
      Ensure AquariumManager script is implemented to handle filtering and updating the tank display.
- Highlight the currently selected habitat button for clarity.
- Add a background specific to the "Freshwater" habitat for better immersion.
- Add gentle fish animations.
- Prepare a popup or tooltip for fish details when clicked or hovered.
-    Add a fish count display.
+     Highlight the currently selected habitat button for clarity.
+     Add a background specific to the "Freshwater" habitat for better immersion.
+     Add gentle fish animations.
+     Prepare a popup or tooltip for fish details when clicked or hovered.
+     The fish grid creates all the fish objects and sets their properties.
     */
-    public TextMeshProUGUI fishCountText;
-    public int fishCount = 0;
-    public int maxFishCount = 8;
+    public Image background; // The background image
+    public Button Freshwater; // The freshwater button
+    public Button Saltwater; // The saltwater button
+    public Button Exotic; // The exotic button
+
+    public Sprite[] fishtanks; // The fishtanks array
+
+
+    
     // Start is called before the first frame update
     void Start()
     {
-        // Set the fish count text
-        fishCountText.text = "Fish Count: " + fishCount + "/" + maxFishCount;
+        // Set the background image to the freshwater background
+        // Set the freshwater button to be highlighted
+        // Add gentle fish animations
+        // Prepare a popup or tooltip for fish details when clicked or hovered
+        // The fish grid creates all the fish objects and sets their properties
+        //Freshwater.onClick.AddListener(OnButtonClick);
+       // Saltwater.onClick.AddListener(OnButtonClick);
+        //Exotic.onClick.AddListener(OnButtonClick);
+    }
+
+    public void FreshwaterF()
+    {
+        background.sprite = fishtanks[0];
+    }
+
+       public void SaltwaterF()
+    {
+        background.sprite = fishtanks[1];
+    }
+
+       public void ExoticF()
+    {
+        background.sprite = fishtanks[2];
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Update the fish count text
-        fishCountText.text = "Fish Count: " + fishCount + "/" + maxFishCount;
-        // Check if the tank is full
-        if (fishCount >= maxFishCount)
-        {
-            // Display a message or handle the full tank scenario
-            Debug.Log("Tank is full!");
-        } // else, continue adding fish
+        // Ensure AquariumManager script is implemented to handle filtering and updating the tank display
+        // Highlight the currently selected habitat button for clarity
+        // Add a background specific to the "Freshwater" habitat for better immersion
+        // Add gentle fish animations
+        // Prepare a popup or tooltip for fish details when clicked or hovered
+        // The fish grid creates all the fish objects and sets their properties
     }
 }

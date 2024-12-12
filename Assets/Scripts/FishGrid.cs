@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Need to update grid to follow type of fish in each fishtank
 public class FishGrid : MonoBehaviour
 {
   public GameObject fishPrefab; // Reference to the fish prefab
@@ -9,7 +10,7 @@ public class FishGrid : MonoBehaviour
                                // Start is called before the first frame update
   void Start()
   {
-    // Go through all fish in the game
+    // Go through all fish in the game categorized by habitat
     foreach (Fish fish in PlayerManager.instance.availableFish)
     {
       GameObject fishObj = Instantiate(fishPrefab, transform);

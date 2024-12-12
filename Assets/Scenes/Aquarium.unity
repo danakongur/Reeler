@@ -843,7 +843,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f09e5b8a2dfab1047bb26803873b2562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fishCountText: {fileID: 0}
+  fishCountText: {fileID: 630926771}
   fishCount: 0
   maxFishCount: 8
 --- !u!114 &630926771
