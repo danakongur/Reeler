@@ -40,8 +40,13 @@ public class Fish_Animator : MonoBehaviour
 		fishObject = PlayerManager.instance.availableFish[randIndex];
         
 		name = fishObject.name;
-		maxHealth = fishObject.health;
-		strength = fishObject.strength;
+		//maxHealth = fishObject.health;
+		// give the fish health with the difficulty modifier
+		maxHealth = Mathf.RoundToInt(PlayerManager.instance.GetDifficultyModifier() * fishObject.health);
+
+		// do the same with strength
+		//strength = fishObject.strength;
+		strength = Mathf.RoundToInt(PlayerManager.instance.GetDifficultyModifier() * fishObject.strength);
 		SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
 		if (spriteRenderer) spriteRenderer.sprite = fishObject.fishImage;
 
