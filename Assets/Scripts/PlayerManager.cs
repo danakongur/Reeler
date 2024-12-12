@@ -25,10 +25,6 @@ public class PlayerManager : MonoBehaviour
 	public Dictionary<Item,int> items;
 
 	public Fish[] availableFish;
-	public Fish[] availableFish1;
-	public Fish[] availableFish2;
-
-
 	public BaitItem[] baitForSale;
 	public HealItem[] healItems;
 	public BoostItem[] boostItems;

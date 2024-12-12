@@ -5,6 +5,7 @@ using UnityEngine;
 public class InfoboxBehavior : MonoBehaviour
 {
     public TMPro.TextMeshProUGUI fishNameTextComponent; // The fish name text component
+    public TMPro.TextMeshProUGUI fishTypeTextComponent; // The fish type text component
     public TMPro.TextMeshProUGUI fishHabitatTextComponent; // The fish habitat text component
     public TMPro.TextMeshProUGUI fishDietTextComponent; // The fish diet text component
     public TMPro.TextMeshProUGUI fishBehaviorTextComponent; // The fish behavior text component
