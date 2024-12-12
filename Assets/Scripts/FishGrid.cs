@@ -6,8 +6,7 @@ using UnityEngine;
 public class FishGrid : MonoBehaviour
 {
   public GameObject fishPrefab; // Reference to the fish prefab
-  public Sprite[] fishSprites; // Array of fish sprites
-                               // Start is called before the first frame update
+
   void Start()
   {
     // Go through all fish in the game categorized by habitat

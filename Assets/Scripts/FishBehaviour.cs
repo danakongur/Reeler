@@ -18,8 +18,6 @@ public class FishBehaviour : MonoBehaviour
     void Awake()
     {
         infoBoxPanel = GameObject.Find("InfoBoxPanel"); // Find the InfoBoxPanel
-
-  
     }
 
     void Start()

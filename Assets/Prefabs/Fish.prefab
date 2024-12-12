@@ -67,7 +67,7 @@ MonoBehaviour:
   questionMarkImage: {fileID: 3492873590845867742}
   isCaught: 0
   fishName: {fileID: 6607165948187876440}
-  fishNameText: dfsdfsddfsfdsf
+  fishNameText: 
   fishNameTextComponent: {fileID: 8983938948789705932}
   fishDescriptionTextComponent: {fileID: 0}
   fish:
@@ -78,6 +78,7 @@ MonoBehaviour:
     fishItem:
       price: 0
       itemName: 
+      description: 
       itemImage: {fileID: 0}
       buttonHolder: {fileID: 0}
     fishDescription:
