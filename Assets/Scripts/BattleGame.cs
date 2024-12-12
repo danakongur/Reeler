@@ -20,9 +20,11 @@ public class BattleGame : MonoBehaviour
     public TextMeshProUGUI reelDescription;
     public GameObject inventory;
 	public TextMeshProUGUI criticalHitText;
+	public TextMeshProUGUI healInfoText;
 
 	public GameObject descriptionBox;
     private bool gameIsgoing = true;
+    public FishAttackAnimator fishAnimation;
     /// <summary>
     /// Chance of a critical hit (ex. 5% => 0.05)
     /// </summary>
@@ -274,7 +276,14 @@ public class BattleGame : MonoBehaviour
 				Fisherman.UpdateText();
 			}
 			else if(selectedItem.GetItemType() == ItemType.Bait){ // used bait
-				
+				PlayerManager.instance.RemoveItem(selectedItem);
+				inventory.GetComponent<InventoryPopup>().UpdateInventory();
+
+				BaitItem item = (BaitItem)selectedItem;
+				Fish.LoseMaxHealth(item.healthReduction);
+				Fish.UpdateText();
+				Fish.UpdateHealthBar();
+				StartCoroutine(FlashText(healInfoText, $"-{item.healthReduction} max health", 2f));
 			}
 			else if(selectedItem.GetItemType() == ItemType.Fish){ // used fish??
 				
@@ -317,6 +326,7 @@ public class BattleGame : MonoBehaviour
         Debug.Log(action);
         if (action == "Struggle")
         {
+            StartCoroutine(fishAnimation.StruggleAnimation());
 			bool critical = UnityEngine.Random.Range(0f,1f) < criticalChance;
 			if (critical) {
 				StopCoroutine(playercritcoroutine);
@@ -328,16 +338,18 @@ public class BattleGame : MonoBehaviour
         }
         else if (action == "Absorb Nutrients")
         {
+            StartCoroutine(fishAnimation.HealAnimation());
             Fish.Absorb();
         }
         else if (action == "Cleanse")
         {
+            StartCoroutine(fishAnimation.CleanseAnimation());
             Fish.Cleanse();
         }
         else
         {
-            
-            bool result=Fish.Retreat();
+            StartCoroutine(fishAnimation.RetreatAnimation());
+            bool result =Fish.Retreat();
             if (result==true)
             {
                 FishRetreat();
@@ -370,6 +382,19 @@ public class BattleGame : MonoBehaviour
 		}
 		criticalHitText.gameObject.SetActive(false);
 		criticalHitText.alpha = 1f;
+	}
+
+	/// <summary>
+	/// Flash text object with text for duration
+	/// </summary>
+	/// <param name="textObj">object to use</param>
+	/// <param name="text">text for object</param>
+	/// <param name="duration">duration of flashed text</param>
+	public IEnumerator FlashText(TextMeshProUGUI textObj, string text, float duration) {
+		textObj.text = text;
+		textObj.gameObject.SetActive(true);
+		yield return new WaitForSecondsRealtime(duration);
+		textObj.gameObject.SetActive(false);
 	}
 
     void Update()

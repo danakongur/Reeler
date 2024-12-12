@@ -71,11 +71,11 @@ public class FishItem : Item {
 [Serializable]
 
 public class BaitItem : Item
-{
-    public BaitItem(int price, string itemName, Sprite sprite) : base(price, itemName, sprite)
+{	
+	public int healthReduction;
+    public BaitItem(int price, string itemName, Sprite sprite, int healthReduction) : base(price, itemName, sprite)
     {
-
-
+		this.healthReduction = healthReduction;
     }
 	public override ItemType GetItemType(){
 		return ItemType.Bait;

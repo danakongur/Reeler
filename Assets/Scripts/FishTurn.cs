@@ -82,10 +82,6 @@ public class Fish_Animator : MonoBehaviour
     public string Predict()
     {
         
-        fishObject = PlayerManager.instance.GetFishByName(name);
-
-        maxHealth = fishObject.health;
-        strength = fishObject.strength;
 
 
         var nextMove = "";
@@ -182,6 +178,16 @@ public class Fish_Animator : MonoBehaviour
         }
 
     }
+
+	/// <summary>
+	/// Lower's the fish max health for the rest of the game
+	/// </summary>
+	/// <param name="amount"></param>
+	public void LoseMaxHealth(int amount) {
+		maxHealth -= amount;
+		health = Mathf.Min(health,maxHealth);
+	}
+
     public void LoseDebuff()
     {
         if (debuff > 0) {
@@ -195,6 +201,10 @@ public class Fish_Animator : MonoBehaviour
             debuff += 1;
         }
     }
+
+	public void UpdateHealthBar(){
+		info.healthBar.fillAmount = health / (float)maxHealth;
+	}
 
 	public IEnumerator AnimateHealthBar(int oldhealth,int newhealth, float duration) {
 		int healthdiff = oldhealth - newhealth;
