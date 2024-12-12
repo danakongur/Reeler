@@ -1396,7 +1396,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 336871159}
         m_TargetAssemblyTypeName: MainSceneUI, Assembly-CSharp
-        m_MethodName: LoadBattle
+        m_MethodName: LoadAquarium
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2446,7 +2446,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 546452800}
         m_TargetAssemblyTypeName: MainSceneUI, Assembly-CSharp
-        m_MethodName: LoadBattle
+        m_MethodName: LoadShop
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4910,7 +4910,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1159731371
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6195,7 +6195,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1453294396
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6554,7 +6554,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1614707679}
         m_TargetAssemblyTypeName: MainSceneUI, Assembly-CSharp
-        m_MethodName: LoadBattle
+        m_MethodName: LoadMain
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

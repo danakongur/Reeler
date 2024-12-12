@@ -195,13 +195,13 @@ MonoBehaviour:
   healItems:
   - price: 20
     itemName: Coffee
-    description: Refresh and gives you energy. Heal 10 points.
+    description: Refresh and gives you energy. Heal 35 points.
     itemImage: {fileID: 21300000, guid: c779400086322724cb25085e24c249ac, type: 3}
     buttonHolder: {fileID: 0}
     healAmount: 35
   - price: 30
     itemName: Hot cocoa
-    description: Warms you up inside. Heal 15 points.
+    description: Warms you up inside. Heal 50 points.
     itemImage: {fileID: 21300000, guid: 173850baa1c88784f992f0ca22dfdcac, type: 3}
     buttonHolder: {fileID: 0}
     healAmount: 50
@@ -223,3 +223,5 @@ MonoBehaviour:
   itemsForSale: []
   minchance: 0.85
   maxchance: 1
+  boughtHealthUpgrades: 0
+  boughtStrengthUpgrades: 0
