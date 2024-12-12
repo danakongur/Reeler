@@ -79,12 +79,14 @@ public class Fisherman_Animator : MonoBehaviour
         //health -= otherAttack - debuff;
 		StartCoroutine(AnimateHealthBar(PlayerManager.instance.health,PlayerManager.instance.health - (otherAttack-debuff),1f));
 		PlayerManager.instance.health -= otherAttack - debuff;
+		PlayerManager.instance.health = Mathf.Clamp(PlayerManager.instance.health, 0, maxHealth);
     }
     public void GainHealth(int healAmount)
     {
         //health += healAmount;
 		StartCoroutine(AnimateHealthBar(PlayerManager.instance.health, PlayerManager.instance.health+healAmount, 1f));
 		PlayerManager.instance.health += healAmount;
+		PlayerManager.instance.health = Mathf.Clamp(PlayerManager.instance.health, 0, maxHealth);
     }
     public void LoseDebuff()
     {

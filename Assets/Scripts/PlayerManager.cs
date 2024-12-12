@@ -169,16 +169,29 @@ public class PlayerManager : MonoBehaviour
 		Debug.Log("Player inventory end");
 	}
 
+	/// <summary>
+	/// Completely resets all player data
+	/// </summary>
 	public void ResetPlayerManager() {
 		Debug.Log($"restart player manager");
 		items = new Dictionary<Item, int>{
-			[itemsForSale[0]] = 1
+			[baitForSale[0]] = 1
 		};
 		coins = startcoins;
 		foreach (Fish key in caughtFish.Keys.ToArray())
 		{
 			caughtFish[key] = false;
 		}
+	}
+
+	/// <summary>
+	/// Reset the user's inventory and coins upon failure
+	/// </summary>
+	public void LoseReset() {
+		items = new Dictionary<Item, int>{
+			[baitForSale[0]] = 1
+		};
+		coins = startcoins;
 	}
 
 	/// <summary>

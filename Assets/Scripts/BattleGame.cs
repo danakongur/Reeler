@@ -172,6 +172,8 @@ public class BattleGame : MonoBehaviour
         endInfo.title.text = "The " + Fish.name + " Beat you up!";
         endInfo.description.text = "Medicare is expensive, Lose 2 coins";
 		PlayerManager.instance.SubtractCoins(2);
+
+		PlayerManager.instance.LoseReset();
     }
     void HideItem(GameObject a)
     {

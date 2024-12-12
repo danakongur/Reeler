@@ -95,8 +95,11 @@ public class Fish_Animator : MonoBehaviour
         }
         else if (prob <= 3 && (health < maxHealth))
         {
+			var minAmount = other.strength;
+			var maxAmount = other.strength / 2 + strength / 2;
+			int healAmount = (int) Random.Range(minAmount, maxAmount)+1;
             nextMove = "Absorb Nutrients";
-            description = $"(Heals: {other.strength})";
+            description = $"(Heals between {Mathf.Min(minAmount+1,maxAmount)} to {Mathf.Max(minAmount+1,maxAmount)})";
         }
         else if (prob <= 4 && debuff > 0)
         {
@@ -105,8 +108,9 @@ public class Fish_Animator : MonoBehaviour
         }
         else
         {
+			int dmg = strength - ((strength * debuff) / 4);
             nextMove = "Struggle";
-			description = $"(Does {strength} DMG)";
+			description = $"(Does from {Mathf.RoundToInt(dmg*PlayerManager.instance.minchance)} to {Mathf.RoundToInt(dmg*PlayerManager.instance.maxchance)} DMG)";
         }
 		info.predictionText.text = $"{name} will attempt to {nextMove} {description}";
         return nextMove;
