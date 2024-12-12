@@ -148,6 +148,9 @@ public class BattleGame : MonoBehaviour
 		StartCoroutine(Fisherman.AnimateHealthBar(PlayerManager.instance.health, newhealth, 1f));
 		PlayerManager.instance.health = newhealth;
 		Fisherman.UpdateText();
+
+		// increase difficulty on win
+		PlayerManager.instance.IncreaseDifficulty();
     }
     public void Lose()
     {
@@ -204,11 +207,19 @@ public class BattleGame : MonoBehaviour
         endInfo.description.text = "insert consequences here";
 
         bool gameIsgoing = false;
+
+		// increase difficulty on flee
+		PlayerManager.instance.IncreaseDifficulty();
     }
     void FishRetreat()
     {
+		GameObject loseButtons = endInfo.transform.Find("LoseButtons").gameObject;
+		GameObject continueButtons = endInfo.transform.Find("ContinueButtons").gameObject;
+
         RevealItem(endInfo.gameObject);
         criticalHitText.gameObject.SetActive(false);
+		loseButtons.SetActive(false);
+		continueButtons.SetActive(true);
 
         // lose screen image
         endInfo.reward.sprite = Fish.GetFishObject().fishImage;

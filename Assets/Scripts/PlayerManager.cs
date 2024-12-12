@@ -35,6 +35,8 @@ public class PlayerManager : MonoBehaviour
 	public float maxchance;
 	public int boughtHealthUpgrades = 0;
 	public int boughtStrengthUpgrades = 0;
+
+	int difficultyLevel = 0;
 	
 
 	private Dictionary<Fish,bool> caughtFish;
@@ -65,6 +67,23 @@ public class PlayerManager : MonoBehaviour
 
 	void Start(){
 
+	}
+
+	public void IncreaseDifficulty() {
+		difficultyLevel += 1;
+		Debug.Log($"increased difficulty to {difficultyLevel}. difficulty modifier is now {GetDifficultyModifier()}");
+	}
+
+	public int GetDifficulty() {
+		return difficultyLevel;
+	}
+
+	/// <summary>
+	/// Gets a difficulty multiplier. adds 2*difficulty% on top of fish strength and health.
+	/// </summary>
+	/// <returns>modifier to multiply with</returns>
+	public float GetDifficultyModifier() {
+		return 1f + (5*(float)difficultyLevel/100);
 	}
 
 
