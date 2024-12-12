@@ -82,10 +82,6 @@ public class Fish_Animator : MonoBehaviour
     public string Predict()
     {
         
-        fishObject = PlayerManager.instance.GetFishByName(name);
-
-        maxHealth = fishObject.health;
-        strength = fishObject.strength;
 
 
         var nextMove = "";
@@ -99,8 +95,11 @@ public class Fish_Animator : MonoBehaviour
         }
         else if (prob <= 3 && (health < maxHealth))
         {
+			var minAmount = other.strength;
+			var maxAmount = other.strength / 2 + strength / 2;
+			int healAmount = (int) Random.Range(minAmount, maxAmount)+1;
             nextMove = "Absorb Nutrients";
-            description = $"(Heals: {other.strength})";
+            description = $"(Heals between {Mathf.Min(minAmount+1,maxAmount)} to {Mathf.Max(minAmount+1,maxAmount)})";
         }
         else if (prob <= 4 && debuff > 0)
         {
@@ -109,8 +108,9 @@ public class Fish_Animator : MonoBehaviour
         }
         else
         {
+			int dmg = strength - ((strength * debuff) / 4);
             nextMove = "Struggle";
-			description = $"(Does {strength} DMG)";
+			description = $"(Does from {Mathf.RoundToInt(dmg*PlayerManager.instance.minchance)} to {Mathf.RoundToInt(dmg*PlayerManager.instance.maxchance)} DMG)";
         }
 		info.predictionText.text = $"{name} will attempt to {nextMove} {description}";
         return nextMove;
@@ -182,6 +182,16 @@ public class Fish_Animator : MonoBehaviour
         }
 
     }
+
+	/// <summary>
+	/// Lower's the fish max health for the rest of the game
+	/// </summary>
+	/// <param name="amount"></param>
+	public void LoseMaxHealth(int amount) {
+		maxHealth -= amount;
+		health = Mathf.Min(health,maxHealth);
+	}
+
     public void LoseDebuff()
     {
         if (debuff > 0) {
@@ -195,6 +205,10 @@ public class Fish_Animator : MonoBehaviour
             debuff += 1;
         }
     }
+
+	public void UpdateHealthBar(){
+		info.healthBar.fillAmount = health / (float)maxHealth;
+	}
 
 	public IEnumerator AnimateHealthBar(int oldhealth,int newhealth, float duration) {
 		int healthdiff = oldhealth - newhealth;

@@ -72,6 +72,7 @@ MonoBehaviour:
   fishDescriptionTextComponent: {fileID: 0}
   fish:
     name: 
+    type: 
     strength: 0
     health: 0
     fishImage: {fileID: 0}
