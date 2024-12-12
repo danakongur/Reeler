@@ -23,6 +23,7 @@ public class BattleGame : MonoBehaviour
 
 	public GameObject descriptionBox;
     private bool gameIsgoing = true;
+    public FishAttackAnimator fishAnimation;
     /// <summary>
     /// Chance of a critical hit (ex. 5% => 0.05)
     /// </summary>
@@ -306,6 +307,7 @@ public class BattleGame : MonoBehaviour
         Debug.Log(action);
         if (action == "Struggle")
         {
+            StartCoroutine(fishAnimation.StruggleAnimation());
 			bool critical = UnityEngine.Random.Range(0f,1f) < criticalChance;
 			if (critical) {
 				StopCoroutine(playercritcoroutine);
@@ -317,16 +319,18 @@ public class BattleGame : MonoBehaviour
         }
         else if (action == "Absorb Nutrients")
         {
+            StartCoroutine(fishAnimation.HealAnimation());
             Fish.Absorb();
         }
         else if (action == "Cleanse")
         {
+            StartCoroutine(fishAnimation.CleanseAnimation());
             Fish.Cleanse();
         }
         else
         {
-            
-            bool result=Fish.Retreat();
+            StartCoroutine(fishAnimation.RetreatAnimation());
+            bool result =Fish.Retreat();
             if (result==true)
             {
                 FishRetreat();
