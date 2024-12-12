@@ -166,17 +166,19 @@ public class PlayerManager : MonoBehaviour
 	/// <summary>
 	/// Increases max health by 2
 	/// </summary>
-	public void BuyHealthUpgrade() {
+	public void BuyHealthUpgrade(int price) {
 		boughtHealthUpgrades += 1;
 		maxHealth += 2;
 		health += 2;
+		SubtractCoins(price);
 	}
 	/// <summary>
 	/// Increases strength by 1
 	/// </summary>
-	public void BuyStrengthUpgrade() {
+	public void BuyStrengthUpgrade(int price) {
 		boughtStrengthUpgrades += 1;
 		strength += 1;
+		SubtractCoins(price);
 	}
 
 

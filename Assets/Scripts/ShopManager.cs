@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using Unity.VisualScripting;
 //using UnityEditorInternal;
 
@@ -43,6 +44,13 @@ public class ShopManager : MonoBehaviour
 
 	public Button healthUpgradeButton;
 	public Button strengthUpgradeButton;
+
+	public int healthBasePrice;
+	public int strengthBasePrice;
+
+	public int pricePerUpgrade;
+	public string healthUpgradeText;
+	public string strengthUpgradeText;
 
 	/// <summary>
 	/// Subtract from user's coins
@@ -167,14 +175,20 @@ public class ShopManager : MonoBehaviour
 	/// </summary>
 	public void HealthUpgrade() {
 		Debug.Log("Pressed health upgrade button");
-		PlayerManager.instance.BuyHealthUpgrade();
+		PlayerManager.instance.BuyHealthUpgrade(healthBasePrice +  PlayerManager.instance.boughtHealthUpgrades*pricePerUpgrade);
+		UpdateCoins();
+		UpdateInventory();
+		UpdateUpgradeButtons();
 	}
 	/// <summary>
 	/// Upgrade strength. Called when strength upgrade button is pressed.
 	/// </summary>
 	public void StrengthUpgrade() {
 		Debug.Log("Pressed strength upgrade button");
-		PlayerManager.instance.BuyStrengthUpgrade();
+		PlayerManager.instance.BuyStrengthUpgrade(strengthBasePrice + PlayerManager.instance.boughtStrengthUpgrades*pricePerUpgrade);
+		UpdateCoins();
+		UpdateInventory();
+		UpdateUpgradeButtons();
 	}
 
 	/// <summary>
@@ -182,10 +196,13 @@ public class ShopManager : MonoBehaviour
 	/// </summary>
 	public void UpdateUpgradeButtons() {
 		// these beautiful variables are stand-ins for the current price for each upgrade
-		int currentPriceForHealthUpgrade = 50;
-		int currentPriceForStrengthUpgrade = 50;
+		int currentPriceForHealthUpgrade = healthBasePrice +  PlayerManager.instance.boughtHealthUpgrades*pricePerUpgrade;
+		int currentPriceForStrengthUpgrade = strengthBasePrice + PlayerManager.instance.boughtStrengthUpgrades*pricePerUpgrade;
 
 		// Health upgrade button
+		healthUpgradeButton.GetComponentInChildren<TMP_Text>().text = $"Increase maximum health by 2. Currently {PlayerManager.instance.maxHealth}.\n {currentPriceForHealthUpgrade} coins.";
+
+
 		if (PlayerManager.instance.coins - currentPriceForHealthUpgrade < 0) {// can't afford upgrade
 			healthUpgradeButton.interactable = false;
 		}
@@ -194,6 +211,8 @@ public class ShopManager : MonoBehaviour
 		}
 
 		// strength upgrade button
+		strengthUpgradeButton.GetComponentInChildren<TMP_Text>().text = $"Increase damage dealt by 1. Currently {PlayerManager.instance.strength}.\n{currentPriceForStrengthUpgrade} coins.";
+
 		if (PlayerManager.instance.coins - currentPriceForStrengthUpgrade < 0) {// can't afford upgrade
 			strengthUpgradeButton.interactable = false;
 		}

@@ -3187,8 +3187,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4585,6 +4585,11 @@ MonoBehaviour:
   descriptionBox: {fileID: 2022627403}
   healthUpgradeButton: {fileID: 585513469}
   strengthUpgradeButton: {fileID: 979802376}
+  healthBasePrice: 50
+  strengthBasePrice: 50
+  pricePerUpgrade: 2
+  healthUpgradeText: 
+  strengthUpgradeText: 
 --- !u!114 &2056801105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4812,8 +4817,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

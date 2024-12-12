@@ -122,11 +122,15 @@ public class BattleGame : MonoBehaviour
 
 
     public void Win()
-    {
+    {	
+		GameObject loseButtons = endInfo.transform.Find("LoseButtons").gameObject;
+		GameObject continueButtons = endInfo.transform.Find("ContinueButtons").gameObject;
 		float healmod = 0.2f; // how much to heal player, 0.2 means 20%
 		HideItem(descriptionBox);
         RevealItem(endInfo.gameObject);
 		criticalHitText.gameObject.SetActive(false);
+		loseButtons.SetActive(false);
+		continueButtons.SetActive(true);
 
 		// win screen image
 		endInfo.reward.sprite = Fish.GetFishObject().fishImage;
@@ -147,9 +151,13 @@ public class BattleGame : MonoBehaviour
     }
     public void Lose()
     {
+		GameObject loseButtons = endInfo.transform.Find("LoseButtons").gameObject;
+		GameObject continueButtons = endInfo.transform.Find("ContinueButtons").gameObject;
 		HideItem(descriptionBox);
         RevealItem(endInfo.gameObject);
 		criticalHitText.gameObject.SetActive(false);
+		loseButtons.SetActive(true);
+		continueButtons.SetActive(false);
 
 		// lose screen image
 		endInfo.reward.sprite = Fish.GetFishObject().fishImage;
@@ -180,6 +188,22 @@ public class BattleGame : MonoBehaviour
 
     public void PlayerFlee()
     {
+		GameObject loseButtons = endInfo.transform.Find("LoseButtons").gameObject;
+		GameObject continueButtons = endInfo.transform.Find("ContinueButtons").gameObject;
+		RevealItem(endInfo.gameObject);
+        criticalHitText.gameObject.SetActive(false);
+		loseButtons.SetActive(false);
+		continueButtons.SetActive(true);
+
+        // lose screen image
+        endInfo.reward.sprite = Fish.GetFishObject().fishImage;
+
+        HideItem(Fish.info.gameObject);
+        HideItem(Fish.gameObject);
+        endInfo.title.text = "You fled";
+        endInfo.description.text = "insert consequences here";
+
+        bool gameIsgoing = false;
     }
     void FishRetreat()
     {
@@ -217,7 +241,7 @@ public class BattleGame : MonoBehaviour
         }
         else if (selectedMove == "Flee")
         {
-            LoadMain();
+            PlayerFlee();
         }
 		else if(selectedMove == "Item")
 		{
@@ -367,7 +391,10 @@ public class BattleGame : MonoBehaviour
                 {
                     // play animation
                     yield return new WaitForSeconds(2);
+					Fisherman.gameObject.SetActive(false);
+					PlayerFlee();
 
+					yield break;
                 }
                 PlayerAction();
             }
