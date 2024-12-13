@@ -242,7 +242,7 @@ public class BattleGame : MonoBehaviour
         endInfo.reward.sprite = Fish.GetFishObject().fishImage;
 
         HideItem(Fish.info.gameObject);
-        HideItem(Fish.gameObject);
+        //HideItem(Fish.gameObject);
 		HideItem(endInfo.caughtFishCounter.gameObject);
         endInfo.title.text = "The " + Fish.name + " Took off";
         endInfo.description.text = "He got away :o";
@@ -364,10 +364,10 @@ public class BattleGame : MonoBehaviour
         }
         else
         {
-            StartCoroutine(fishAnimation.RetreatAnimation());
             bool result =Fish.Retreat();
             if (result==true)
             {
+                StartCoroutine(fishAnimation.RetreatAnimation());
                 FishRetreat();
                 return true;
             }
