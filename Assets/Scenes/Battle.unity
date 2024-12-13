@@ -1042,14 +1042,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f693aa1a460424d4ba3cfdad730f05f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  struggleEnd: {x: -0.5, y: 0, z: 0}
+  struggleEnd: {x: -0.3, y: 0, z: 0}
   struggleDuration: 0.5
   healEnd: {x: 0, y: 0, z: 0}
   healDuration: 1
   cleanseEnd: {x: 0, y: 0, z: 0}
   cleanseDuration: 1
-  retreatEnd: {x: 0, y: 0, z: 0}
-  retreatDuration: 1
+  retreatEnd: {x: 0.5, y: 0, z: 0}
+  retreatDuration: 0.8
 --- !u!212 &248357250
 SpriteRenderer:
   m_ObjectHideFlags: 0
