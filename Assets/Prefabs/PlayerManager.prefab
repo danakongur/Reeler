@@ -69,25 +69,6 @@ MonoBehaviour:
       conservationStatus: 
       sellValue: 0
     price: 40
-  - name: Salmon
-    type: 
-    strength: 18
-    health: 32
-    fishImage: {fileID: 850694208, guid: b87bf1f6a977052469565850c44395ec, type: 3}
-    fishItem:
-      price: 0
-      itemName: 
-      description: 
-      itemImage: {fileID: 0}
-      buttonHolder: {fileID: 0}
-    fishDescription:
-      fishName: 
-      habitat: 
-      diet: 
-      behavior: 
-      conservationStatus: 
-      sellValue: 0
-    price: 40
   - name: Clownfish
     type: 
     strength: 12
@@ -126,6 +107,25 @@ MonoBehaviour:
       conservationStatus: 
       sellValue: 0
     price: 30
+  - name: Sea Spider
+    type: 
+    strength: 22
+    health: 17
+    fishImage: {fileID: 156380070, guid: b87bf1f6a977052469565850c44395ec, type: 3}
+    fishItem:
+      price: 0
+      itemName: 
+      description: 
+      itemImage: {fileID: 0}
+      buttonHolder: {fileID: 0}
+    fishDescription:
+      fishName: 
+      habitat: 
+      diet: 
+      behavior: 
+      conservationStatus: 
+      sellValue: 0
+    price: 70
   - name: Lumpfish
     type: 
     strength: 10
@@ -164,11 +164,182 @@ MonoBehaviour:
       conservationStatus: 
       sellValue: 0
     price: 5
+  - name: Freshwater Snail
+    type: 
+    strength: 16
+    health: 40
+    fishImage: {fileID: 452169738, guid: b87bf1f6a977052469565850c44395ec, type: 3}
+    fishItem:
+      price: 0
+      itemName: 
+      description: 
+      itemImage: {fileID: 0}
+      buttonHolder: {fileID: 0}
+    fishDescription:
+      fishName: 
+      habitat: 
+      diet: 
+      behavior: 
+      conservationStatus: 
+      sellValue: 0
+    price: 70
   - name: Axolotl
     type: 
     strength: 16
     health: 40
     fishImage: {fileID: -2105965212, guid: b87bf1f6a977052469565850c44395ec, type: 3}
+    fishItem:
+      price: 0
+      itemName: 
+      description: 
+      itemImage: {fileID: 0}
+      buttonHolder: {fileID: 0}
+    fishDescription:
+      fishName: 
+      habitat: 
+      diet: 
+      behavior: 
+      conservationStatus: 
+      sellValue: 0
+    price: 70
+  - name: Hi Fin Shark
+    type: 
+    strength: 13
+    health: 53
+    fishImage: {fileID: 995508944, guid: b87bf1f6a977052469565850c44395ec, type: 3}
+    fishItem:
+      price: 0
+      itemName: 
+      description: 
+      itemImage: {fileID: 0}
+      buttonHolder: {fileID: 0}
+    fishDescription:
+      fishName: 
+      habitat: 
+      diet: 
+      behavior: 
+      conservationStatus: 
+      sellValue: 0
+    price: 65
+  - name: Salmon
+    type: 
+    strength: 18
+    health: 32
+    fishImage: {fileID: 850694208, guid: b87bf1f6a977052469565850c44395ec, type: 3}
+    fishItem:
+      price: 0
+      itemName: 
+      description: 
+      itemImage: {fileID: 0}
+      buttonHolder: {fileID: 0}
+    fishDescription:
+      fishName: 
+      habitat: 
+      diet: 
+      behavior: 
+      conservationStatus: 
+      sellValue: 0
+    price: 40
+  - name: A
+    type: 
+    strength: 16
+    health: 40
+    fishImage: {fileID: -1148281245, guid: 5ce1778c8dbd4634e9cc1ff958909725, type: 3}
+    fishItem:
+      price: 0
+      itemName: 
+      description: 
+      itemImage: {fileID: 0}
+      buttonHolder: {fileID: 0}
+    fishDescription:
+      fishName: 
+      habitat: 
+      diet: 
+      behavior: 
+      conservationStatus: 
+      sellValue: 0
+    price: 70
+  - name: B
+    type: 
+    strength: 16
+    health: 40
+    fishImage: {fileID: -797369528, guid: 5ce1778c8dbd4634e9cc1ff958909725, type: 3}
+    fishItem:
+      price: 0
+      itemName: 
+      description: 
+      itemImage: {fileID: 0}
+      buttonHolder: {fileID: 0}
+    fishDescription:
+      fishName: 
+      habitat: 
+      diet: 
+      behavior: 
+      conservationStatus: 
+      sellValue: 0
+    price: 70
+  - name: C
+    type: 
+    strength: 16
+    health: 40
+    fishImage: {fileID: -1285637187, guid: 5ce1778c8dbd4634e9cc1ff958909725, type: 3}
+    fishItem:
+      price: 0
+      itemName: 
+      description: 
+      itemImage: {fileID: 0}
+      buttonHolder: {fileID: 0}
+    fishDescription:
+      fishName: 
+      habitat: 
+      diet: 
+      behavior: 
+      conservationStatus: 
+      sellValue: 0
+    price: 70
+  - name: D
+    type: 
+    strength: 16
+    health: 40
+    fishImage: {fileID: -1384288133, guid: 5ce1778c8dbd4634e9cc1ff958909725, type: 3}
+    fishItem:
+      price: 0
+      itemName: 
+      description: 
+      itemImage: {fileID: 0}
+      buttonHolder: {fileID: 0}
+    fishDescription:
+      fishName: 
+      habitat: 
+      diet: 
+      behavior: 
+      conservationStatus: 
+      sellValue: 0
+    price: 70
+  - name: E
+    type: 
+    strength: 16
+    health: 40
+    fishImage: {fileID: 2088458821, guid: 5ce1778c8dbd4634e9cc1ff958909725, type: 3}
+    fishItem:
+      price: 0
+      itemName: 
+      description: 
+      itemImage: {fileID: 0}
+      buttonHolder: {fileID: 0}
+    fishDescription:
+      fishName: 
+      habitat: 
+      diet: 
+      behavior: 
+      conservationStatus: 
+      sellValue: 0
+    price: 70
+  - name: F
+    type: 
+    strength: 16
+    health: 40
+    fishImage: {fileID: -439611075, guid: 5ce1778c8dbd4634e9cc1ff958909725, type: 3}
     fishItem:
       price: 0
       itemName: 
