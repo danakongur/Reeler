@@ -10,11 +10,12 @@ public class FishAttackAnimator : MonoBehaviour
     public Vector3 healEnd = new Vector3(0, 0, 0);
     public float healDuration = 1;
     public Vector3 cleanseEnd = new Vector3(0, 0, 0);
+    public float cleanseHeight = 0.5f;
     public float cleanseDuration = 1;
     public Vector3 retreatEnd = new Vector3(5, 0, 0);
     public float retreatDuration = 1;
     Color healColor = Color.green;
-    Color cleanseColor = Color.cyan;
+    Color cleanseColor = Color.magenta;
     /*void OnEnable()
     {
         StartCoroutine(StruggleAnimation());

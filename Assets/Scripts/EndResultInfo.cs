@@ -9,6 +9,7 @@ public class EndResultInfo : MonoBehaviour
     // Start is called before the first frame update
     public TextMeshProUGUI title;
     public TextMeshProUGUI description;
+	public TextMeshProUGUI caughtFishCounter;
     public Image reward;
 
 }

@@ -35,6 +35,7 @@ public class PlayerManager : MonoBehaviour
 	public float maxchance;
 	public int boughtHealthUpgrades = 0;
 	public int boughtStrengthUpgrades = 0;
+	public int caughtFishDuringRun = 0;
 
 	int difficultyLevel = 0;
 	
@@ -102,6 +103,9 @@ public class PlayerManager : MonoBehaviour
 	/// </summary>
 	/// <param name="fish">Fish from availableFish to catch</param>
 	public void CatchFish(Fish fish) {
+		if (!IsCaught(fish)){
+			caughtFishDuringRun += 1;
+		}
 		AddFish(fish);
 		AddItem(fish.fishItem);
 	}
@@ -187,6 +191,7 @@ public class PlayerManager : MonoBehaviour
 		difficultyLevel = 0;
 		maxHealth = startMaxHealth;
 		health = maxHealth;
+		caughtFishDuringRun = 0;
 	}
 
 	/// <summary>
@@ -200,6 +205,7 @@ public class PlayerManager : MonoBehaviour
 		difficultyLevel = 0;
 		maxHealth = startMaxHealth;
 		health = maxHealth;
+		caughtFishDuringRun = 0;
 	}
 
 	/// <summary>

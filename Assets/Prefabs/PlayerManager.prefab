@@ -48,7 +48,7 @@ MonoBehaviour:
   coins: 0
   startMaxHealth: 75
   maxHealth: 75
-  health: 0
+  health: 75
   strength: 10
   availableFish:
   - name: Carp
@@ -184,11 +184,11 @@ MonoBehaviour:
       conservationStatus: Critically Endangered
       sellValue: 70
     price: 70
-  - name: Seaspider
+  - name: Axolotl
     type: Exotic
-    strength: 5
-    health: 7
-    fishImage: {fileID: 156380070, guid: b87bf1f6a977052469565850c44395ec, type: 3}
+    strength: 16
+    health: 35
+    fishImage: {fileID: -2105965212, guid: b87bf1f6a977052469565850c44395ec, type: 3}
     fishItem:
       price: 0
       itemName: 
@@ -202,140 +202,7 @@ MonoBehaviour:
       behavior: Uses long legs to scavenge food
       conservationStatus: Data Deficient
       sellValue: 120
-    price: 120
-  - name: Sea Urching
-    type: Exotic
-    strength: 6
-    health: 6
-    fishImage: {fileID: -1765118433, guid: b87bf1f6a977052469565850c44395ec, type: 3}
-    fishItem:
-      price: 0
-      itemName: 
-      description: 
-      itemImage: {fileID: 0}
-      buttonHolder: {fileID: 0}
-    fishDescription:
-      fishName: Sea Urchin
-      habitat: Coral reefs and tide pools
-      diet: Algae and detritus
-      behavior: Grazes on algae to prevent overgrowth
-      conservationStatus: Least Concern
-      sellValue: 50
-    price: 50
-  - name: Silver Carp
-    type: Freshwater
-    strength: 5
-    health: 7
-    fishImage: {fileID: -1148281245, guid: 5ce1778c8dbd4634e9cc1ff958909725, type: 3}
-    fishItem:
-      price: 0
-      itemName: 
-      description: 
-      itemImage: {fileID: 0}
-      buttonHolder: {fileID: 0}
-    fishDescription:
-      fishName: Silver Carp
-      habitat: Freshwater
-      diet: Small fish and worms
-      behavior: Retains juvenile features throughout life
-      conservationStatus: Critically Endangered
-      sellValue: 70
     price: 70
-  - name: Gold Guppy
-    type: Freshwater
-    strength: 3
-    health: 6
-    fishImage: {fileID: -1384288133, guid: 5ce1778c8dbd4634e9cc1ff958909725, type: 3}
-    fishItem:
-      price: 0
-      itemName: 
-      description: 
-      itemImage: {fileID: 0}
-      buttonHolder: {fileID: 0}
-    fishDescription:
-      fishName: Gold Guppy
-      habitat: Calm freshwater streams
-      diet: Algae and small insects
-      behavior: Displays vibrant colors to attract mates
-      conservationStatus: Least Concern
-      sellValue: 80
-    price: 80
-  - name: Sockeye Salmon
-    type: Saltwater
-    strength: 8
-    health: 5
-    fishImage: {fileID: -2105965212, guid: b87bf1f6a977052469565850c44395ec, type: 3}
-    fishItem:
-      price: 0
-      itemName: 
-      description: 
-      itemImage: {fileID: 0}
-      buttonHolder: {fileID: 0}
-    fishDescription:
-      fishName: Sockeye Salmon
-      habitat: Oceans and rivers
-      diet: Zooplankton
-      behavior: Persistent and aggressive during migration
-      conservationStatus: Near Threatened
-      sellValue: 70
-    price: 70
-  - name: Pink Salmon
-    type: Saltwater
-    strength: 7
-    health: 6
-    fishImage: {fileID: -1285637187, guid: 5ce1778c8dbd4634e9cc1ff958909725, type: 3}
-    fishItem:
-      price: 0
-      itemName: 
-      description: 
-      itemImage: {fileID: 0}
-      buttonHolder: {fileID: 0}
-    fishDescription:
-      fishName: Pink Salmon
-      habitat: Costal waters and rivers
-      diet: Krill and small crustaceans
-      behavior: Efficient swimmer
-      conservationStatus: Least Concern
-      sellValue: 55
-    price: 55
-  - name: Firefly Axolotl
-    type: Exotic
-    strength: 18
-    health: 45
-    fishImage: {fileID: -2105965212, guid: b87bf1f6a977052469565850c44395ec, type: 3}
-    fishItem:
-      price: 0
-      itemName: 
-      description: 
-      itemImage: {fileID: 0}
-      buttonHolder: {fileID: 0}
-    fishDescription:
-      fishName: Axolotl
-      habitat: Mystic lakes
-      diet: Small insects and worms
-      behavior: Shy yet mesmerizing
-      conservationStatus: Critically Endangered
-      sellValue: 120
-    price: 120
-  - name: Gold Axolotl
-    type: Exotic
-    strength: 20
-    health: 50
-    fishImage: {fileID: -2105965212, guid: b87bf1f6a977052469565850c44395ec, type: 3}
-    fishItem:
-      price: 0
-      itemName: 
-      description: 
-      itemImage: {fileID: 0}
-      buttonHolder: {fileID: 0}
-    fishDescription:
-      fishName: Gold Axolotl
-      habitat: Mexican lakes
-      diet: Small fish and worms
-      behavior: Can regenerate limbs and organs
-      conservationStatus: Critically Endangered
-      sellValue: 500
-    price: 500
   - name: Hi-fin Shark
     type: Freshwater
     strength: 12
@@ -355,6 +222,158 @@ MonoBehaviour:
       conservationStatus: Near Threatened
       sellValue: 100
     price: 100
+  - name: Salmon
+    type: Salt
+    strength: 12
+    health: 50
+    fishImage: {fileID: 850694208, guid: b87bf1f6a977052469565850c44395ec, type: 3}
+    fishItem:
+      price: 0
+      itemName: 
+      description: 
+      itemImage: {fileID: 0}
+      buttonHolder: {fileID: 0}
+    fishDescription:
+      fishName: Gold Axolotl
+      habitat: Mexican lakes
+      diet: Small fish and worms
+      behavior: Can regenerate limbs and organs
+      conservationStatus: Critically Endangered
+      sellValue: 500
+    price: 50
+  - name: Sea Urchin
+    type: Exotic
+    strength: 11
+    health: 40
+    fishImage: {fileID: -1765118433, guid: b87bf1f6a977052469565850c44395ec, type: 3}
+    fishItem:
+      price: 0
+      itemName: 
+      description: 
+      itemImage: {fileID: 0}
+      buttonHolder: {fileID: 0}
+    fishDescription:
+      fishName: Sea Urchin
+      habitat: Coral reefs and tide pools
+      diet: Algae and detritus
+      behavior: Grazes on algae to prevent overgrowth
+      conservationStatus: Least Concern
+      sellValue: 50
+    price: 50
+  - name: Silver Carp
+    type: Freshwater
+    strength: 15
+    health: 27
+    fishImage: {fileID: -1148281245, guid: 5ce1778c8dbd4634e9cc1ff958909725, type: 3}
+    fishItem:
+      price: 0
+      itemName: 
+      description: 
+      itemImage: {fileID: 0}
+      buttonHolder: {fileID: 0}
+    fishDescription:
+      fishName: Silver Carp
+      habitat: Freshwater
+      diet: Small fish and worms
+      behavior: Retains juvenile features throughout life
+      conservationStatus: Critically Endangered
+      sellValue: 70
+    price: 70
+  - name: Pink Salmon
+    type: Saltwater
+    strength: 18
+    health: 24
+    fishImage: {fileID: -797369528, guid: 5ce1778c8dbd4634e9cc1ff958909725, type: 3}
+    fishItem:
+      price: 0
+      itemName: 
+      description: 
+      itemImage: {fileID: 0}
+      buttonHolder: {fileID: 0}
+    fishDescription:
+      fishName: Pink Salmon
+      habitat: Costal waters and rivers
+      diet: Krill and small crustaceans
+      behavior: Efficient swimmer
+      conservationStatus: Least Concern
+      sellValue: 55
+    price: 55
+  - name: Sockeye Salmon
+    type: Saltwater
+    strength: 14
+    health: 28
+    fishImage: {fileID: -1285637187, guid: 5ce1778c8dbd4634e9cc1ff958909725, type: 3}
+    fishItem:
+      price: 0
+      itemName: 
+      description: 
+      itemImage: {fileID: 0}
+      buttonHolder: {fileID: 0}
+    fishDescription:
+      fishName: Sockeye Salmon
+      habitat: Oceans and rivers
+      diet: Zooplankton
+      behavior: Persistent and aggressive during migration
+      conservationStatus: Near Threatened
+      sellValue: 70
+    price: 70
+  - name: Gold Guppy
+    type: Freshwater
+    strength: 10
+    health: 25
+    fishImage: {fileID: -1384288133, guid: 5ce1778c8dbd4634e9cc1ff958909725, type: 3}
+    fishItem:
+      price: 0
+      itemName: 
+      description: 
+      itemImage: {fileID: 0}
+      buttonHolder: {fileID: 0}
+    fishDescription:
+      fishName: Gold Guppy
+      habitat: Calm freshwater streams
+      diet: Algae and small insects
+      behavior: Displays vibrant colors to attract mates
+      conservationStatus: Least Concern
+      sellValue: 80
+    price: 30
+  - name: Firefly Axolotl
+    type: Exotic
+    strength: 18
+    health: 45
+    fishImage: {fileID: 2088458821, guid: 5ce1778c8dbd4634e9cc1ff958909725, type: 3}
+    fishItem:
+      price: 0
+      itemName: 
+      description: 
+      itemImage: {fileID: 0}
+      buttonHolder: {fileID: 0}
+    fishDescription:
+      fishName: Axolotl
+      habitat: Mystic lakes
+      diet: Small insects and worms
+      behavior: Shy yet mesmerizing
+      conservationStatus: Critically Endangered
+      sellValue: 120
+    price: 85
+  - name: Gold Axolotl
+    type: Exotic
+    strength: 20
+    health: 50
+    fishImage: {fileID: -439611075, guid: 5ce1778c8dbd4634e9cc1ff958909725, type: 3}
+    fishItem:
+      price: 0
+      itemName: 
+      description: 
+      itemImage: {fileID: 0}
+      buttonHolder: {fileID: 0}
+    fishDescription:
+      fishName: Gold Axolotl
+      habitat: Mexican lakes
+      diet: Small fish and worms
+      behavior: Can regenerate limbs and organs
+      conservationStatus: Critically Endangered
+      sellValue: 500
+    price: 90
   baitForSale:
   - price: 17
     itemName: Worm
@@ -380,16 +399,22 @@ MonoBehaviour:
   healItems:
   - price: 20
     itemName: Coffee
-    description: Refresh and gives you energy. Heal 35 points.
+    description: Refresh and gives you energy. Heal 30 points.
     itemImage: {fileID: 21300000, guid: c779400086322724cb25085e24c249ac, type: 3}
     buttonHolder: {fileID: 0}
-    healAmount: 35
+    healAmount: 30
   - price: 30
     itemName: Hot cocoa
     description: Warms you up inside. Heal 50 points.
     itemImage: {fileID: 21300000, guid: 173850baa1c88784f992f0ca22dfdcac, type: 3}
     buttonHolder: {fileID: 0}
     healAmount: 50
+  - price: 55
+    itemName: "K\xF3k\xF3mj\xF3lk"
+    description: Yummy yummy chocolate milk. Heal 100 points.
+    itemImage: {fileID: 21300000, guid: 26beab2f6a49dea6a901aed59667266a, type: 3}
+    buttonHolder: {fileID: 0}
+    healAmount: 100
   boostItems:
   - price: 15
     itemName: Spinach
@@ -445,3 +470,4 @@ MonoBehaviour:
   maxchance: 1
   boughtHealthUpgrades: 0
   boughtStrengthUpgrades: 0
+  caughtFishDuringRun: 0
