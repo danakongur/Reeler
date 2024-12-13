@@ -52,7 +52,7 @@ MonoBehaviour:
   strength: 10
   availableFish:
   - name: Carp
-    type: 
+    type: Freshwater
     strength: 15
     health: 37
     fishImage: {fileID: -1582011002, guid: b87bf1f6a977052469565850c44395ec, type: 3}
@@ -63,15 +63,15 @@ MonoBehaviour:
       itemImage: {fileID: 0}
       buttonHolder: {fileID: 0}
     fishDescription:
-      fishName: 
-      habitat: 
-      diet: 
-      behavior: 
-      conservationStatus: 
-      sellValue: 0
+      fishName: Carp
+      habitat: Rivers, ponds
+      diet: Plants, insects, small crustaceans
+      behavior: Hardy and adaptable
+      conservationStatus: Least Concern
+      sellValue: 50
     price: 40
   - name: Clownfish
-    type: 
+    type: Saltwater
     strength: 12
     health: 35
     fishImage: {fileID: 894951035, guid: b87bf1f6a977052469565850c44395ec, type: 3}
@@ -82,15 +82,15 @@ MonoBehaviour:
       itemImage: {fileID: 0}
       buttonHolder: {fileID: 0}
     fishDescription:
-      fishName: 
-      habitat: 
-      diet: 
-      behavior: 
-      conservationStatus: 
-      sellValue: 0
+      fishName: Salmon
+      habitat: Freshwater and saltwater
+      diet: Small fish and plankton
+      behavior: Migratory and resilient
+      conservationStatus: Near Threatened
+      sellValue: 50
     price: 40
   - name: Flounder
-    type: 
+    type: Saltwater
     strength: 20
     health: 30
     fishImage: {fileID: -1576473217, guid: b87bf1f6a977052469565850c44395ec, type: 3}
@@ -101,15 +101,15 @@ MonoBehaviour:
       itemImage: {fileID: 0}
       buttonHolder: {fileID: 0}
     fishDescription:
-      fishName: 
-      habitat: 
-      diet: 
-      behavior: 
-      conservationStatus: 
-      sellValue: 0
+      fishName: Clownfish
+      habitat: Tropical coral reefs
+      diet: Algae, plankton, and small invertebrates
+      behavior: Symbiotic relationship with sea anemones
+      conservationStatus: Least Concern
+      sellValue: 70
     price: 30
   - name: Sea Spider
-    type: 
+    type: Saltwater
     strength: 22
     health: 17
     fishImage: {fileID: 156380070, guid: b87bf1f6a977052469565850c44395ec, type: 3}
@@ -120,15 +120,15 @@ MonoBehaviour:
       itemImage: {fileID: 0}
       buttonHolder: {fileID: 0}
     fishDescription:
-      fishName: 
-      habitat: 
-      diet: 
-      behavior: 
-      conservationStatus: 
-      sellValue: 0
+      fishName: Flounder
+      habitat: Coastal waters and estuaries
+      diet: Small fish, crustaceans, and worms
+      behavior: Camouflages with the seabed
+      conservationStatus: Least Concern
+      sellValue: 70
     price: 70
   - name: Lumpfish
-    type: 
+    type: Saltwater
     strength: 10
     health: 50
     fishImage: {fileID: 1936734363, guid: b87bf1f6a977052469565850c44395ec, type: 3}
@@ -139,15 +139,15 @@ MonoBehaviour:
       itemImage: {fileID: 0}
       buttonHolder: {fileID: 0}
     fishDescription:
-      fishName: 
-      habitat: 
-      diet: 
-      behavior: 
-      conservationStatus: 
-      sellValue: 0
+      fishName: Lumpfish
+      habitat: Cold ocean floors
+      diet: Small invertebrates and crustaceans
+      behavior: Uses sucker-like fins to cling to surfaces
+      conservationStatus: Least Concern
+      sellValue: 70
     price: 40
   - name: Guppy
-    type: 
+    type: Freshwater
     strength: 5
     health: 20
     fishImage: {fileID: -256949967, guid: b87bf1f6a977052469565850c44395ec, type: 3}
@@ -158,15 +158,15 @@ MonoBehaviour:
       itemImage: {fileID: 0}
       buttonHolder: {fileID: 0}
     fishDescription:
-      fishName: 
-      habitat: 
-      diet: 
-      behavior: 
-      conservationStatus: 
-      sellValue: 0
+      fishName: Guppy
+      habitat: Tropical freshwater
+      diet: Algae and small insects
+      behavior: Highly adaptable and prolific breeders
+      conservationStatus: Least Concern
+      sellValue: 10
     price: 5
   - name: Freshwater Snail
-    type: 
+    type: Exotic
     strength: 16
     health: 40
     fishImage: {fileID: 452169738, guid: b87bf1f6a977052469565850c44395ec, type: 3}
@@ -177,18 +177,18 @@ MonoBehaviour:
       itemImage: {fileID: 0}
       buttonHolder: {fileID: 0}
     fishDescription:
-      fishName: 
-      habitat: 
-      diet: 
-      behavior: 
-      conservationStatus: 
-      sellValue: 0
+      fishName: Axolotl
+      habitat: Mexican lakes
+      diet: Small fish and worms
+      behavior: Retains juvenile features throughout life
+      conservationStatus: Critically Endangered
+      sellValue: 70
     price: 70
-  - name: Axolotl
-    type: 
-    strength: 16
-    health: 40
-    fishImage: {fileID: -2105965212, guid: b87bf1f6a977052469565850c44395ec, type: 3}
+  - name: Seaspider
+    type: Exotic
+    strength: 5
+    health: 7
+    fishImage: {fileID: 156380070, guid: b87bf1f6a977052469565850c44395ec, type: 3}
     fishItem:
       price: 0
       itemName: 
@@ -196,18 +196,18 @@ MonoBehaviour:
       itemImage: {fileID: 0}
       buttonHolder: {fileID: 0}
     fishDescription:
-      fishName: 
-      habitat: 
-      diet: 
-      behavior: 
-      conservationStatus: 
-      sellValue: 0
-    price: 70
-  - name: Hi Fin Shark
-    type: 
-    strength: 13
-    health: 53
-    fishImage: {fileID: 995508944, guid: b87bf1f6a977052469565850c44395ec, type: 3}
+      fishName: Seaspider
+      habitat: Deep ocean floors
+      diet: Small prey and organic matter
+      behavior: Uses long legs to scavenge food
+      conservationStatus: Data Deficient
+      sellValue: 120
+    price: 120
+  - name: Sea Urching
+    type: Exotic
+    strength: 6
+    health: 6
+    fishImage: {fileID: -1765118433, guid: b87bf1f6a977052469565850c44395ec, type: 3}
     fishItem:
       price: 0
       itemName: 
@@ -215,36 +215,17 @@ MonoBehaviour:
       itemImage: {fileID: 0}
       buttonHolder: {fileID: 0}
     fishDescription:
-      fishName: 
-      habitat: 
-      diet: 
-      behavior: 
-      conservationStatus: 
-      sellValue: 0
-    price: 65
-  - name: Salmon
-    type: 
-    strength: 18
-    health: 32
-    fishImage: {fileID: 850694208, guid: b87bf1f6a977052469565850c44395ec, type: 3}
-    fishItem:
-      price: 0
-      itemName: 
-      description: 
-      itemImage: {fileID: 0}
-      buttonHolder: {fileID: 0}
-    fishDescription:
-      fishName: 
-      habitat: 
-      diet: 
-      behavior: 
-      conservationStatus: 
-      sellValue: 0
-    price: 40
+      fishName: Sea Urchin
+      habitat: Coral reefs and tide pools
+      diet: Algae and detritus
+      behavior: Grazes on algae to prevent overgrowth
+      conservationStatus: Least Concern
+      sellValue: 50
+    price: 50
   - name: Silver Carp
-    type: 
-    strength: 16
-    health: 40
+    type: Freshwater
+    strength: 5
+    health: 7
     fishImage: {fileID: -1148281245, guid: 5ce1778c8dbd4634e9cc1ff958909725, type: 3}
     fishItem:
       price: 0
@@ -253,55 +234,17 @@ MonoBehaviour:
       itemImage: {fileID: 0}
       buttonHolder: {fileID: 0}
     fishDescription:
-      fishName: 
-      habitat: 
-      diet: 
-      behavior: 
-      conservationStatus: 
-      sellValue: 0
+      fishName: Silver Carp
+      habitat: Freshwater
+      diet: Small fish and worms
+      behavior: Retains juvenile features throughout life
+      conservationStatus: Critically Endangered
+      sellValue: 70
     price: 70
-  - name: Pink Salmon
-    type: 
-    strength: 16
-    health: 40
-    fishImage: {fileID: -797369528, guid: 5ce1778c8dbd4634e9cc1ff958909725, type: 3}
-    fishItem:
-      price: 0
-      itemName: 
-      description: 
-      itemImage: {fileID: 0}
-      buttonHolder: {fileID: 0}
-    fishDescription:
-      fishName: 
-      habitat: 
-      diet: 
-      behavior: 
-      conservationStatus: 
-      sellValue: 0
-    price: 70
-  - name: Sockeye Salmon
-    type: 
-    strength: 16
-    health: 40
-    fishImage: {fileID: -1285637187, guid: 5ce1778c8dbd4634e9cc1ff958909725, type: 3}
-    fishItem:
-      price: 0
-      itemName: 
-      description: 
-      itemImage: {fileID: 0}
-      buttonHolder: {fileID: 0}
-    fishDescription:
-      fishName: 
-      habitat: 
-      diet: 
-      behavior: 
-      conservationStatus: 
-      sellValue: 0
-    price: 70
-  - name: Golden Guppy
-    type: 
-    strength: 16
-    health: 40
+  - name: Gold Guppy
+    type: Freshwater
+    strength: 3
+    health: 6
     fishImage: {fileID: -1384288133, guid: 5ce1778c8dbd4634e9cc1ff958909725, type: 3}
     fishItem:
       price: 0
@@ -310,18 +253,56 @@ MonoBehaviour:
       itemImage: {fileID: 0}
       buttonHolder: {fileID: 0}
     fishDescription:
-      fishName: 
-      habitat: 
-      diet: 
-      behavior: 
-      conservationStatus: 
-      sellValue: 0
+      fishName: Gold Guppy
+      habitat: Calm freshwater streams
+      diet: Algae and small insects
+      behavior: Displays vibrant colors to attract mates
+      conservationStatus: Least Concern
+      sellValue: 80
+    price: 80
+  - name: Sockeye Salmon
+    type: Saltwater
+    strength: 8
+    health: 5
+    fishImage: {fileID: -2105965212, guid: b87bf1f6a977052469565850c44395ec, type: 3}
+    fishItem:
+      price: 0
+      itemName: 
+      description: 
+      itemImage: {fileID: 0}
+      buttonHolder: {fileID: 0}
+    fishDescription:
+      fishName: Sockeye Salmon
+      habitat: Oceans and rivers
+      diet: Zooplankton
+      behavior: Persistent and aggressive during migration
+      conservationStatus: Near Threatened
+      sellValue: 70
     price: 70
+  - name: Pink Salmon
+    type: Saltwater
+    strength: 7
+    health: 6
+    fishImage: {fileID: -1285637187, guid: 5ce1778c8dbd4634e9cc1ff958909725, type: 3}
+    fishItem:
+      price: 0
+      itemName: 
+      description: 
+      itemImage: {fileID: 0}
+      buttonHolder: {fileID: 0}
+    fishDescription:
+      fishName: Pink Salmon
+      habitat: Costal waters and rivers
+      diet: Krill and small crustaceans
+      behavior: Efficient swimmer
+      conservationStatus: Least Concern
+      sellValue: 55
+    price: 55
   - name: Firefly Axolotl
-    type: 
-    strength: 16
-    health: 40
-    fishImage: {fileID: 2088458821, guid: 5ce1778c8dbd4634e9cc1ff958909725, type: 3}
+    type: Exotic
+    strength: 18
+    health: 45
+    fishImage: {fileID: -2105965212, guid: b87bf1f6a977052469565850c44395ec, type: 3}
     fishItem:
       price: 0
       itemName: 
@@ -329,18 +310,18 @@ MonoBehaviour:
       itemImage: {fileID: 0}
       buttonHolder: {fileID: 0}
     fishDescription:
-      fishName: 
-      habitat: 
-      diet: 
-      behavior: 
-      conservationStatus: 
-      sellValue: 0
-    price: 70
+      fishName: Axolotl
+      habitat: Mystic lakes
+      diet: Small insects and worms
+      behavior: Shy yet mesmerizing
+      conservationStatus: Critically Endangered
+      sellValue: 120
+    price: 120
   - name: Gold Axolotl
-    type: 
-    strength: 16
-    health: 40
-    fishImage: {fileID: -439611075, guid: 5ce1778c8dbd4634e9cc1ff958909725, type: 3}
+    type: Exotic
+    strength: 20
+    health: 50
+    fishImage: {fileID: -2105965212, guid: b87bf1f6a977052469565850c44395ec, type: 3}
     fishItem:
       price: 0
       itemName: 
@@ -348,13 +329,32 @@ MonoBehaviour:
       itemImage: {fileID: 0}
       buttonHolder: {fileID: 0}
     fishDescription:
-      fishName: 
-      habitat: 
-      diet: 
-      behavior: 
-      conservationStatus: 
-      sellValue: 0
-    price: 70
+      fishName: Gold Axolotl
+      habitat: Mexican lakes
+      diet: Small fish and worms
+      behavior: Can regenerate limbs and organs
+      conservationStatus: Critically Endangered
+      sellValue: 500
+    price: 500
+  - name: Hi-fin Shark
+    type: Freshwater
+    strength: 12
+    health: 15
+    fishImage: {fileID: 995508944, guid: b87bf1f6a977052469565850c44395ec, type: 3}
+    fishItem:
+      price: 0
+      itemName: 
+      description: 
+      itemImage: {fileID: 0}
+      buttonHolder: {fileID: 0}
+    fishDescription:
+      fishName: Hi-fin Shark
+      habitat: Mountainous rivers with clear water
+      diet: Algae, small crustaceans
+      behavior: Peaceful but highly agile in currents
+      conservationStatus: Near Threatened
+      sellValue: 100
+    price: 100
   baitForSale:
   - price: 17
     itemName: Worm
@@ -405,7 +405,42 @@ MonoBehaviour:
     itemImage: {fileID: 21300000, guid: 8fd69304fc1732849a136547b5d0bafb, type: 3}
     buttonHolder: {fileID: 0}
     boostAmount: 1.5
-  itemsForSale: []
+  itemsForSale:
+  - price: 0
+    itemName: 
+    description: 
+    itemImage: {fileID: 0}
+    buttonHolder: {fileID: 0}
+  - price: 0
+    itemName: 
+    description: 
+    itemImage: {fileID: 0}
+    buttonHolder: {fileID: 0}
+  - price: 0
+    itemName: 
+    description: 
+    itemImage: {fileID: 0}
+    buttonHolder: {fileID: 0}
+  - price: 0
+    itemName: 
+    description: 
+    itemImage: {fileID: 0}
+    buttonHolder: {fileID: 0}
+  - price: 0
+    itemName: 
+    description: 
+    itemImage: {fileID: 0}
+    buttonHolder: {fileID: 0}
+  - price: 0
+    itemName: 
+    description: 
+    itemImage: {fileID: 0}
+    buttonHolder: {fileID: 0}
+  - price: 0
+    itemName: 
+    description: 
+    itemImage: {fileID: 0}
+    buttonHolder: {fileID: 0}
   minchance: 0.85
   maxchance: 1
   boughtHealthUpgrades: 0
