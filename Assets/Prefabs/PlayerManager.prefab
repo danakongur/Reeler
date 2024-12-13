@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startcoins: 100
   coins: 0
+  startMaxHealth: 75
   maxHealth: 75
   health: 0
   strength: 10
@@ -240,7 +241,7 @@ MonoBehaviour:
       conservationStatus: 
       sellValue: 0
     price: 40
-  - name: A
+  - name: Silver Carp
     type: 
     strength: 16
     health: 40
@@ -259,7 +260,7 @@ MonoBehaviour:
       conservationStatus: 
       sellValue: 0
     price: 70
-  - name: B
+  - name: Pink Salmon
     type: 
     strength: 16
     health: 40
@@ -278,7 +279,7 @@ MonoBehaviour:
       conservationStatus: 
       sellValue: 0
     price: 70
-  - name: C
+  - name: Sockeye Salmon
     type: 
     strength: 16
     health: 40
@@ -297,7 +298,7 @@ MonoBehaviour:
       conservationStatus: 
       sellValue: 0
     price: 70
-  - name: D
+  - name: Golden Guppy
     type: 
     strength: 16
     health: 40
@@ -316,7 +317,7 @@ MonoBehaviour:
       conservationStatus: 
       sellValue: 0
     price: 70
-  - name: E
+  - name: Firefly Axolotl
     type: 
     strength: 16
     health: 40
@@ -335,7 +336,7 @@ MonoBehaviour:
       conservationStatus: 
       sellValue: 0
     price: 70
-  - name: F
+  - name: Gold Axolotl
     type: 
     strength: 16
     health: 40
