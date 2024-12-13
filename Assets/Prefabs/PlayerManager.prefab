@@ -49,6 +49,7 @@ MonoBehaviour:
   startMaxHealth: 75
   maxHealth: 75
   health: 75
+  startStrength: 0
   strength: 10
   availableFish:
   - name: Carp
@@ -223,7 +224,7 @@ MonoBehaviour:
       sellValue: 100
     price: 100
   - name: Salmon
-    type: Salt
+    type: Saltwater
     strength: 12
     health: 50
     fishImage: {fileID: 850694208, guid: b87bf1f6a977052469565850c44395ec, type: 3}
