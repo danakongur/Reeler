@@ -14,5 +14,11 @@ public class ResetButton : MonoBehaviour
 		}
     }
 
+	void Update() {
+		if (Input.GetKeyDown(KeyCode.KeypadMultiply)){
+			PlayerManager.instance.ResetPlayerManager();
+		}
+	}
+
 
 }
