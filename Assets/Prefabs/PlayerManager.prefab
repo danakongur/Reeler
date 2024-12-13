@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startcoins: 100
   coins: 0
+  startMaxHealth: 75
   maxHealth: 75
   health: 0
   strength: 10

@@ -31,23 +31,17 @@ public class Fish_Animator : MonoBehaviour
 
     void Awake()
     {
-        //var playerInfo = GameObject.Find("Playerinfo");
-        //playerHealth = playerInfo.transform.Find("Health").GetComponent<TextMeshProUGUI>();
-
-		// TODO: replace with getting a fish instance from the start
-		//fishObject = PlayerManager.instance.GetFishByName("Carp");
 		int randIndex = Random.Range(0,PlayerManager.instance.availableFish.Length);
 		fishObject = PlayerManager.instance.availableFish[randIndex];
         
 		name = fishObject.name;
-		//maxHealth = fishObject.health;
+		
 		// give the fish health with the difficulty modifier
 		maxHealth = Mathf.RoundToInt(PlayerManager.instance.GetDifficultyModifier() * fishObject.health);
 
 		// do the same with strength
-		//strength = fishObject.strength;
 		strength = Mathf.RoundToInt(PlayerManager.instance.GetDifficultyModifier() * fishObject.strength);
-		SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+		SpriteRenderer spriteRenderer = transform.Find("FishSprite").GetComponent<SpriteRenderer>();
 		if (spriteRenderer) spriteRenderer.sprite = fishObject.fishImage;
 
         info.nameText.text = name;
@@ -99,7 +93,7 @@ public class Fish_Animator : MonoBehaviour
 			var maxAmount = other.strength / 2 + strength / 2;
 			int healAmount = (int) Random.Range(minAmount, maxAmount)+1;
             nextMove = "Absorb Nutrients";
-            description = $"(Heals between {Mathf.Min(minAmount+1,maxAmount)} to {Mathf.Max(minAmount+1,maxAmount)})";
+            description = $"(Heals {Mathf.Min(minAmount+1,maxAmount)} to {Mathf.Max(minAmount+1,maxAmount)})";
         }
         else if (prob <= 4 && debuff > 0)
         {
@@ -110,7 +104,7 @@ public class Fish_Animator : MonoBehaviour
         {
 			int dmg = strength - ((strength * debuff) / 4);
             nextMove = "Struggle";
-			description = $"(Does from {Mathf.RoundToInt(dmg*PlayerManager.instance.minchance)} to {Mathf.RoundToInt(dmg*PlayerManager.instance.maxchance)} DMG)";
+			description = $"(Does {Mathf.RoundToInt(dmg*PlayerManager.instance.minchance)} to {Mathf.RoundToInt(dmg*PlayerManager.instance.maxchance)} DMG)";
         }
 		info.predictionText.text = $"{name} will attempt to {nextMove} {description}";
         return nextMove;

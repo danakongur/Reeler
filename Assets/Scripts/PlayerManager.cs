@@ -14,6 +14,7 @@ public class PlayerManager : MonoBehaviour
 	/// Coin status. Do not subtract without the builtin function.
 	/// </summary>
 	public int coins;
+	public int startMaxHealth;
 	public int maxHealth;
 	public int health;
 	public int strength;
@@ -53,7 +54,8 @@ public class PlayerManager : MonoBehaviour
 		};
 
 		coins = startcoins;
-
+		
+		maxHealth = startMaxHealth;
 		health = maxHealth;
 
 		caughtFish = new Dictionary<Fish, bool>();
@@ -182,6 +184,9 @@ public class PlayerManager : MonoBehaviour
 		{
 			caughtFish[key] = false;
 		}
+		difficultyLevel = 0;
+		maxHealth = startMaxHealth;
+		health = maxHealth;
 	}
 
 	/// <summary>
@@ -192,6 +197,9 @@ public class PlayerManager : MonoBehaviour
 			[baitForSale[0]] = 1
 		};
 		coins = startcoins;
+		difficultyLevel = 0;
+		maxHealth = startMaxHealth;
+		health = maxHealth;
 	}
 
 	/// <summary>
