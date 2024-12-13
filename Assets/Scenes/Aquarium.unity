@@ -254,7 +254,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Name: Carp'
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 735a54a000711434484f95a493563a49, type: 2}
   m_sharedMaterial: {fileID: -1213616862030005611, guid: 735a54a000711434484f95a493563a49, type: 2}
@@ -1389,6 +1389,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+--- !u!1 &522769954 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8348144377033771069, guid: 2209e389847c3ae409316cee00886f03, type: 3}
+  m_PrefabInstance: {fileID: 3941122878867476218}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &907556320
 GameObject:
   m_ObjectHideFlags: 0
@@ -2664,6 +2669,7 @@ MonoBehaviour:
   Freshwater: {fileID: 1407371568}
   Saltwater: {fileID: 2000282882}
   Exotic: {fileID: 1989055724}
+  infobox: {fileID: 522769954}
   fishtanks:
   - {fileID: 21300000, guid: 805a03f3f092c388b92fd7aa94615178, type: 3}
   - {fileID: 21300000, guid: 725e6b83e0e09564fbe7ac0bcf471d0d, type: 3}

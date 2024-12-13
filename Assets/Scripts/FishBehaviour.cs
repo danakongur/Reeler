@@ -75,7 +75,6 @@ public class FishBehaviour : MonoBehaviour
            infoBoxPanel.SetActive(true);
            InfoboxBehavior infoBox = infoBoxPanel.GetComponent<InfoboxBehavior>();
            infoBox.fishNameTextComponent.text = "Name: " + fish.name;
-           infoBox.fishTypeTextComponent.text = "Type: " + fish.type;
            infoBox.fishSellValueTextComponent.text = "Sell Value: " + fish.price.ToString(); // Show the description
            infoBox.fishHabitatTextComponent.text = "Habitat: " + fish.fishDescription.habitat;
            infoBox.fishDietTextComponent.text = "Diet: " + fish.fishDescription.diet;

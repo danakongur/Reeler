@@ -19,12 +19,13 @@ public class AquariumManager : MonoBehaviour
     public Button Freshwater; // The freshwater button
     public Button Saltwater; // The saltwater button
     public Button Exotic; // The exotic button
+    public GameObject infobox; // The infobox GameObject
 
     public Sprite[] fishtanks; // The fishtanks array
     public FishGrid fishGrid; // The fish grid
 
 
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,13 +39,13 @@ public class AquariumManager : MonoBehaviour
         fishGrid.showFishType = "Freshwater";
     }
 
-       public void SaltwaterF()
+    public void SaltwaterF()
     {
         background.sprite = fishtanks[1];
         fishGrid.showFishType = "Saltwater";
     }
 
-       public void ExoticF()
+    public void ExoticF()
     {
         background.sprite = fishtanks[2];
         fishGrid.showFishType = "Exotic";
@@ -59,5 +60,17 @@ public class AquariumManager : MonoBehaviour
         // Add gentle fish animations
         // Prepare a popup or tooltip for fish details when clicked or hovered
         // The fish grid creates all the fish objects and sets their properties
+        if (infobox.activeSelf)
+        {
+            Freshwater.gameObject.SetActive(false);
+            Saltwater.gameObject.SetActive(false);
+            Exotic.gameObject.SetActive(false);
+        }
+        else
+        {
+            Freshwater.gameObject.SetActive(true);
+            Saltwater.gameObject.SetActive(true);
+            Exotic.gameObject.SetActive(true);
+        }
     }
 }
