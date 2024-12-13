@@ -17,6 +17,7 @@ public class PlayerManager : MonoBehaviour
 	public int startMaxHealth;
 	public int maxHealth;
 	public int health;
+	public int startStrength;
 	public int strength;
 	public static PlayerManager instance;
 
@@ -58,6 +59,7 @@ public class PlayerManager : MonoBehaviour
 		
 		maxHealth = startMaxHealth;
 		health = maxHealth;
+		strength = startStrength;
 
 		caughtFish = new Dictionary<Fish, bool>();
 
@@ -191,6 +193,7 @@ public class PlayerManager : MonoBehaviour
 		difficultyLevel = 0;
 		maxHealth = startMaxHealth;
 		health = maxHealth;
+		strength = startStrength;
 		caughtFishDuringRun = 0;
 	}
 
@@ -205,6 +208,7 @@ public class PlayerManager : MonoBehaviour
 		difficultyLevel = 0;
 		maxHealth = startMaxHealth;
 		health = maxHealth;
+		strength = startStrength;
 		caughtFishDuringRun = 0;
 	}
 
