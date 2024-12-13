@@ -27,6 +27,10 @@ public class Fish_Animator : MonoBehaviour
 	public int GetMaxDebuff() {
 		return maxDebuff;
 	}
+
+	public int GetMaxHealth() {
+		return maxHealth;
+	}
 	
 
     void Awake()
@@ -94,7 +98,7 @@ public class Fish_Animator : MonoBehaviour
         }
         else if (prob <= 3 && (health < maxHealth))
         {
-			var minAmount = other.strength;
+			var minAmount = other.strength / 3 + strength / 3;
 			var maxAmount = other.strength / 2 + strength / 2;
 			int healAmount = (int) Random.Range(minAmount, maxAmount)+1;
             nextMove = "Absorb Nutrients";
@@ -131,8 +135,9 @@ public class Fish_Animator : MonoBehaviour
     }
     public void Absorb()
     {
-        var minAmount = other.strength;
+        var minAmount = other.strength / 3 + strength / 3;
         var maxAmount = other.strength / 2 + strength / 2;
+
         int healAmount = (int) Random.Range(minAmount, maxAmount)+1;
 
         GainHealth(healAmount);
@@ -188,7 +193,8 @@ public class Fish_Animator : MonoBehaviour
 	/// <param name="amount"></param>
 	public void LoseMaxHealth(int amount) {
 		maxHealth -= amount;
-		health = Mathf.Min(health,maxHealth);
+		maxHealth = Mathf.Max(maxHealth, 0);
+		health = Mathf.Clamp(health, 0, maxHealth);
 	}
 
     public void LoseDebuff()

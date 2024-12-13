@@ -1185,8 +1185,8 @@ MonoBehaviour:
   cleanseEnd: {x: 0, y: 0, z: 0}
   cleanseHeight: 0.5
   cleanseDuration: 1
-  retreatEnd: {x: 0.5, y: 0, z: 0}
-  retreatDuration: 0.8
+  retreatEnd: {x: 1, y: 0, z: 0}
+  retreatDuration: 1
 --- !u!212 &248357250
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3612,6 +3612,10 @@ PrefabInstance:
     - target: {fileID: 634399734901985494, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
       propertyPath: m_Name
       value: PlayerManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[9].type
+      value: Saltwater
       objectReference: {fileID: 0}
     - target: {fileID: 5743779043829583834, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7847,6 +7851,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1856436506}
   m_CullTransparentMesh: 1
+--- !u!1001 &1894649021
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2936106276672080845, guid: a7785293c911c004a851236f2c26b1b6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 544.9521
+      objectReference: {fileID: 0}
+    - target: {fileID: 2936106276672080845, guid: a7785293c911c004a851236f2c26b1b6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 515.18463
+      objectReference: {fileID: 0}
+    - target: {fileID: 2936106276672080845, guid: a7785293c911c004a851236f2c26b1b6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.867254
+      objectReference: {fileID: 0}
+    - target: {fileID: 2936106276672080845, guid: a7785293c911c004a851236f2c26b1b6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2936106276672080845, guid: a7785293c911c004a851236f2c26b1b6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2936106276672080845, guid: a7785293c911c004a851236f2c26b1b6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2936106276672080845, guid: a7785293c911c004a851236f2c26b1b6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2936106276672080845, guid: a7785293c911c004a851236f2c26b1b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2936106276672080845, guid: a7785293c911c004a851236f2c26b1b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2936106276672080845, guid: a7785293c911c004a851236f2c26b1b6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3324854824886705190, guid: a7785293c911c004a851236f2c26b1b6, type: 3}
+      propertyPath: m_Name
+      value: MusicManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3995581200592560522, guid: a7785293c911c004a851236f2c26b1b6, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: d7e380f35d06c2841b759a9d0bca0841, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a7785293c911c004a851236f2c26b1b6, type: 3}
 --- !u!1 &1929078934
 GameObject:
   m_ObjectHideFlags: 0
@@ -8368,3 +8433,4 @@ SceneRoots:
   - {fileID: 1735303678}
   - {fileID: 499200838}
   - {fileID: 733913595}
+  - {fileID: 1894649021}

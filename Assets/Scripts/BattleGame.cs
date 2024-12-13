@@ -98,6 +98,18 @@ public class BattleGame : MonoBehaviour
 	/// <param name="item">Item that was clicked</param>
 	void ItemClicked(Item item){
 		if (pressed == false) {
+			// check if bait can be used
+			if (item.GetItemType() == ItemType.Bait){
+				BaitItem bait = (BaitItem)item;
+				int fishMaxHealth = Mathf.RoundToInt(Fish.GetFishObject().health * PlayerManager.instance.GetDifficultyModifier());
+				if (Fish.GetMaxHealth() - bait.healthReduction <= 0 || false){
+					// if this bait would kill the fish
+
+					//TODO: show text for a moment
+					Debug.Log($"{bait.itemName} would kill the fish OR fish max health is already under 10% of original max");
+					return;
+				}
+			}
 			pressed = true;
 			selectedMove = "Item";
 			selectedItem = item;
@@ -242,7 +254,7 @@ public class BattleGame : MonoBehaviour
         endInfo.reward.sprite = Fish.GetFishObject().fishImage;
 
         HideItem(Fish.info.gameObject);
-        HideItem(Fish.gameObject);
+        //HideItem(Fish.gameObject);
 		HideItem(endInfo.caughtFishCounter.gameObject);
         endInfo.title.text = "The " + Fish.name + " Took off";
         endInfo.description.text = "He got away :o";
@@ -364,10 +376,10 @@ public class BattleGame : MonoBehaviour
         }
         else
         {
-            StartCoroutine(fishAnimation.RetreatAnimation());
             bool result =Fish.Retreat();
             if (result==true)
             {
+                StartCoroutine(fishAnimation.RetreatAnimation());
                 FishRetreat();
                 return true;
             }

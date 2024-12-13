@@ -51,8 +51,15 @@ public class FishAttackAnimator : MonoBehaviour
         while (timer < healDuration)
         {
             timer += Time.deltaTime;
+            if (timer < healDuration / 2)
+            {
+                transform.localPosition = Vector3.Lerp(Vector3.zero, healEnd, timer / (healDuration/2));
+            }
+            else
+            {
+                transform.localPosition = Vector3.Lerp(healEnd, Vector3.zero , timer / (healDuration/2));
+            }
             fishSprite.color = Color.Lerp(defaultColor, healColor, timer / healDuration);
-            //transform.localPosition = Vector3.Lerp(Vector3.zero, healEnd, timer / healDuration);
             yield return null;
 
         }
