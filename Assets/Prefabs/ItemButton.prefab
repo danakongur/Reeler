@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 257351077643899365}
   - component: {fileID: 3776540953262932086}
   - component: {fileID: 1561671187159005446}
+  - component: {fileID: 6940675982155711876}
   m_Layer: 5
   m_Name: ItemButton
   m_TagString: Untagged
@@ -188,6 +189,20 @@ MonoBehaviour:
     itemImage: {fileID: 0}
     buttonHolder: {fileID: 0}
   descriptionBox: {fileID: 0}
+  audioSource: {fileID: 0}
+--- !u!114 &6940675982155711876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551221938108910858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2426c8fbec070448d9578c8814be8fdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioClip: {fileID: 8300000, guid: 6f3a2bfb7b626f8e7a69eb478d4b4dfe, type: 3}
 --- !u!1 &5459503947284899152
 GameObject:
   m_ObjectHideFlags: 0

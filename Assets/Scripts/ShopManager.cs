@@ -52,6 +52,10 @@ public class ShopManager : MonoBehaviour
 	public string healthUpgradeText;
 	public string strengthUpgradeText;
 
+
+	public AudioSource hoverSoundSource;
+	public AudioSource buySoundSource;
+
 	/// <summary>
 	/// Subtract from user's coins
 	/// </summary>
@@ -63,6 +67,10 @@ public class ShopManager : MonoBehaviour
 		UpdateUpgradeButtons();
 	}
 
+	void PlayCashRegisterSound() {
+		buySoundSource.Play();
+	}
+
 	private IEnumerator coroutine;
 
 	/// <summary>
@@ -71,6 +79,8 @@ public class ShopManager : MonoBehaviour
 	/// <param name="item">Item bought</param>
 	public void Buy(Item item){
 		if(PlayerManager.instance.coins-item.price >= 0){
+			PlayCashRegisterSound();
+
 			PlayerManager.instance.coins = PlayerManager.instance.coins-item.price;
 			UpdateCoins();
 			UpdateUpgradeButtons();
@@ -92,6 +102,7 @@ public class ShopManager : MonoBehaviour
 	/// <param name="item">Item to sell</param>
 	/// <param name="diffprice">Price to sell for</param>
 	public void Sell(Item item, int diffprice){
+		PlayCashRegisterSound();
 		PlayerManager.instance.RemoveItem(item);
 		PlayerManager.instance.coins = PlayerManager.instance.coins+diffprice;
 		boughtText.text = $"Sold {item.itemName} for {diffprice} coins";
@@ -123,6 +134,7 @@ public class ShopManager : MonoBehaviour
 	/// </summary>
 	/// <param name="price">the amount to add</param>
 	public void Sell(int price) {
+		PlayCashRegisterSound();
 		PlayerManager.instance.coins = PlayerManager.instance.coins+price;
 		UpdateCoins();
 		UpdateUpgradeButtons();
@@ -175,6 +187,7 @@ public class ShopManager : MonoBehaviour
 	public void HealthUpgrade() {
 		Debug.Log("Pressed health upgrade button");
 		int price = healthBasePrice +  PlayerManager.instance.boughtHealthUpgrades*pricePerUpgrade;
+		PlayCashRegisterSound();
 		PlayerManager.instance.BuyHealthUpgrade(price);
 		boughtText.text = $"Bought health upgrade for {price} coins";
 			
@@ -193,6 +206,7 @@ public class ShopManager : MonoBehaviour
 	public void StrengthUpgrade() {
 		Debug.Log("Pressed strength upgrade button");
 		int price =strengthBasePrice + PlayerManager.instance.boughtStrengthUpgrades*pricePerUpgrade;
+		PlayCashRegisterSound();
 		PlayerManager.instance.BuyStrengthUpgrade(price);
 		
 		boughtText.text = $"Bought strength upgrade for {price} coins";
@@ -276,6 +290,7 @@ public class ShopManager : MonoBehaviour
 				GameObject itemObj = Instantiate(itemButtonPrefab);
 				itemObj.transform.SetParent(inventoryContent.transform);
 				itemObj.GetComponent<RectTransform>().localScale = Vector3.one;
+				itemObj.GetComponent<ItemButton>().audioSource = hoverSoundSource;
 				item.buttonHolder = itemObj;
 				inventoryItems.Add(item);
 
@@ -365,6 +380,7 @@ public class ShopManager : MonoBehaviour
 			itemObj.GetComponent<RectTransform>().localScale = Vector3.one;
 			itemObj.GetComponent<ItemButton>().item = item;
 			itemObj.GetComponent<ItemButton>().descriptionBox = descriptionBox;
+			itemObj.GetComponent<ItemButton>().audioSource = hoverSoundSource;
 
 			// Set text to item name
 			TMPro.TMP_Text tx = itemObj.transform.GetChild(1).GetComponent<TMPro.TMP_Text>();

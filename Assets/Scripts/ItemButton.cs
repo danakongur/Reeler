@@ -7,8 +7,10 @@ public class ItemButton : MonoBehaviour
 
 	public Item item;
 	public GameObject descriptionBox;
+	public AudioSource audioSource;
     
 	public void ShowDescription() {
+		if (audioSource) audioSource.Play();
 		if(!descriptionBox){
 			return;
 		}
@@ -27,7 +29,6 @@ public class ItemButton : MonoBehaviour
 		priceT.text = $"{item.price} coins";
 		typeT.text = $"Type: {item.GetItemType().ToString()}";
 		descT.text = item.description;
-
 	}
 
 	public void HideDescription() {

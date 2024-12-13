@@ -7,3 +7,7 @@ Assets used:
 - Fish: https://shubibubi.itch.io/
 - Minecraftia font: https://andrewtyler.gumroad.com/l/minecraftia
 - Crang font: https://caveras.net/
+
+Sound effects:
+- Cash register: https://freesound.org/people/MaoDin204/sounds/721774/
+- Item hover: https://freesound.org/people/BaggoNotes/sounds/720217/
