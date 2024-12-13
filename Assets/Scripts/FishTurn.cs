@@ -41,10 +41,13 @@ public class Fish_Animator : MonoBehaviour
 
 		// do the same with strength
 		strength = Mathf.RoundToInt(PlayerManager.instance.GetDifficultyModifier() * fishObject.strength);
-		Debug.Log("fish animator awake function");
+
+		// bandaid because the reward image also has component Fish_Animator lol
 		Transform fishSprite = transform.Find("FishSprite");
-		SpriteRenderer spriteRenderer = fishSprite.GetComponent<SpriteRenderer>();
-		if (spriteRenderer) spriteRenderer.sprite = fishObject.fishImage;
+		if(fishSprite){
+			SpriteRenderer spriteRenderer = fishSprite.GetComponent<SpriteRenderer>();
+			if (spriteRenderer) spriteRenderer.sprite = fishObject.fishImage;
+		}
 
         info.nameText.text = name;
         health = maxHealth;
