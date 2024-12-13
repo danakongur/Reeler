@@ -48,18 +48,23 @@ public class FishAttackAnimator : MonoBehaviour
         float timer = 0f;
         SpriteRenderer fishSprite = transform.GetComponent<SpriteRenderer>();
         Color defaultColor = fishSprite.color; // respects gameobject chosen color
-        while (timer < healDuration)
+        while (timer < 1)
         {
-            timer += Time.deltaTime;
-            if (timer < healDuration / 2)
+            timer += Time.deltaTime / healDuration;
+
+            if (timer < 0.5f)
             {
-                transform.localPosition = Vector3.Lerp(Vector3.zero, healEnd, timer / (healDuration/2));
+                float lerpValue = (timer) * 2;
+                transform.localPosition = Vector3.Lerp(Vector3.zero, healEnd, lerpValue);
             }
             else
             {
-                transform.localPosition = Vector3.Lerp(healEnd, Vector3.zero , timer / (healDuration/2));
+                float lerpValue = (timer - 0.5f) * 2;
+                transform.localPosition = Vector3.Lerp(healEnd, Vector3.zero, lerpValue);
             }
-            fishSprite.color = Color.Lerp(defaultColor, healColor, timer / healDuration);
+
+
+            fishSprite.color = Color.Lerp(defaultColor, healColor, timer);
             yield return null;
 
         }

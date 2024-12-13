@@ -1180,10 +1180,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   struggleEnd: {x: -0.3, y: 0, z: 0}
   struggleDuration: 0.5
-  healEnd: {x: 0, y: 0, z: 0}
-  healDuration: 1
-  cleanseEnd: {x: 0, y: 0, z: 0}
-  cleanseHeight: 0.5
+  healEnd: {x: -1, y: 0, z: 0}
+  healDuration: 4
+  cleanseEnd: {x: -1, y: 0, z: 0}
+  cleanseHeight: 0
   cleanseDuration: 1
   retreatEnd: {x: 1, y: 0, z: 0}
   retreatDuration: 1
