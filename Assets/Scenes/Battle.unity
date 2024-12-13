@@ -1185,8 +1185,8 @@ MonoBehaviour:
   cleanseEnd: {x: 0, y: 0, z: 0}
   cleanseHeight: 0.5
   cleanseDuration: 1
-  retreatEnd: {x: 0.5, y: 0, z: 0}
-  retreatDuration: 0.8
+  retreatEnd: {x: 1, y: 0, z: 0}
+  retreatDuration: 1
 --- !u!212 &248357250
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3612,6 +3612,10 @@ PrefabInstance:
     - target: {fileID: 634399734901985494, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
       propertyPath: m_Name
       value: PlayerManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403132568797358411, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
+      propertyPath: availableFish.Array.data[9].type
+      value: Saltwater
       objectReference: {fileID: 0}
     - target: {fileID: 5743779043829583834, guid: fb10ff413580dd7afa1944d6327886d9, type: 3}
       propertyPath: m_LocalPosition.x
