@@ -139,8 +139,9 @@ public class BattleGame : MonoBehaviour
 
         HideItem(Fish.info.gameObject);
         HideItem(Fish.gameObject);
+		HideItem(endInfo.caughtFishCounter.gameObject);
         endInfo.title.text = "You Beat up the " + Fish.name + "...";
-        endInfo.description.text = $"Gain 2 coins and gain {(healmod)*100}% health";
+        endInfo.description.text = $"Gain 2 coins and gain {healmod*100}% health";
 
 		// Adds fish to inventory
 		PlayerManager.instance.CatchFish(this.Fish.GetFishObject());
@@ -169,9 +170,12 @@ public class BattleGame : MonoBehaviour
         
         HideItem(Fisherman.info.gameObject);
         HideItem(Fisherman.gameObject);
-        endInfo.title.text = "The " + Fish.name + " Beat you up!";
-        endInfo.description.text = "Medicare is expensive, Lose 2 coins";
-		PlayerManager.instance.SubtractCoins(2);
+        endInfo.title.text = "Game over!\nThe " + Fish.name + " Beat you up!";
+        endInfo.description.text = $"The fish took all your items.\nDon't worry! Your fish collection is still there.";
+		if (PlayerManager.instance.caughtFishDuringRun > 0){
+			RevealItem(endInfo.caughtFishCounter.gameObject);
+			endInfo.caughtFishCounter.text = $"You caught {PlayerManager.instance.caughtFishDuringRun} new fish.\nCheck them out in the collection.";
+		}
 
 		PlayerManager.instance.LoseReset();
     }
@@ -207,8 +211,9 @@ public class BattleGame : MonoBehaviour
 
         HideItem(Fish.info.gameObject);
         HideItem(Fish.gameObject);
+		HideItem(endInfo.caughtFishCounter.gameObject);
         endInfo.title.text = "You fled";
-        endInfo.description.text = "insert consequences here";
+        endInfo.description.text = "You get nothing, but the game still gets harder...";
 
         bool gameIsgoing = false;
 
@@ -230,6 +235,7 @@ public class BattleGame : MonoBehaviour
 
         HideItem(Fish.info.gameObject);
         HideItem(Fish.gameObject);
+		HideItem(endInfo.caughtFishCounter.gameObject);
         endInfo.title.text = "The " + Fish.name + " Took off";
         endInfo.description.text = "He got away :o";
 

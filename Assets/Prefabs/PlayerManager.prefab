@@ -46,8 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startcoins: 100
   coins: 0
-  startMaxHealth: 75
-  maxHealth: 75
+  startMaxHealth: 1
+  maxHealth: 1
   health: 0
   strength: 10
   availableFish:
