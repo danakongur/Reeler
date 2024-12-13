@@ -16,11 +16,19 @@ public class FishAttackAnimator : MonoBehaviour
     public float retreatDuration = 1;
     Color healColor = Color.green;
     Color cleanseColor = Color.magenta;
+
+	public AudioClip damageSound;
+	public AudioSource audioSource;
     /*void OnEnable()
     {
         StartCoroutine(StruggleAnimation());
         
     }*/
+
+	void Start() {
+		if (audioSource == null) 
+			audioSource = gameObject.AddComponent<AudioSource>();
+	}
 
     public IEnumerator StruggleAnimation()
     {
@@ -32,6 +40,10 @@ public class FishAttackAnimator : MonoBehaviour
             yield return null;
 
         }
+
+		Debug.Log("struggle damage sound");
+		audioSource.PlayOneShot(damageSound);
+
         timer = 0f;
         while (timer < struggleDuration/2)
         {

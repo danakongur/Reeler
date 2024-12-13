@@ -38,11 +38,18 @@ public class BattleGame : MonoBehaviour
 
 	TMP_Text pullButtonDescription;
 
+	public AudioClip drinkSound;
+	public AudioClip eatSound;
+	public AudioClip splashSound;
+	public AudioSource audioSource;
+
 	float healmod = 0.2f; // how much to heal player, 0.2 means 20%
 
     // Start is called before the first frame update
     void Start()
     {
+		audioSource = gameObject.GetComponent<AudioSource>();
+
 		playercritcoroutine = CriticalHit(new Vector2(200f,85f));
 		fishcritcoroutine = CriticalHit(new Vector2(-200f,85f));
         StartCoroutine(TurnSystem());
@@ -296,6 +303,8 @@ public class BattleGame : MonoBehaviour
 		{
 			
 			if (selectedItem.GetItemType() == ItemType.Heal){ // player uses healing item
+				audioSource.PlayOneShot(drinkSound);
+
 				PlayerManager.instance.RemoveItem(selectedItem);
 				inventory.GetComponent<InventoryPopup>().UpdateInventory();
 
@@ -304,6 +313,8 @@ public class BattleGame : MonoBehaviour
 				Fisherman.UpdateText();
 			}
 			else if(selectedItem.GetItemType() == ItemType.Boost){ // stat boost item
+				audioSource.PlayOneShot(eatSound);
+
 				PlayerManager.instance.RemoveItem(selectedItem);
 				inventory.GetComponent<InventoryPopup>().UpdateInventory();
 
@@ -312,6 +323,8 @@ public class BattleGame : MonoBehaviour
 				Fisherman.UpdateText();
 			}
 			else if(selectedItem.GetItemType() == ItemType.Bait){ // used bait
+				StartCoroutine(playSoundWithDelay(splashSound, 0.2f));
+
 				PlayerManager.instance.RemoveItem(selectedItem);
 				inventory.GetComponent<InventoryPopup>().UpdateInventory();
 
@@ -418,6 +431,12 @@ public class BattleGame : MonoBehaviour
 		}
 		criticalHitText.gameObject.SetActive(false);
 		criticalHitText.alpha = 1f;
+	}
+
+	IEnumerator playSoundWithDelay(AudioClip clip, float delay)
+	{
+		yield return new WaitForSeconds(delay);
+		audioSource.PlayOneShot(clip);
 	}
 
 	/// <summary>
