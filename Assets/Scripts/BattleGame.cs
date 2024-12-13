@@ -101,7 +101,7 @@ public class BattleGame : MonoBehaviour
 			// check if bait can be used
 			if (item.GetItemType() == ItemType.Bait){
 				BaitItem bait = (BaitItem)item;
-				
+				int fishMaxHealth = Mathf.RoundToInt(Fish.GetFishObject().health * PlayerManager.instance.GetDifficultyModifier());
 				if (Fish.GetMaxHealth() - bait.healthReduction <= 0 || false){
 					// if this bait would kill the fish
 

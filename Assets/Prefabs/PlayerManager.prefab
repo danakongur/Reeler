@@ -49,6 +49,7 @@ MonoBehaviour:
   startMaxHealth: 75
   maxHealth: 75
   health: 75
+  startStrength: 10
   strength: 10
   availableFish:
   - name: Carp

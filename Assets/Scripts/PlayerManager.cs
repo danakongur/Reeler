@@ -70,7 +70,7 @@ public class PlayerManager : MonoBehaviour
 	}
 
 	void Start(){
-
+		
 	}
 
 	public void IncreaseDifficulty() {
@@ -80,6 +80,12 @@ public class PlayerManager : MonoBehaviour
 
 	public int GetDifficulty() {
 		return difficultyLevel;
+	}
+
+	public void DebugCatchAll() {
+		foreach (Fish fish in availableFish){
+			CatchFish(fish);
+		}
 	}
 
 	/// <summary>
