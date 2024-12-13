@@ -35,6 +35,8 @@ public class BattleGame : MonoBehaviour
 
 	TMP_Text pullButtonDescription;
 
+	float healmod = 0.2f; // how much to heal player, 0.2 means 20%
+
     // Start is called before the first frame update
     void Start()
     {
@@ -127,7 +129,7 @@ public class BattleGame : MonoBehaviour
     {	
 		GameObject loseButtons = endInfo.transform.Find("LoseButtons").gameObject;
 		GameObject continueButtons = endInfo.transform.Find("ContinueButtons").gameObject;
-		float healmod = 0.2f; // how much to heal player, 0.2 means 20%
+		
 		HideItem(descriptionBox);
         RevealItem(endInfo.gameObject);
 		criticalHitText.gameObject.SetActive(false);
@@ -213,7 +215,13 @@ public class BattleGame : MonoBehaviour
         HideItem(Fish.gameObject);
 		HideItem(endInfo.caughtFishCounter.gameObject);
         endInfo.title.text = "You fled";
-        endInfo.description.text = "You get nothing, but the game still gets harder...";
+        endInfo.description.text = $"You gain {healmod*100}% health, but the game still gets harder...";
+
+		// heal
+		int newhealth = Mathf.Min((int)Mathf.Round(PlayerManager.instance.health + (healmod*PlayerManager.instance.maxHealth)), PlayerManager.instance.maxHealth);
+		StartCoroutine(Fisherman.AnimateHealthBar(PlayerManager.instance.health, newhealth, 1f));
+		PlayerManager.instance.health = newhealth;
+		Fisherman.UpdateText();
 
         bool gameIsgoing = false;
 
