@@ -24,7 +24,7 @@ public class ShopManager : MonoBehaviour
 
 	public GameObject itemButtonPrefab;
 
-	List<GameObject> buttonGameObjects;
+	Dictionary<Item,GameObject> buttonObjectDict;
 
 	GameObject itemMenuBackground;
 
@@ -149,10 +149,9 @@ public class ShopManager : MonoBehaviour
 		}
 		for (int i = 0; i < items.Count(); i++){
 			Item item = items[i];
-			GameObject itemObj = buttonGameObjects[i];
+			GameObject itemObj = buttonObjectDict[item];
 			Button itemBut = itemObj.GetComponent<Button>();
 
-			// TODO: this just changes the color of the image on the button
 			if(PlayerManager.instance.coins - item.price < 0){
 				// player can't afford item, make it look different
 				itemBut.image.color = new Color(1.0f, 0.8f, 0.8f);
@@ -175,7 +174,15 @@ public class ShopManager : MonoBehaviour
 	/// </summary>
 	public void HealthUpgrade() {
 		Debug.Log("Pressed health upgrade button");
-		PlayerManager.instance.BuyHealthUpgrade(healthBasePrice +  PlayerManager.instance.boughtHealthUpgrades*pricePerUpgrade);
+		int price = healthBasePrice +  PlayerManager.instance.boughtHealthUpgrades*pricePerUpgrade;
+		PlayerManager.instance.BuyHealthUpgrade(price);
+		boughtText.text = $"Bought health upgrade for {price} coins";
+			
+			if (!coroutine.IsUnityNull()){
+				StopCoroutine(coroutine);
+			} 
+			coroutine = RemoveTextDelay();
+			StartCoroutine(coroutine);
 		UpdateCoins();
 		UpdateInventory();
 		UpdateUpgradeButtons();
@@ -185,7 +192,16 @@ public class ShopManager : MonoBehaviour
 	/// </summary>
 	public void StrengthUpgrade() {
 		Debug.Log("Pressed strength upgrade button");
-		PlayerManager.instance.BuyStrengthUpgrade(strengthBasePrice + PlayerManager.instance.boughtStrengthUpgrades*pricePerUpgrade);
+		int price =strengthBasePrice + PlayerManager.instance.boughtStrengthUpgrades*pricePerUpgrade;
+		PlayerManager.instance.BuyStrengthUpgrade(price);
+		
+		boughtText.text = $"Bought strength upgrade for {price} coins";
+			
+			if (!coroutine.IsUnityNull()){
+				StopCoroutine(coroutine);
+			} 
+			coroutine = RemoveTextDelay();
+			StartCoroutine(coroutine);
 		UpdateCoins();
 		UpdateInventory();
 		UpdateUpgradeButtons();
@@ -343,7 +359,7 @@ public class ShopManager : MonoBehaviour
 		}
 		// Place button for each available item
 		foreach (Item item in arr){
-			Debug.Log($"item {item.itemName}");
+			//Debug.Log($"item {item.itemName}");
 			GameObject itemObj = Instantiate(itemButtonPrefab);
 			itemObj.transform.SetParent(itemMenuBackground.transform);
 			itemObj.GetComponent<RectTransform>().localScale = Vector3.one;
@@ -386,12 +402,12 @@ public class ShopManager : MonoBehaviour
 				Debug.Log($"Finding button component of item {item.itemName} returned null");
 			}
 
-			buttonGameObjects.Add(itemObj);
+			buttonObjectDict[item] = itemObj;
 		}
 	}
 
 	void Awake() {
-		buttonGameObjects = new List<GameObject>();
+		buttonObjectDict = new Dictionary<Item, GameObject>();
 		inventoryItems = new List<Item>();
 		inventorybuttonObjects = new List<GameObject>();
 	}
@@ -411,10 +427,10 @@ public class ShopManager : MonoBehaviour
 		UpdateUpgradeButtons();
 
 		foreach(Item item in PlayerManager.instance.healItems){
-			Debug.Log($"heal item: {item.itemName}");
+			
 		}
 		foreach(Item item in PlayerManager.instance.boostItems){
-			Debug.Log($"boost item: {item.itemName}");
+			
 		}
 	}
 

@@ -21,6 +21,7 @@ public class BattleGame : MonoBehaviour
     public GameObject inventory;
 	public TextMeshProUGUI criticalHitText;
 	public TextMeshProUGUI healInfoText;
+	public TextMeshProUGUI cantUseBaitText;
 
 	public GameObject descriptionBox;
     private bool gameIsgoing = true;
@@ -32,6 +33,8 @@ public class BattleGame : MonoBehaviour
 
 	IEnumerator playercritcoroutine;
 	IEnumerator fishcritcoroutine;
+
+	IEnumerator cantUseBaitCoroutine;
 
 	TMP_Text pullButtonDescription;
 
@@ -102,11 +105,16 @@ public class BattleGame : MonoBehaviour
 			if (item.GetItemType() == ItemType.Bait){
 				BaitItem bait = (BaitItem)item;
 				int fishMaxHealth = Mathf.RoundToInt(Fish.GetFishObject().health * PlayerManager.instance.GetDifficultyModifier());
-				if (Fish.GetMaxHealth() - bait.healthReduction <= 0 || false){
+				if (Fish.GetMaxHealth() - bait.healthReduction <= 0 || ((float)Fish.GetMaxHealth()/fishMaxHealth) < 0.2){
 					// if this bait would kill the fish
 
 					//TODO: show text for a moment
 					Debug.Log($"{bait.itemName} would kill the fish OR fish max health is already under 10% of original max");
+
+					if (cantUseBaitCoroutine != null) StopCoroutine(cantUseBaitCoroutine);
+					cantUseBaitCoroutine = FlashText(cantUseBaitText, $"Can't use this bait right now", 2f);
+
+					StartCoroutine(cantUseBaitCoroutine);
 					return;
 				}
 			}
@@ -423,6 +431,16 @@ public class BattleGame : MonoBehaviour
 		textObj.gameObject.SetActive(true);
 		yield return new WaitForSecondsRealtime(duration);
 		textObj.gameObject.SetActive(false);
+	}
+
+	public IEnumerator FlashTextPos(TextMeshProUGUI textObj, string text, float duration, Vector2 position) {
+		Vector2 oldpos = textObj.transform.position;
+		textObj.transform.position = position;
+		textObj.text = text;
+		textObj.gameObject.SetActive(true);
+		yield return new WaitForSecondsRealtime(duration);
+		textObj.gameObject.SetActive(false);
+		textObj.transform.position = oldpos;
 	}
 
     void Update()
