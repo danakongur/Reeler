@@ -504,8 +504,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1838439859}
   m_HandleRect: {fileID: 1838439858}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 0.99999994
+  m_Value: 1
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -943,7 +943,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 287606384}
   m_HandleRect: {fileID: 287606383}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -4928,7 +4928,7 @@ MonoBehaviour:
   strengthUpgradeButton: {fileID: 979802376}
   healthBasePrice: 25
   strengthBasePrice: 25
-  pricePerUpgrade: 2
+  pricePerUpgrade: 5
   healthUpgradeText: 
   strengthUpgradeText: 
   buySound: {fileID: 8300000, guid: acb0327924bd9d49d87d4b2e7ba4523a, type: 3}

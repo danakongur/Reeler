@@ -108,7 +108,7 @@ MonoBehaviour:
       behavior: Symbiotic relationship with sea anemones
       conservationStatus: Least Concern
       sellValue: 70
-    price: 30
+    price: 45
   - name: Sea Spider
     type: Saltwater
     strength: 22
@@ -165,7 +165,7 @@ MonoBehaviour:
       behavior: Highly adaptable and prolific breeders
       conservationStatus: Least Concern
       sellValue: 10
-    price: 5
+    price: 15
   - name: Freshwater Snail
     type: Exotic
     strength: 16
@@ -224,7 +224,7 @@ MonoBehaviour:
       sellValue: 100
     price: 100
   - name: Salmon
-    type: Salt
+    type: Saltwater
     strength: 12
     health: 50
     fishImage: {fileID: 850694208, guid: b87bf1f6a977052469565850c44395ec, type: 3}
@@ -244,8 +244,8 @@ MonoBehaviour:
     price: 50
   - name: Sea Urchin
     type: Exotic
-    strength: 11
-    health: 40
+    strength: 12
+    health: 30
     fishImage: {fileID: -1765118433, guid: b87bf1f6a977052469565850c44395ec, type: 3}
     fishItem:
       price: 0
@@ -279,7 +279,7 @@ MonoBehaviour:
       behavior: Retains juvenile features throughout life
       conservationStatus: Critically Endangered
       sellValue: 70
-    price: 70
+    price: 65
   - name: Pink Salmon
     type: Saltwater
     strength: 18
@@ -339,8 +339,8 @@ MonoBehaviour:
     price: 30
   - name: Firefly Axolotl
     type: Exotic
-    strength: 18
-    health: 45
+    strength: 16
+    health: 38
     fishImage: {fileID: 2088458821, guid: 5ce1778c8dbd4634e9cc1ff958909725, type: 3}
     fishItem:
       price: 0
@@ -358,8 +358,8 @@ MonoBehaviour:
     price: 85
   - name: Gold Axolotl
     type: Exotic
-    strength: 20
-    health: 50
+    strength: 15
+    health: 40
     fishImage: {fileID: -439611075, guid: 5ce1778c8dbd4634e9cc1ff958909725, type: 3}
     fishItem:
       price: 0
@@ -376,42 +376,42 @@ MonoBehaviour:
       sellValue: 500
     price: 90
   baitForSale:
-  - price: 17
+  - price: 20
     itemName: Worm
     description: A little worm that weakens the fish. Lower the fish's max health
-      by 15.
+      by 20.
     itemImage: {fileID: 21300000, guid: e4bc18fbdc120d7a7bea57f530f2c4d0, type: 3}
     buttonHolder: {fileID: 0}
-    healthReduction: 15
-  - price: 13
+    healthReduction: 20
+  - price: 15
     itemName: Leech
     description: An ugly leech that weakens the fish. Lower the fish's max health
-      by 10.
+      by 15.
     itemImage: {fileID: 21300000, guid: ad078fb463a167545b10998ad1afe8df, type: 3}
     buttonHolder: {fileID: 0}
-    healthReduction: 10
+    healthReduction: 15
   - price: 10
     itemName: Mealworm
     description: A wiggling mealworm that weakens the fish. Lower the fish's max
-      health by 5.
+      health by 10.
     itemImage: {fileID: 21300000, guid: 659a3454f71d7be4b9c567b8d863868b, type: 3}
     buttonHolder: {fileID: 0}
-    healthReduction: 5
+    healthReduction: 10
   healItems:
-  - price: 20
+  - price: 15
     itemName: Coffee
-    description: Refresh and gives you energy. Heal 30 points.
+    description: Refresh and gives you energy. Heal 25 points.
     itemImage: {fileID: 21300000, guid: c779400086322724cb25085e24c249ac, type: 3}
     buttonHolder: {fileID: 0}
-    healAmount: 30
+    healAmount: 25
   - price: 30
     itemName: Hot cocoa
     description: Warms you up inside. Heal 50 points.
     itemImage: {fileID: 21300000, guid: 173850baa1c88784f992f0ca22dfdcac, type: 3}
     buttonHolder: {fileID: 0}
     healAmount: 50
-  - price: 55
-    itemName: "K\xF3k\xF3mj\xF3lk"
+  - price: 60
+    itemName: "K\xF3k\xF3 Milk"
     description: Yummy yummy chocolate milk. Heal 100 points.
     itemImage: {fileID: 21300000, guid: 26beab2f6a49dea6a901aed59667266a, type: 3}
     buttonHolder: {fileID: 0}
@@ -424,7 +424,7 @@ MonoBehaviour:
     itemImage: {fileID: 21300000, guid: f1c091f48b8e6dd4eb65a06020bb6033, type: 3}
     buttonHolder: {fileID: 0}
     boostAmount: 1.2
-  - price: 25
+  - price: 30
     itemName: Trail mix
     description: Packed with protein! Increases strength by 50% for the rest of the
       battle.

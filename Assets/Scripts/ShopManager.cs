@@ -231,7 +231,7 @@ public class ShopManager : MonoBehaviour
 		int currentPriceForStrengthUpgrade = strengthBasePrice + PlayerManager.instance.boughtStrengthUpgrades*pricePerUpgrade;
 
 		// Health upgrade button
-		healthUpgradeButton.GetComponentInChildren<TMP_Text>().text = $"Increase maximum health by 2. \nCurrently {PlayerManager.instance.maxHealth}.\n {currentPriceForHealthUpgrade} coins.";
+		healthUpgradeButton.GetComponentInChildren<TMP_Text>().text = $"Increase maximum health by 3. \nCurrently {PlayerManager.instance.maxHealth}.\n {currentPriceForHealthUpgrade} coins.";
 
 
 		if (PlayerManager.instance.coins - currentPriceForHealthUpgrade < 0) {// can't afford upgrade
