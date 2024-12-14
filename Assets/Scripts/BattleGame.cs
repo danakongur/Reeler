@@ -41,6 +41,8 @@ public class BattleGame : MonoBehaviour
 	public AudioClip drinkSound;
 	public AudioClip eatSound;
 	public AudioClip splashSound;
+    public AudioClip debuffSound;
+    public AudioClip hurtSound;
 	public AudioSource audioSource;
 
 	float healmod = 0.2f; // how much to heal player, 0.2 means 20%
@@ -57,10 +59,10 @@ public class BattleGame : MonoBehaviour
         buttons.reel.onClick.AddListener(Reel); //() => { pressed = true; }
         buttons.flee.onClick.AddListener(Flee); //() => { pressed = true; }
 
-		pullButtonDescription = buttons.pull.transform.GetChild(0).GetChild(0).GetComponent<TMP_Text>();
+		pullButtonDescription = buttons.pull.transform.Find("Title").Find("Description").GetComponent<TMP_Text>();
 		int mindmg = Mathf.RoundToInt(PlayerManager.instance.strength*PlayerManager.instance.minchance);
 		int maxdmg= Mathf.RoundToInt(PlayerManager.instance.strength*PlayerManager.instance.maxchance);
-		pullButtonDescription.text = $"Deal between {mindmg} and {maxdmg} damage";
+		pullButtonDescription.text = $"Deal {mindmg} to {maxdmg} damage";
 
 		// Setting the function to call when item button is pressed
 		InventoryPopup popupscript = inventory.GetComponent<InventoryPopup>();
@@ -114,12 +116,10 @@ public class BattleGame : MonoBehaviour
 				int fishMaxHealth = Mathf.RoundToInt(Fish.GetFishObject().health * PlayerManager.instance.GetDifficultyModifier());
 				if (Fish.GetMaxHealth() - bait.healthReduction <= 0 || ((float)Fish.GetMaxHealth()/fishMaxHealth) < 0.2){
 					// if this bait would kill the fish
-
-					//TODO: show text for a moment
 					Debug.Log($"{bait.itemName} would kill the fish OR fish max health is already under 10% of original max");
 
 					if (cantUseBaitCoroutine != null) StopCoroutine(cantUseBaitCoroutine);
-					cantUseBaitCoroutine = FlashText(cantUseBaitText, $"Can't use this bait right now", 2f);
+					cantUseBaitCoroutine = FlashText(cantUseBaitText, $"Can't use more bait", 2f);
 
 					StartCoroutine(cantUseBaitCoroutine);
 					return;
@@ -290,10 +290,12 @@ public class BattleGame : MonoBehaviour
 				StartCoroutine(playercritcoroutine);
 			}
             Fisherman.Pull(critical);
+            StartCoroutine(PlaySoundWithDelay(hurtSound, 0.5f));
         }
         else if (selectedMove == "Reel")
         {
             Fisherman.Reel();
+            StartCoroutine(PlaySoundWithDelay(debuffSound, 0.4f));
         }
         else if (selectedMove == "Flee")
         {
@@ -323,7 +325,7 @@ public class BattleGame : MonoBehaviour
 				Fisherman.UpdateText();
 			}
 			else if(selectedItem.GetItemType() == ItemType.Bait){ // used bait
-				StartCoroutine(playSoundWithDelay(splashSound, 0.2f));
+				StartCoroutine(PlaySoundWithDelay(splashSound, 0.2f));
 
 				PlayerManager.instance.RemoveItem(selectedItem);
 				inventory.GetComponent<InventoryPopup>().UpdateInventory();
@@ -433,7 +435,7 @@ public class BattleGame : MonoBehaviour
 		criticalHitText.alpha = 1f;
 	}
 
-	IEnumerator playSoundWithDelay(AudioClip clip, float delay)
+	IEnumerator PlaySoundWithDelay(AudioClip clip, float delay)
 	{
 		yield return new WaitForSeconds(delay);
 		audioSource.PlayOneShot(clip);

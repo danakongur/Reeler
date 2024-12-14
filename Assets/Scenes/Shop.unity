@@ -504,8 +504,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1838439859}
   m_HandleRect: {fileID: 1838439858}
   m_Direction: 0
-  m_Value: 1
-  m_Size: 1
+  m_Value: 0
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -698,7 +698,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2407943044493429738, guid: 90e5b74405a178f109b5aa1072c55e9d, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 722
+      value: 621.711
       objectReference: {fileID: 0}
     - target: {fileID: 2407943044493429738, guid: 90e5b74405a178f109b5aa1072c55e9d, type: 3}
       propertyPath: m_SizeDelta.y
@@ -943,7 +943,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 287606384}
   m_HandleRect: {fileID: 287606383}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1633,8 +1633,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 192295870}
   m_HandleRect: {fileID: 192295869}
   m_Direction: 0
-  m_Value: -0.000002873365
-  m_Size: 0.9264269
+  m_Value: 0
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1712,7 +1712,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 360.8945, y: -28.005}
+  m_AnchoredPosition: {x: 334.34, y: -28.005}
   m_SizeDelta: {x: 133.05, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &873201404
@@ -1946,7 +1946,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -219.99796, y: 0, z: 0, w: 0}
+  m_margin: {x: -193.35883, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2080,7 +2080,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -219.99796, y: 0, z: 0, w: 0}
+  m_margin: {x: -193.35873, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2648,7 +2648,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2407943044493429738, guid: 90e5b74405a178f109b5aa1072c55e9d, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 722
+      value: 623.278
       objectReference: {fileID: 0}
     - target: {fileID: 2407943044493429738, guid: 90e5b74405a178f109b5aa1072c55e9d, type: 3}
       propertyPath: m_SizeDelta.y
@@ -3254,7 +3254,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -334.34225, y: 440}
-  m_SizeDelta: {x: 721.789, y: 0}
+  m_SizeDelta: {x: 668.68, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1543150024
 MonoBehaviour:
@@ -3943,7 +3943,7 @@ GameObject:
   - component: {fileID: 1806241927}
   - component: {fileID: 1806241926}
   m_Layer: 0
-  m_Name: CashRegisterSound
+  m_Name: SoundEffectManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4121,8 +4121,8 @@ MonoBehaviour:
 
     currently X'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 735a54a000711434484f95a493563a49, type: 2}
+  m_sharedMaterial: {fileID: -1213616862030005611, guid: 735a54a000711434484f95a493563a49, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4330,8 +4330,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Increase damage dealt by 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 735a54a000711434484f95a493563a49, type: 2}
+  m_sharedMaterial: {fileID: -1213616862030005611, guid: 735a54a000711434484f95a493563a49, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4615,7 +4615,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -219.99796, y: 0, z: 0, w: 0}
+  m_margin: {x: -194.92575, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -4931,8 +4931,9 @@ MonoBehaviour:
   pricePerUpgrade: 2
   healthUpgradeText: 
   strengthUpgradeText: 
+  buySound: {fileID: 8300000, guid: acb0327924bd9d49d87d4b2e7ba4523a, type: 3}
   hoverSoundSource: {fileID: 1308997119}
-  buySoundSource: {fileID: 1806241926}
+  soundEffectManager: {fileID: 1806241926}
 --- !u!114 &2056801105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5050,7 +5051,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1004221224}
   m_HandleRect: {fileID: 1004221223}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -5367,7 +5368,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2407943044493429738, guid: 90e5b74405a178f109b5aa1072c55e9d, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 722
+      value: 620.144
       objectReference: {fileID: 0}
     - target: {fileID: 2407943044493429738, guid: 90e5b74405a178f109b5aa1072c55e9d, type: 3}
       propertyPath: m_SizeDelta.y

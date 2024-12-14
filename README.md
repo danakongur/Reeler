@@ -11,3 +11,4 @@ Assets used:
 Sound effects:
 - Cash register: https://freesound.org/people/MaoDin204/sounds/721774/
 - Item hover: https://freesound.org/people/BaggoNotes/sounds/720217/
+- Healing (Ripple) by Dylan Kelk https://freesound.org/people/SilverIllusionist/sounds/677080/

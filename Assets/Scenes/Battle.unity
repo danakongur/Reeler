@@ -1265,6 +1265,7 @@ MonoBehaviour:
   retreatEnd: {x: 1, y: 0, z: 0}
   retreatDuration: 1
   damageSound: {fileID: 8300000, guid: 5402e7d3e75d946469d20b0dddf43ba8, type: 3}
+  healingSound: {fileID: 8300000, guid: 0310c5c225558d34a963246b32d4e710, type: 3}
   audioSource: {fileID: 248357251}
 --- !u!212 &248357250
 SpriteRenderer:
@@ -2692,6 +2693,8 @@ MonoBehaviour:
   drinkSound: {fileID: 8300000, guid: 7b2f84231ab2f214c998c9be0290b297, type: 3}
   eatSound: {fileID: 8300000, guid: a07003f400dacb64285cd27591c2ce5d, type: 3}
   splashSound: {fileID: 8300000, guid: b7f3a61abe5bd8e318109cfc8cafe102, type: 3}
+  debuffSound: {fileID: 8300000, guid: 3005847e4d703bf429b7812ebd371ab6, type: 3}
+  hurtSound: {fileID: 8300000, guid: 5402e7d3e75d946469d20b0dddf43ba8, type: 3}
   audioSource: {fileID: 0}
 --- !u!4 &499200838
 Transform:
@@ -8414,7 +8417,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3995581200592560522, guid: a7785293c911c004a851236f2c26b1b6, type: 3}
       propertyPath: m_Volume
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3995581200592560522, guid: a7785293c911c004a851236f2c26b1b6, type: 3}
       propertyPath: m_audioClip
@@ -8946,7 +8949,7 @@ GameObject:
   - component: {fileID: 2130389157}
   - component: {fileID: 2130389156}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
