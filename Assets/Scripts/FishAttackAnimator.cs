@@ -52,7 +52,6 @@ public class FishAttackAnimator : MonoBehaviour
             yield return null;
 
         }
-
         yield return null;
     }
     public IEnumerator HealAnimation()
