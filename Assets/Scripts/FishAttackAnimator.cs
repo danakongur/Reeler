@@ -18,7 +18,8 @@ public class FishAttackAnimator : MonoBehaviour
     Color cleanseColor = Color.magenta;
 
 	public AudioClip damageSound;
-	public AudioSource audioSource;
+    public AudioClip healingSound;
+    public AudioSource audioSource;
     /*void OnEnable()
     {
         StartCoroutine(StruggleAnimation());
@@ -60,6 +61,7 @@ public class FishAttackAnimator : MonoBehaviour
         float timer = 0f;
         SpriteRenderer fishSprite = transform.GetComponent<SpriteRenderer>();
         Color defaultColor = fishSprite.color; // respects gameobject chosen color
+        audioSource.PlayOneShot(healingSound);
         while (timer < 1)
         {
             timer += Time.deltaTime / healDuration;
