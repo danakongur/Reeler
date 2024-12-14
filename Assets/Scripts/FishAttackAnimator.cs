@@ -20,6 +20,7 @@ public class FishAttackAnimator : MonoBehaviour
 
 	public AudioClip damageSound;
     public AudioClip healingSound;
+    public AudioClip cleanseSound;
     public AudioSource audioSource;
     /*void OnEnable()
     {
@@ -101,6 +102,9 @@ public class FishAttackAnimator : MonoBehaviour
         float timer = 0f;
         SpriteRenderer fishSprite = transform.GetComponent<SpriteRenderer>();
         Color defaultColor = fishSprite.color; // respects gameobject chosen color
+
+        audioSource.PlayOneShot(cleanseSound);
+
         while (timer < cleanseDuration)
         {
             timer += Time.deltaTime;

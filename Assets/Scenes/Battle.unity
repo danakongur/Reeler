@@ -1266,6 +1266,7 @@ MonoBehaviour:
   retreatDuration: 1
   damageSound: {fileID: 8300000, guid: 5402e7d3e75d946469d20b0dddf43ba8, type: 3}
   healingSound: {fileID: 8300000, guid: 0310c5c225558d34a963246b32d4e710, type: 3}
+  cleanseSound: {fileID: 8300000, guid: 58ec1122f58a6b143811e52c16e1caf9, type: 3}
   audioSource: {fileID: 248357251}
 --- !u!212 &248357250
 SpriteRenderer:
@@ -8417,7 +8418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3995581200592560522, guid: a7785293c911c004a851236f2c26b1b6, type: 3}
       propertyPath: m_Volume
-      value: 1
+      value: 0.39
       objectReference: {fileID: 0}
     - target: {fileID: 3995581200592560522, guid: a7785293c911c004a851236f2c26b1b6, type: 3}
       propertyPath: m_audioClip
