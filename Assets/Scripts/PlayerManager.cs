@@ -93,7 +93,7 @@ public class PlayerManager : MonoBehaviour
 	/// </summary>
 	/// <returns>modifier to multiply with</returns>
 	public float GetDifficultyModifier() {
-		return 1f + (5*(float)difficultyLevel/100);
+		return 1f + (15*(float)difficultyLevel/100);
 	}
 
 
@@ -201,6 +201,8 @@ public class PlayerManager : MonoBehaviour
 		health = maxHealth;
 		strength = startStrength;
 		caughtFishDuringRun = 0;
+		boughtHealthUpgrades = 0;
+		boughtStrengthUpgrades = 0;
 	}
 
 	/// <summary>
@@ -216,6 +218,8 @@ public class PlayerManager : MonoBehaviour
 		health = maxHealth;
 		strength = startStrength;
 		caughtFishDuringRun = 0;
+		boughtHealthUpgrades = 0;
+		boughtStrengthUpgrades = 0;
 	}
 
 	/// <summary>
