@@ -53,8 +53,9 @@ public class ShopManager : MonoBehaviour
 	public string strengthUpgradeText;
 
 
+	public AudioClip buySound;
 	public AudioSource hoverSoundSource;
-	public AudioSource buySoundSource;
+	public AudioSource soundEffectManager;
 
 	/// <summary>
 	/// Subtract from user's coins
@@ -68,7 +69,7 @@ public class ShopManager : MonoBehaviour
 	}
 
 	void PlayCashRegisterSound() {
-		buySoundSource.Play();
+		soundEffectManager.PlayOneShot(buySound);
 	}
 
 	private IEnumerator coroutine;
@@ -230,7 +231,7 @@ public class ShopManager : MonoBehaviour
 		int currentPriceForStrengthUpgrade = strengthBasePrice + PlayerManager.instance.boughtStrengthUpgrades*pricePerUpgrade;
 
 		// Health upgrade button
-		healthUpgradeButton.GetComponentInChildren<TMP_Text>().text = $"Increase maximum health by 2. Currently {PlayerManager.instance.maxHealth}.\n {currentPriceForHealthUpgrade} coins.";
+		healthUpgradeButton.GetComponentInChildren<TMP_Text>().text = $"Increase maximum health by 2. \nCurrently {PlayerManager.instance.maxHealth}.\n {currentPriceForHealthUpgrade} coins.";
 
 
 		if (PlayerManager.instance.coins - currentPriceForHealthUpgrade < 0) {// can't afford upgrade
@@ -241,7 +242,7 @@ public class ShopManager : MonoBehaviour
 		}
 
 		// strength upgrade button
-		strengthUpgradeButton.GetComponentInChildren<TMP_Text>().text = $"Increase damage dealt by 1. Currently {PlayerManager.instance.strength}.\n{currentPriceForStrengthUpgrade} coins.";
+		strengthUpgradeButton.GetComponentInChildren<TMP_Text>().text = $"Increase damage dealt by 1. \nCurrently {PlayerManager.instance.strength}.\n{currentPriceForStrengthUpgrade} coins.";
 
 		if (PlayerManager.instance.coins - currentPriceForStrengthUpgrade < 0) {// can't afford upgrade
 			strengthUpgradeButton.interactable = false;

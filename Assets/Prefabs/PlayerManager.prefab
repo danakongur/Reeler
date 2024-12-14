@@ -419,15 +419,15 @@ MonoBehaviour:
   boostItems:
   - price: 15
     itemName: Spinach
-    description: Makes you big and strong. Increase strength by 20% for the rest
-      of the battle. Not stackable.
+    description: 'Makes you big and strong. Increase strength by 20% for the rest
+      of the battle. '
     itemImage: {fileID: 21300000, guid: f1c091f48b8e6dd4eb65a06020bb6033, type: 3}
     buttonHolder: {fileID: 0}
     boostAmount: 1.2
   - price: 25
     itemName: Trail mix
     description: Packed with protein! Increases strength by 50% for the rest of the
-      battle. Not stackable.
+      battle.
     itemImage: {fileID: 21300000, guid: 8fd69304fc1732849a136547b5d0bafb, type: 3}
     buttonHolder: {fileID: 0}
     boostAmount: 1.5
