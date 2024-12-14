@@ -57,7 +57,7 @@ public class BattleGame : MonoBehaviour
         buttons.reel.onClick.AddListener(Reel); //() => { pressed = true; }
         buttons.flee.onClick.AddListener(Flee); //() => { pressed = true; }
 
-		pullButtonDescription = buttons.pull.transform.GetChild(0).GetChild(0).GetComponent<TMP_Text>();
+		pullButtonDescription = buttons.pull.transform.Find("Title").Find("Description").GetComponent<TMP_Text>();
 		int mindmg = Mathf.RoundToInt(PlayerManager.instance.strength*PlayerManager.instance.minchance);
 		int maxdmg= Mathf.RoundToInt(PlayerManager.instance.strength*PlayerManager.instance.maxchance);
 		pullButtonDescription.text = $"Deal between {mindmg} and {maxdmg} damage";
