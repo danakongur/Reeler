@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class FishAttackAnimator : MonoBehaviour
 {
@@ -52,6 +53,7 @@ public class FishAttackAnimator : MonoBehaviour
             yield return null;
 
         }
+        transform.localPosition = Vector3.zero;
         yield return null;
     }
     public IEnumerator HealAnimation()
@@ -89,6 +91,7 @@ public class FishAttackAnimator : MonoBehaviour
 
         }
         fishSprite.color = defaultColor;
+        transform.localPosition = Vector3.zero;
         yield return null;
     }
     public IEnumerator CleanseAnimation()
@@ -114,6 +117,7 @@ public class FishAttackAnimator : MonoBehaviour
 
         }
         fishSprite.color = defaultColor;
+        transform.localPosition = Vector3.zero;
         yield return null;
     }
 
