@@ -846,6 +846,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &414794088 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8348144377033771069, guid: 2209e389847c3ae409316cee00886f03, type: 3}
+  m_PrefabInstance: {fileID: 1808367224}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &414794089 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2719249673593525560, guid: 2209e389847c3ae409316cee00886f03, type: 3}
+  m_PrefabInstance: {fileID: 1808367224}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &414794090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 414794088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98d0227c3bd88bc41ad5d1ad52422f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &596316476
 GameObject:
   m_ObjectHideFlags: 0
@@ -1929,6 +1951,7 @@ RectTransform:
   - {fileID: 1834571556}
   - {fileID: 142126727}
   - {fileID: 31220577}
+  - {fileID: 414794089}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2077,6 +2100,135 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1808367224
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1722514501}
+    m_Modifications:
+    - target: {fileID: 2719249673593525560, guid: 2209e389847c3ae409316cee00886f03, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719249673593525560, guid: 2209e389847c3ae409316cee00886f03, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719249673593525560, guid: 2209e389847c3ae409316cee00886f03, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719249673593525560, guid: 2209e389847c3ae409316cee00886f03, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719249673593525560, guid: 2209e389847c3ae409316cee00886f03, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719249673593525560, guid: 2209e389847c3ae409316cee00886f03, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719249673593525560, guid: 2209e389847c3ae409316cee00886f03, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719249673593525560, guid: 2209e389847c3ae409316cee00886f03, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719249673593525560, guid: 2209e389847c3ae409316cee00886f03, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719249673593525560, guid: 2209e389847c3ae409316cee00886f03, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719249673593525560, guid: 2209e389847c3ae409316cee00886f03, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719249673593525560, guid: 2209e389847c3ae409316cee00886f03, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719249673593525560, guid: 2209e389847c3ae409316cee00886f03, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719249673593525560, guid: 2209e389847c3ae409316cee00886f03, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719249673593525560, guid: 2209e389847c3ae409316cee00886f03, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719249673593525560, guid: 2209e389847c3ae409316cee00886f03, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719249673593525560, guid: 2209e389847c3ae409316cee00886f03, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719249673593525560, guid: 2209e389847c3ae409316cee00886f03, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719249673593525560, guid: 2209e389847c3ae409316cee00886f03, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2719249673593525560, guid: 2209e389847c3ae409316cee00886f03, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6543282953500694530, guid: 2209e389847c3ae409316cee00886f03, type: 3}
+      propertyPath: m_text
+      value: 'Welcome to Reeler: Fish Collector
+
+
+        1. Click ''Play'' to start
+        your fishing adventure.
+
+        2. Use ''Reel'' and ''Pull'' to catch fish
+        in battles.
+
+        3. Visit the shop to upgrade your gear and baits.
+
+        4.
+        Explore the Aquarium to see your Fishdex collection.
+
+        5. Sell fish
+        to earn coins and unlock rare items!'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8348144377033771069, guid: 2209e389847c3ae409316cee00886f03, type: 3}
+      propertyPath: m_Name
+      value: TutorialPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 8551384566077962877, guid: 2209e389847c3ae409316cee00886f03, type: 3}
+      propertyPath: m_Name
+      value: Text
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1803111516075429942, guid: 2209e389847c3ae409316cee00886f03, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 4253760463961705154, guid: 2209e389847c3ae409316cee00886f03, type: 3}
+    - {fileID: 7672524940153217786, guid: 2209e389847c3ae409316cee00886f03, type: 3}
+    - {fileID: 7319665287132381116, guid: 2209e389847c3ae409316cee00886f03, type: 3}
+    - {fileID: 7357083338336149329, guid: 2209e389847c3ae409316cee00886f03, type: 3}
+    - {fileID: 216957695136807350, guid: 2209e389847c3ae409316cee00886f03, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8348144377033771069, guid: 2209e389847c3ae409316cee00886f03, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 414794090}
+  m_SourcePrefab: {fileID: 100100000, guid: 2209e389847c3ae409316cee00886f03, type: 3}
 --- !u!1 &1818030531
 GameObject:
   m_ObjectHideFlags: 0
