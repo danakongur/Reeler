@@ -6,19 +6,30 @@ public class shaker : MonoBehaviour
 {
     public float Inbetweenshakes;
     public float movementDistance;
-    private void Start()
+	IEnumerator coroutine;
+    void Start()
     {
-        StartCoroutine(Tremble());
+		coroutine = Tremble();
+        StartCoroutine(coroutine);
     }
+	void OnEnable(){
+		if (coroutine != null)
+			StopCoroutine(coroutine);
+		coroutine = Tremble();
+		StartCoroutine(coroutine);
+	}
+
     IEnumerator Tremble()
     {
         while (true) { 
-        {
             transform.position += new Vector3(0, movementDistance, 0);
+			Debug.Log($"changing position from {transform.position}");
             yield return new WaitForSeconds(Inbetweenshakes);
             transform.position -= new Vector3(0, movementDistance, 0);
+			Debug.Log($"changing position from {transform.position}");
             yield return new WaitForSeconds(Inbetweenshakes);
-        }
         }
     }
 }
+
+

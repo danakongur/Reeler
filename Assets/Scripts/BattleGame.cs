@@ -53,7 +53,7 @@ public class BattleGame : MonoBehaviour
     public AudioClip hurtSound;
 	public AudioSource audioSource;
 
-	float healmod = 0.2f; // how much to heal player, 0.2 means 20%
+	float healmod = 0.5f; // how much to heal player, 0.2 means 20%
 
     // Start is called before the first frame update
     void Start()

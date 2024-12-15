@@ -21,7 +21,6 @@ public class FishHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     public void OnPointerEnter(PointerEventData data)
     {
-		Debug.Log("mouse enter");
         // Check if the current scene is the aquarium scene
         if (SceneManager.GetActiveScene().name == aquariumSceneName)
         {

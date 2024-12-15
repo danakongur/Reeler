@@ -8,6 +8,16 @@ using UnityEngine.UI;
 /// </summary>
 public class MainSceneUI : MonoBehaviour
 {	
+	public GameObject tutorial;
+	public void LoadTutorial() {
+		if (PlayerManager.instance.tutorial){
+			tutorial.SetActive(true);
+			PlayerManager.instance.tutorial = false;
+		}
+		else {
+			LoadBattle();
+		}
+	}
 	public void LoadBattle() {
 		Loader.Load(Loader.Scene.Battle);
 	}

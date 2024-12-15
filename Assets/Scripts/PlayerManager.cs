@@ -39,6 +39,8 @@ public class PlayerManager : MonoBehaviour
 	public int caughtFishDuringRun = 0;
 
 	int difficultyLevel = 0;
+
+	public bool tutorial = true;
 	
 
 	private Dictionary<Fish,bool> caughtFish;
@@ -204,6 +206,7 @@ public class PlayerManager : MonoBehaviour
 		caughtFishDuringRun = 0;
 		boughtHealthUpgrades = 0;
 		boughtStrengthUpgrades = 0;
+		tutorial = true;
 	}
 
 	/// <summary>
