@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-public class FishHover : MonoBehaviour
+public class FishHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     private Vector3 originalScale; // To store the fish's original size
     public float hoverScaleFactor = 1.2f; // How much bigger the fish gets
@@ -18,8 +19,9 @@ public class FishHover : MonoBehaviour
         originalScale = transform.localScale;
     }
 
-    void OnMouseEnter()
+    public void OnPointerEnter(PointerEventData data)
     {
+		Debug.Log("mouse enter");
         // Check if the current scene is the aquarium scene
         if (SceneManager.GetActiveScene().name == aquariumSceneName)
         {
@@ -29,7 +31,7 @@ public class FishHover : MonoBehaviour
         }
     }
 
-    void OnMouseExit()
+    public void OnPointerExit(PointerEventData data)
     {
         // Return the fish to its original size
         if (isHovered)
@@ -47,4 +49,5 @@ public class FishHover : MonoBehaviour
             Debug.Log("Fish clicked in Aquarium Scene: " + gameObject.name);
         }
     }
+
 }

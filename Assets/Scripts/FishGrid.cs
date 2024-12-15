@@ -22,6 +22,12 @@ public class FishGrid : MonoBehaviour
       fishBehaviour.caughtFishImage.sprite = fish.fishImage;
       fishBehaviour.fishNameText = fish.name;
       fishBehaviour.isCaught = PlayerManager.instance.IsCaught(fish);
+	  if (!fishBehaviour.isCaught)
+	  	{
+			FishHover a = fishObj.GetComponent<FishHover>();
+			if(a)
+				a.hoverScaleFactor = 1;
+		}
       fishBehaviour.fish = fish;
       fishBehaviour.tag = fish.type;
       Debug.Log($"fish name: {fish.name}, fish catch status: {fishBehaviour.isCaught}");
