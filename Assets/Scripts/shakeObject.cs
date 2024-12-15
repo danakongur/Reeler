@@ -23,10 +23,8 @@ public class shaker : MonoBehaviour
     {
         while (true) { 
             transform.position += new Vector3(0, movementDistance, 0);
-			Debug.Log($"changing position from {transform.position}");
             yield return new WaitForSeconds(Inbetweenshakes);
             transform.position -= new Vector3(0, movementDistance, 0);
-			Debug.Log($"changing position from {transform.position}");
             yield return new WaitForSeconds(Inbetweenshakes);
         }
     }

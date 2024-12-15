@@ -40,6 +40,9 @@ public class PlayerManager : MonoBehaviour
 
 	int difficultyLevel = 0;
 
+	public int escapes = 0;
+	public int maxEscapes = 3;
+
 	public bool tutorial = true;
 	
 
@@ -207,6 +210,7 @@ public class PlayerManager : MonoBehaviour
 		boughtHealthUpgrades = 0;
 		boughtStrengthUpgrades = 0;
 		tutorial = true;
+		escapes = 0;
 	}
 
 	/// <summary>
@@ -224,6 +228,7 @@ public class PlayerManager : MonoBehaviour
 		caughtFishDuringRun = 0;
 		boughtHealthUpgrades = 0;
 		boughtStrengthUpgrades = 0;
+		escapes = 0;
 	}
 
 	/// <summary>

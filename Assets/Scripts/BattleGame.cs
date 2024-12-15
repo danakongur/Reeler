@@ -178,7 +178,12 @@ public class BattleGame : MonoBehaviour
         HideItem(Fish.gameObject);
 		HideItem(endInfo.caughtFishCounter.gameObject);
         endInfo.title.text = "You Beat up the " + Fish.name + "...";
-        endInfo.description.text = $"Gain 2 coins and gain {healmod*100}% health";
+		if (!PlayerManager.instance.IsCaught(Fish.GetFishObject())){
+			endInfo.description.text = $"New fish {Fish.name} added to collection!\nGain {healmod*100}% health";
+		}
+		else {
+        	endInfo.description.text = $"Gain 2 coins and gain {healmod*100}% health";
+		}
 
 		// Adds fish to inventory
 		PlayerManager.instance.CatchFish(this.Fish.GetFishObject());
@@ -482,7 +487,7 @@ public class BattleGame : MonoBehaviour
     }
     public IEnumerator TurnSystem()
     {
-        var escapes = 0;
+        var escapes = PlayerManager.instance.escapes;
         Debug.Log("Start");
             while (gameIsgoing=true)
         {
@@ -493,7 +498,8 @@ public class BattleGame : MonoBehaviour
             var fishAction = Fish.Predict();
             FishIcon(fishAction);
             reelDescription.text = "fish will do 25% less damage" + "\n" + "(" + Fish.debuff + " / " + (Fish.GetMaxDebuff()) + ")";
-            escapeDescription.text = "You have "+escapes+" escapes remaining";
+			if (escapeDescription)
+            	escapeDescription.text = $"You have {PlayerManager.instance.maxEscapes - escapes} escapes remaining";
             if (Fish.debuff == Fish.GetMaxDebuff())
             {
                 buttons.reel.interactable = false;
@@ -502,8 +508,8 @@ public class BattleGame : MonoBehaviour
             {
                 buttons.reel.interactable = true;
             }
-            // ´Fix this below
-            if (escapes == maxEscapes)
+            // ï¿½Fix this below
+            if (escapes >= maxEscapes)
             {
                 buttons.flee.interactable = false;
             }
@@ -522,7 +528,8 @@ public class BattleGame : MonoBehaviour
             if (Fisherman.GetHealth() > 0)
             {
                 if(selectedMove == "Flee")
-                {
+                {	
+					PlayerManager.instance.escapes +=1;
                     // play animation
                     yield return new WaitForSeconds(2);
 					Fisherman.gameObject.SetActive(false);
