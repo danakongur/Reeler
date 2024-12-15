@@ -39,14 +39,17 @@ public class Fish_Animator : MonoBehaviour
     {
 		int randIndex = Random.Range(0,PlayerManager.instance.availableFish.Length);
 		fishObject = PlayerManager.instance.availableFish[randIndex];
-        bool iscaught = PlayerManager.instance.IsCaught(fishObject);        
-        if (iscaught)
-        {
-            caughtIndicatorImage.gameObject.SetActive(false);
-        } else
-        {
-            caughtIndicatorImage.gameObject.SetActive(true);
-        }
+        bool iscaught = PlayerManager.instance.IsCaught(fishObject);  
+		if (caughtIndicatorImage){
+	
+			if (iscaught)
+			{
+				caughtIndicatorImage.gameObject.SetActive(false);
+			} else
+			{
+				caughtIndicatorImage.gameObject.SetActive(true);
+			}
+		} 
 
 		name = fishObject.name;
 		

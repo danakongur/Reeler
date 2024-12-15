@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BattleGame : MonoBehaviour
@@ -481,9 +482,13 @@ public class BattleGame : MonoBehaviour
 	}
 
     void Update()
-    {
-        //coroutines
-
+    {	
+		// go to main menu on escape
+        if (endInfo.gameObject.activeSelf == true){
+			if (Input.GetKey(KeyCode.Escape)){
+				Loader.Load(Loader.Scene.Main);
+			}
+		}
     }
     public IEnumerator TurnSystem()
     {

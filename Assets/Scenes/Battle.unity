@@ -3459,6 +3459,7 @@ MonoBehaviour:
   debuff: 0
   other: {fileID: 1846981243}
   nextMove: {fileID: 1757417107}
+  caughtIndicatorImage: {fileID: 1974281634}
 --- !u!114 &592878579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4343,6 +4344,7 @@ MonoBehaviour:
   debuff: 0
   other: {fileID: 1846981243}
   nextMove: {fileID: 0}
+  caughtIndicatorImage: {fileID: 0}
 --- !u!1 &744483043
 GameObject:
   m_ObjectHideFlags: 0
