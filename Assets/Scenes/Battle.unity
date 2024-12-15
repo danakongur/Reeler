@@ -1775,6 +1775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cb60bb7f3765046794a74f5f93e1605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tutorial: {fileID: 0}
 --- !u!114 &336871160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2690,6 +2691,7 @@ MonoBehaviour:
   healInfoText: {fileID: 1454942543}
   cantUseBaitText: {fileID: 1968588046}
   actionBlockedText: {fileID: 739742158}
+  escapeDescription: {fileID: 0}
   descriptionBox: {fileID: 992657950}
   fishAnimation: {fileID: 248357249}
   criticalChance: 0.1
@@ -2956,6 +2958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cb60bb7f3765046794a74f5f93e1605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tutorial: {fileID: 0}
 --- !u!1 &546452798
 GameObject:
   m_ObjectHideFlags: 0
@@ -3008,6 +3011,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cb60bb7f3765046794a74f5f93e1605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tutorial: {fileID: 0}
 --- !u!114 &546452801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6758,7 +6762,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5414444111170555092, guid: 31d628cae260fc9b6abed7e12e073964, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 210
+      value: 220
       objectReference: {fileID: 0}
     - target: {fileID: 5414444111170555092, guid: 31d628cae260fc9b6abed7e12e073964, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7156,6 +7160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cb60bb7f3765046794a74f5f93e1605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tutorial: {fileID: 0}
 --- !u!114 &1453294398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7645,6 +7650,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cb60bb7f3765046794a74f5f93e1605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tutorial: {fileID: 0}
 --- !u!114 &1614707680
 MonoBehaviour:
   m_ObjectHideFlags: 0
