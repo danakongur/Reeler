@@ -57,7 +57,9 @@ public class PlayerManager : MonoBehaviour
 		instance = this;
 		DontDestroyOnLoad(gameObject);
 		items = new Dictionary<Item, int>{
-			[baitForSale[0]] = 1
+			[baitForSale[2]] = 1,
+			[healItems[0]] = 1,
+			[boostItems[0]] = 1
 		};
 
 		coins = startcoins;
@@ -195,7 +197,9 @@ public class PlayerManager : MonoBehaviour
 	public void ResetPlayerManager() {
 		Debug.Log($"restart player manager");
 		items = new Dictionary<Item, int>{
-			[baitForSale[0]] = 1
+			[baitForSale[2]] = 1,
+			[healItems[0]] = 1,
+			[boostItems[0]] = 1
 		};
 		coins = startcoins;
 		foreach (Fish key in caughtFish.Keys.ToArray())
@@ -218,7 +222,9 @@ public class PlayerManager : MonoBehaviour
 	/// </summary>
 	public void LoseReset() {
 		items = new Dictionary<Item, int>{
-			[baitForSale[0]] = 1
+			[baitForSale[2]] = 1,
+			[healItems[0]] = 1,
+			[boostItems[0]] = 1
 		};
 		coins = startcoins;
 		difficultyLevel = 0;
