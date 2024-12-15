@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Fish_Animator : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class Fish_Animator : MonoBehaviour
     public Fisherman_Animator other;
     Fish fishObject;
     public selectedImage nextMove;
+    public Image caughtIndicatorImage;
 
     public void SetFishObject(Fish fish){
 		fishObject = fish;
@@ -37,7 +39,15 @@ public class Fish_Animator : MonoBehaviour
     {
 		int randIndex = Random.Range(0,PlayerManager.instance.availableFish.Length);
 		fishObject = PlayerManager.instance.availableFish[randIndex];
-        
+        bool iscaught = PlayerManager.instance.IsCaught(fishObject);        
+        if (iscaught)
+        {
+            caughtIndicatorImage.gameObject.SetActive(false);
+        } else
+        {
+            caughtIndicatorImage.gameObject.SetActive(true);
+        }
+
 		name = fishObject.name;
 		
 		// give the fish health with the difficulty modifier
