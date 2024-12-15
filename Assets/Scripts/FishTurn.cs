@@ -108,7 +108,7 @@ public class Fish_Animator : MonoBehaviour
         else if (prob <= 4 && debuff > 0)
         {
             nextMove = "Cleanse";
-			description = $"(removes 1 Weakened from {name})";
+			description = $"(Increases damage of {name} by 25%)";
         }
         else
         {

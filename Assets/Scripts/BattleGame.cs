@@ -24,7 +24,12 @@ public class BattleGame : MonoBehaviour
 	public TextMeshProUGUI cantUseBaitText;
 	public TextMeshProUGUI actionBlockedText;
 
-	public GameObject descriptionBox;
+    public TextMeshProUGUI escapeDescription;
+    int maxEscapes = 3;
+
+
+
+    public GameObject descriptionBox;
     private bool gameIsgoing = true;
     public FishAttackAnimator fishAnimation;
     /// <summary>
@@ -477,6 +482,7 @@ public class BattleGame : MonoBehaviour
     }
     public IEnumerator TurnSystem()
     {
+        var escapes = 0;
         Debug.Log("Start");
             while (gameIsgoing=true)
         {
@@ -486,7 +492,26 @@ public class BattleGame : MonoBehaviour
             Debug.Log("Player Turn");
             var fishAction = Fish.Predict();
             FishIcon(fishAction);
-            reelDescription.text = "Add 1 debuff" + "\n" + "(" + Fish.debuff + " / " + (Fish.GetMaxDebuff()) + ")";
+            reelDescription.text = "fish will do 25% less damage" + "\n" + "(" + Fish.debuff + " / " + (Fish.GetMaxDebuff()) + ")";
+            escapeDescription.text = "You have "+escapes+" escapes remaining";
+            if (Fish.debuff == Fish.GetMaxDebuff())
+            {
+                buttons.reel.interactable = false;
+            }
+            else
+            {
+                buttons.reel.interactable = true;
+            }
+            // ´Fix this below
+            if (escapes == maxEscapes)
+            {
+                buttons.flee.interactable = false;
+            }
+            else
+            {
+                buttons.flee.interactable = true;
+            }
+
             while (pressed == false)
             {
                 yield return null;
