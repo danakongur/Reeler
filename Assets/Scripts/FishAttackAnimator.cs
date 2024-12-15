@@ -45,7 +45,8 @@ public class FishAttackAnimator : MonoBehaviour
         }
 
 		Debug.Log("struggle damage sound");
-		audioSource.PlayOneShot(damageSound);
+        audioSource.pitch = UnityEngine.Random.Range(0.70f, 0.90f);
+        audioSource.PlayOneShot(damageSound);
 
         timer = 0f;
         while (timer < struggleDuration/2)
@@ -63,6 +64,7 @@ public class FishAttackAnimator : MonoBehaviour
         float timer = 0f;
         SpriteRenderer fishSprite = transform.GetComponent<SpriteRenderer>();
         Color defaultColor = fishSprite.color; // respects gameobject chosen color
+        audioSource.pitch = UnityEngine.Random.Range(0.70f, 0.90f);
         audioSource.PlayOneShot(healingSound);
         while (timer < 1)
         {
@@ -95,6 +97,7 @@ public class FishAttackAnimator : MonoBehaviour
         SpriteRenderer fishSprite = transform.GetComponent<SpriteRenderer>();
         Color defaultColor = fishSprite.color; // respects gameobject chosen color
 
+        audioSource.pitch = UnityEngine.Random.Range(0.70f, 0.90f);
         audioSource.PlayOneShot(cleanseSound);
 
         while (timer < cleanseDuration)

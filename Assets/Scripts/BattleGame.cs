@@ -320,7 +320,8 @@ public class BattleGame : MonoBehaviour
 		{
 			
 			if (selectedItem.GetItemType() == ItemType.Heal){ // player uses healing item
-				audioSource.PlayOneShot(drinkSound);
+                audioSource.pitch = UnityEngine.Random.Range(0.70f, 0.90f);
+                audioSource.PlayOneShot(drinkSound);
 
 				PlayerManager.instance.RemoveItem(selectedItem);
 				inventory.GetComponent<InventoryPopup>().UpdateInventory();
@@ -330,7 +331,8 @@ public class BattleGame : MonoBehaviour
 				Fisherman.UpdateText();
 			}
 			else if(selectedItem.GetItemType() == ItemType.Boost){ // stat boost item
-				audioSource.PlayOneShot(eatSound);
+                audioSource.pitch = UnityEngine.Random.Range(0.70f, 0.90f);
+                audioSource.PlayOneShot(eatSound);
 
 				PlayerManager.instance.RemoveItem(selectedItem);
 				inventory.GetComponent<InventoryPopup>().UpdateInventory();
@@ -455,7 +457,8 @@ public class BattleGame : MonoBehaviour
 	IEnumerator PlaySoundWithDelay(AudioClip clip, float delay)
 	{
 		yield return new WaitForSeconds(delay);
-		audioSource.PlayOneShot(clip);
+        audioSource.pitch = UnityEngine.Random.Range(0.70f, 0.90f);
+        audioSource.PlayOneShot(clip);
 	}
 
 	/// <summary>
