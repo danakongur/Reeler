@@ -52,6 +52,10 @@ public class ShopManager : MonoBehaviour
 	public string healthUpgradeText;
 	public string strengthUpgradeText;
 
+	public TextMeshProUGUI healthText;
+	public TextMeshProUGUI maxHealthText;
+	public TextMeshProUGUI strengthText;
+
 
 	public AudioClip buySound;
 	public AudioSource hoverSoundSource;
@@ -150,6 +154,9 @@ public class ShopManager : MonoBehaviour
 
 	public void UpdateCoins(){
 		coinText.text = $"{coinString} {PlayerManager.instance.coins}";
+		healthText.text = $"Health: {PlayerManager.instance.health}";
+		maxHealthText.text = $"Max health: {PlayerManager.instance.maxHealth}";
+		strengthText.text = $"Strength: {PlayerManager.instance.strength}";
 		List<Item> items = new List<Item>();
 		foreach(var item in PlayerManager.instance.baitForSale){
 			items.Add(item);
