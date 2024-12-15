@@ -93,7 +93,8 @@ public class PlayerManager : MonoBehaviour
 	/// </summary>
 	/// <returns>modifier to multiply with</returns>
 	public float GetDifficultyModifier() {
-		return 1f + (15*(float)difficultyLevel/100);
+		float difficultyPercentage = 10f; // 10 = 10% increase after every round, so after 2 rounds it is 20% on top
+		return 1f + (difficultyPercentage*(float)difficultyLevel/100);
 	}
 
 
