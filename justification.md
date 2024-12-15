@@ -6,7 +6,7 @@ In our original pitch, the core of our game was a chill game where you try to co
 
 Originally, we wanted our game to have elements of discovery and submission, letting the player explore a physical world and discovering different fish from there. Our game still has some discovery in the different species of fish, but after being told our scope might be too big, we decided to focus on the battle mechanics and abandoning the physical world part, as it would have been too much for these 2 weeks we had to develop the game. 
 
-We also wanted the battle part to be a bit of a challenge, where the user has to plan their actions and use items to catch the fish. All these changes m
+We also wanted the battle part to be a bit of a challenge, where the user has to plan their actions and use items to catch the fish. 
 
 ## Mechanics
 
