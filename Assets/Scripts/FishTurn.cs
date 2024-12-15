@@ -93,7 +93,8 @@ public class Fish_Animator : MonoBehaviour
         if (prob <= 0.8 && (health < maxHealth || debuff > 0))
         {
             nextMove = "Retreat";
-            description = "20% chance of escape";
+			description = "20% chance of escape";
+
 
         }
         else if (prob <= 3 && (health < maxHealth))

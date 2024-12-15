@@ -22,6 +22,7 @@ public class BattleGame : MonoBehaviour
 	public TextMeshProUGUI criticalHitText;
 	public TextMeshProUGUI healInfoText;
 	public TextMeshProUGUI cantUseBaitText;
+	public TextMeshProUGUI actionBlockedText;
 
 	public GameObject descriptionBox;
     private bool gameIsgoing = true;
@@ -37,6 +38,8 @@ public class BattleGame : MonoBehaviour
 	IEnumerator cantUseBaitCoroutine;
 
 	TMP_Text pullButtonDescription;
+
+	string blockAction;
 
 	public AudioClip drinkSound;
 	public AudioClip eatSound;
@@ -111,7 +114,7 @@ public class BattleGame : MonoBehaviour
 	void ItemClicked(Item item){
 		if (pressed == false) {
 			// check if bait can be used
-			if (item.GetItemType() == ItemType.Bait){
+			/*if (item.GetItemType() == ItemType.Bait){
 				BaitItem bait = (BaitItem)item;
 				int fishMaxHealth = Mathf.RoundToInt(Fish.GetFishObject().health * PlayerManager.instance.GetDifficultyModifier());
 				if (Fish.GetMaxHealth() - bait.healthReduction <= 0 || ((float)Fish.GetMaxHealth()/fishMaxHealth) < 0.2){
@@ -124,7 +127,7 @@ public class BattleGame : MonoBehaviour
 					StartCoroutine(cantUseBaitCoroutine);
 					return;
 				}
-			}
+			}*/
 			pressed = true;
 			selectedMove = "Item";
 			selectedItem = item;
@@ -279,6 +282,7 @@ public class BattleGame : MonoBehaviour
     }
     void PlayerAction()
     {
+		blockAction = "";
 		HideItem(descriptionBox);
         if (selectedMove == "Pull")
         {
@@ -331,6 +335,8 @@ public class BattleGame : MonoBehaviour
 				inventory.GetComponent<InventoryPopup>().UpdateInventory();
 
 				BaitItem item = (BaitItem)selectedItem;
+
+				blockAction = item.blockAction;
 				Fish.LoseMaxHealth(item.healthReduction);
 				Fish.UpdateText();
 				Fish.UpdateHealthBar();
@@ -515,7 +521,11 @@ public class BattleGame : MonoBehaviour
 
             Debug.Log("Fish Turn");
             if (Fish.GetHealth() > 0)
-            {
+            {	
+				if (fishAction == blockAction) {
+					StartCoroutine(FlashText(actionBlockedText, "Action blocked!", 2f));
+					continue;
+				}
                 bool fleeSuccess = FishAction(fishAction);
                 if (fleeSuccess == true)
                 {

@@ -73,9 +73,11 @@ public class FishItem : Item {
 public class BaitItem : Item
 {	
 	public int healthReduction;
-    public BaitItem(int price, string itemName, Sprite sprite, int healthReduction) : base(price, itemName, sprite)
+	public string blockAction;
+    public BaitItem(int price, string itemName, Sprite sprite, int healthReduction, string blockAction) : base(price, itemName, sprite)
     {
 		this.healthReduction = healthReduction;
+		this.blockAction = blockAction;
     }
 	public override ItemType GetItemType(){
 		return ItemType.Bait;
