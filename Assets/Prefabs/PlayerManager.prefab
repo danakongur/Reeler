@@ -378,20 +378,20 @@ MonoBehaviour:
   baitForSale:
   - price: 20
     itemName: Worm
-    description: A little worm that weakens the fish and prevents it attacking you.
-      Lower the fish's max health by 20.
+    description: A little worm that weakens the fish and prevents it healing. Lower
+      the fish's max health by 20.
     itemImage: {fileID: 21300000, guid: e4bc18fbdc120d7a7bea57f530f2c4d0, type: 3}
     buttonHolder: {fileID: 0}
     healthReduction: 20
-    blockAction: Struggle
+    blockAction: Absorb Nutrients
   - price: 15
     itemName: Leech
-    description: An ugly leech that weakens the fish and blocks healing move. Lower
-      the fish's max health by 15.
+    description: An ugly leech that weakens the fish and blocks the cleanse move.
+      Lower the fish's max health by 15.
     itemImage: {fileID: 21300000, guid: ad078fb463a167545b10998ad1afe8df, type: 3}
     buttonHolder: {fileID: 0}
     healthReduction: 15
-    blockAction: Absorb Nutrients
+    blockAction: Cleanse
   - price: 10
     itemName: Mealworm
     description: A wiggling mealworm that weakens the fish and prevents escape. Lower
@@ -475,3 +475,4 @@ MonoBehaviour:
   boughtHealthUpgrades: 0
   boughtStrengthUpgrades: 0
   caughtFishDuringRun: 0
+  tutorial: 1
