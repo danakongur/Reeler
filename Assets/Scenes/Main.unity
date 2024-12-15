@@ -486,10 +486,16 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Defeat fish to add them to your collection.
 
-    You can only flee X times.
 
-    Every
-    time you win or flee, the fish get stronger.'
+    You can only flee X
+    times.
+
+
+    Every time you win or flee, the fish get stronger.
+
+
+    Buy items
+    and upgrades to get stronger!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 735a54a000711434484f95a493563a49, type: 2}
   m_sharedMaterial: {fileID: -1213616862030005611, guid: 735a54a000711434484f95a493563a49, type: 2}
